@@ -6,6 +6,8 @@ export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({
     mainFocus: null,
     gender: null,
+    age: null,
+    height:null
   });
 
   return (

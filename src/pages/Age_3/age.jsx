@@ -1,27 +1,88 @@
-import Button from "../../components/Button/button"
-import { useUser } from "../../context/UserContext";
-const Age = ()=>{
-     const { setUserData, userData } = useUser();
-     const handleSelect = (gender) => {
-    setUserData((prev) => ({ ...prev, gender }));
-    console.log("Selected gender:", gender); // optional
-  };
-    return(
-        <div>
-        <p style={{fontWeight:"600",fontSize:"18px"}}>
-            What is your age ?
-        </p>
-        <p style={{fontWeight:"400",color:"#90a5c2",fontSize:"16px",fontStyle:"italic"}}>
-                We 've helped thousands of men of all ages achieve their fitness goals. Metabolism tends to drop with age. But there's ways around that.
-        </p>
+import Button from "../../components/button/button"
+import {
+    useUser
+} from "../../context/UserContext";
+import usePageNavigation from "../../hooks/usePageNavigation";
 
-        <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button text="Male" onClick={() => handleSelect("Male")} />
-            <Button text="Female" onClick={() => handleSelect("Female")} />
-        </div>
+const Age = () => {
+
+    const {
+        setUserData,
+        userData
+    } = useUser();
+    const {
+        next
+    } = usePageNavigation();
+    const handleSelect = (age) => {
+        setUserData((prev) => ({
+            ...prev,
+            age
+        }));
+        console.log("Selected age:", age);
+        next();
+    };
+    return ( <
+        div >
+        <
+        p style = {
+            {
+                fontWeight: "600",
+                fontSize: "18px"
+            }
+        } >
+        What is your age ?
+        <
+        /p> <
+        p style = {
+            {
+                fontWeight: "400",
+                color: "#90a5c2",
+                fontSize: "16px",
+                fontStyle: "italic"
+            }
+        } >
+        We 've helped thousands of men of all ages achieve their fitness goals. Metabolism tends to drop with age. But there'
+        s ways around that. <
+        /p>
+
+        <
+        div style = {
+            {
+                paddingTop: "20px",
+                width: "100%"
+            }
+        } >
+        <
+        Button text = "Teens"
+        onClick = {
+            () => handleSelect("Teens")
+        }
+        /> <
+        Button text = "Teens"
+        onClick = {
+            () => handleSelect("Teens")
+        }
+        /> <
+        Button text = "Thirties"
+        onClick = {
+            () => handleSelect("Thirties")
+        }
+        /> <
+        Button text = "Fourties"
+        onClick = {
+            () => handleSelect("Fourties")
+        }
+        /> <
+        Button text = "Over Fifty"
+        onClick = {
+            () => handleSelect("Over Fifty")
+        }
+        /> <
+        /div>
 
 
-    </div>
+        <
+        /div>
     )
 }
 export default Age

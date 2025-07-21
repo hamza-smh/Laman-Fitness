@@ -1,16 +1,17 @@
 import MainLayout from "./layout";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <UserProvider>
-          <MainLayout />
-        </UserProvider>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <UserProvider>
+        <Routes>
+          <Route path="/page/:index" element={<MainLayout />} />
+          <Route path="*" element={<Navigate to="/page/1" replace />} />
+        </Routes>
+      </UserProvider>
+    </BrowserRouter>
   );
 }
 

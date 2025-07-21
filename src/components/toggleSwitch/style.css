@@ -1,0 +1,67 @@
+
+.toggle-switch {
+  position: relative;
+  display: flex;
+  width: 150px;
+  height:50px;
+  background: #f0f0f0;
+  border-radius: 30px;
+  padding: 4px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+   box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.toggle-option {
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+  font-weight: 500;
+  color: #666;
+  transition: color 0.2s;
+}
+.toggle-option.active {
+  background-color: #ffffff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch .toggle-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 45%;
+  background: white;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 0;
+}
+
+.toggle-switch .toggle-indicator.ft {
+  transform: translateX(0%);
+}
+
+.toggle-switch .toggle-indicator.cm {
+  transform: translateX(110%);
+}
+
+.toggle-switch .toggle-option:first-child {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.toggle-switch .toggle-option:last-child {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.toggle-switch .toggle-option:hover {
+  color: #224891;
+}
+
+.toggle-switch .toggle-option.selected {
+  color: #224891;
+  font-weight: 600;
+}
