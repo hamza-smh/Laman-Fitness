@@ -1,10 +1,9 @@
 import "./nav-button.css"
-const NavButton = ({ text }) => {
+
+const NavButton = ({  text, nav}) => {  
   return (
-    <button className="nav-button">
-      <p className="text">
-        {text}
-      </p>
+    < button className = "nav-button" onClick={nav}> 
+      {text} 
     </button>
   )
 }

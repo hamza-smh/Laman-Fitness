@@ -1,10 +1,15 @@
 import MainLayout from "./layout";
-
+import { BrowserRouter } from "react-router-dom";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   return (
     <div>
-      <MainLayout />
+      <BrowserRouter>
+        <UserProvider>
+          <MainLayout />
+        </UserProvider>
+      </BrowserRouter>
     </div>
   );
 }
