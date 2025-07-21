@@ -7,7 +7,9 @@ export const UserProvider = ({ children }) => {
     mainFocus: null,
     gender: null,
     age: null,
-    height:null
+    height:null,
+    weight:null,
+    name:null,
   });
 
   return (

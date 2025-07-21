@@ -12,6 +12,10 @@ import usePageNavigation from "./hooks/usePageNavigation";
 import Age from "./pages/Age_3/age";
 import { useUser } from "./context/UserContext";
 import Height from "./pages/Height_4/height";
+import Weight from "./pages/Weight_5/weight";
+import NotAlone from "./pages/NotAlone/not_alone";
+import Name from "./pages/Name_7/name"
+import ProgressBar from "./components/progressBar/progressBar";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -22,6 +26,9 @@ const MainLayout = () => {
         page === 2 ? <Gender />    :
         page === 3 ? <Age /> :
         page === 4 ? <Height /> :
+        page === 5 ? <Weight /> :
+        page === 6 ? <NotAlone /> :
+        page === 7 ? <Name /> :
         <h1>Not Found</h1>;
 
         console.log("userData",userData)
@@ -29,18 +36,30 @@ const MainLayout = () => {
         
         return (
          < div className = "container" >
-             <div className = "header" >
+             <div className = "header" 
+                style={{backgroundColor: page===6?"#ADD8E6":"#FFF"}}
+             >
                 Getting Started
+                <ProgressBar />
             </div>
-            < div className = "content-wrapper" >
-                <div className = "card" >
-                    {screen}
-                </div>
-                <div className="navBtnHolder">
-                    <NavButton text="Previous" nav={prev}/>
-                    <NavButton text="Next"    nav={next}/>
-                </div>
-            </div>
+                {page === 6 ? (
+                    <div style={{}}>
+                        <NotAlone />
+                    </div>
+                )       
+                : 
+                (    
+                    < div className = "content-wrapper" >
+                        <div className = "card" >
+                            {screen}
+                        </div>
+                        <div className="navBtnHolder">
+                            <NavButton text="Previous" nav={prev}/>
+                            <NavButton text="Next"    nav={next}/>
+                        </div>
+                    </div>
+                )}
+                
         </div>
     )
 }

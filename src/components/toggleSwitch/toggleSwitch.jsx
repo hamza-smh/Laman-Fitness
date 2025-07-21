@@ -2,7 +2,7 @@ import "./style.css"
 const ToggleSwitch = ({option1,option2,state, setState}) =>{
  return(
     <div className="toggle-switch">
-          <div className={`toggle-indicator ${state}`} />
+          <div className={`toggle-indicator active-${state === option1 ? 0 : 1}`} />
           <div
             className="toggle-option"
             onClick={() => setState(option1)}

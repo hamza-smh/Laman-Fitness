@@ -39,11 +39,11 @@
   z-index: 0;
 }
 
-.toggle-switch .toggle-indicator.ft {
+.toggle-indicator.active-0 {
   transform: translateX(0%);
 }
 
-.toggle-switch .toggle-indicator.cm {
+.toggle-indicator.active-1 {
   transform: translateX(110%);
 }
 

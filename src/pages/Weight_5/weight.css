@@ -1,4 +1,4 @@
-.height-input-container {
+.weight-input-container {
   width: 100%;
   padding: 20px;
 }
@@ -32,6 +32,7 @@
   align-items: center;
   padding-right: 10px;
 }
+
 .error {
   color: red;
   font-size: 12px;
