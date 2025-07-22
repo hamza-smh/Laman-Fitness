@@ -55,16 +55,12 @@ const Weight = () => {
                kg: value
            });
        }
-
        setErrors(newErrors);
    };
-
 
     useEffect(() => {
         const lbs = parseFloat(weight.lbs);
         const kg = parseFloat(weight.kg);
-        
-
         const islbsValid = unit === "lbs" && !isNaN(lbs);
         const isKgValid = unit === "kg" && !isNaN(kg);
 

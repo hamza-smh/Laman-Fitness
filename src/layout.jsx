@@ -12,10 +12,12 @@ import usePageNavigation from "./hooks/usePageNavigation";
 import Age from "./pages/Age_3/age";
 import { useUser } from "./context/UserContext";
 import Height from "./pages/Height_4/height";
-import Weight from "./pages/Weight_5/weight";
-import NotAlone from "./pages/NotAlone/not_alone";
+import Weight from "./pages/CurrentWeight_5/weight";
+import NotAlone from "./pages/NotAlone_6/not_alone";
 import Name from "./pages/Name_7/name"
 import ProgressBar from "./components/progressBar/progressBar";
+import BodyType from "./pages/BodyType_8/bodyType";
+import TargetWeight from "./pages/TargetWeight_9/targetWeight";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -29,6 +31,8 @@ const MainLayout = () => {
         page === 5 ? <Weight /> :
         page === 6 ? <NotAlone /> :
         page === 7 ? <Name /> :
+        page === 8 ? <BodyType /> :
+        page === 9 ? <TargetWeight /> :
         <h1>Not Found</h1>;
 
         console.log("userData",userData)

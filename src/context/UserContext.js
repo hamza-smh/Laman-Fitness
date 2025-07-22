@@ -10,6 +10,8 @@ export const UserProvider = ({ children }) => {
     height:null,
     weight:null,
     name:null,
+    currentBodyType:null,
+    idealWeight:null
   });
 
   return (
