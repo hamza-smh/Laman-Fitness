@@ -11,7 +11,11 @@ export const UserProvider = ({ children }) => {
     weight:null,
     name:null,
     currentBodyType:null,
-    idealWeight:null
+    bodyFat:null,
+    idealWeight:null,
+    bestDescription:null,
+    areas_to_target:null,
+
   });
 
   return (

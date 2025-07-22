@@ -1,15 +1,15 @@
-import "./targetWeight.css"
+import "./weight.css"
 import { useState,useEffect } from 'react'
 import { useUser } from '../../context/UserContext'
 import usePageNavigation from '../../hooks/usePageNavigation'
 import ToggleSwitch from '../../components/toggleSwitch/toggleSwitch'
 import InputField from '../../components/inputField/inputField'
 
-const TargetWeight = () => {
+const Weight = () => {
     const { setUserData, userData } = useUser()
     const { next } = usePageNavigation()
-    const [unit, setUnit] = useState('ft')
-    const [idealWeight, setIdealWeight] = useState({
+    const [unit, setUnit] = useState('lbs');
+    const [weight, setWeight] = useState({
         lbs: '',
         kg: '',
     })
@@ -35,7 +35,7 @@ const TargetWeight = () => {
            }
 
            const kg = lbs * 0.453592;
-           setIdealWeight({
+           setWeight({
                lbs: value,
                kg: kg.toFixed(1)
            });
@@ -50,7 +50,7 @@ const TargetWeight = () => {
            }
 
            const lbs = kg / 0.453592;
-           setIdealWeight({
+           setWeight({
                lbs: lbs.toFixed(1),
                kg: value
            });
@@ -59,18 +59,18 @@ const TargetWeight = () => {
    };
 
     useEffect(() => {
-        const lbs = parseFloat(idealWeight.lbs);
-        const kg = parseFloat(idealWeight.kg);
+        const lbs = parseFloat(weight.lbs);
+        const kg = parseFloat(weight.kg);
         const islbsValid = unit === "lbs" && !isNaN(lbs);
         const isKgValid = unit === "kg" && !isNaN(kg);
 
         if (islbsValid || isKgValid) {
             setUserData(prev => ({
                 ...prev,
-                idealWeight
+                weight
             }));
         }
-    }, [idealWeight, unit]);
+    }, [weight, unit]);
 
     return (
         <div>
@@ -80,24 +80,28 @@ const TargetWeight = () => {
                     fontSize: '18px'
                 }}
             >
-                What is your ideal weight that you want to reach ?
+                What is your current weight ?
+            </p>
+             <p style={{fontWeight:"400",color:"#90a5c2",fontSize:"16px",fontStyle:"italic"}}>
+            Thanks
+            for sharing this with us. We don 't mean to pry, we just need to know so we can build a plan that's right
+            for you.
             </p>
 
             <div className='weight-input-container'>
                 <ToggleSwitch option1={"lbs"} option2={"kg"} state={unit} setState={setUnit} />
 
                 {unit === "lbs" ? (
-                    
                      <div className="input-group">
                         <div div className='inputHolderFull' >
                             <label>lbs</label>
                             <InputField
                                 type={"number"}
-                                value={idealWeight.lbs}
+                                value={weight.lbs}
                                 handleChange={handleWeightChange("lbs")}
                             />
+                            {errors.lbs && <span className="error">{errors.lbs}</span>}
                         </div>
-                        {errors.lbs && <span className="error">{errors.lbs}</span>}
                     </div>
                 ) : (
                     <div className="input-group">
@@ -105,7 +109,7 @@ const TargetWeight = () => {
                             <label>kg</label>
                             <InputField
                                 type={"number"}
-                                value={idealWeight.kg}
+                                value={weight.kg}
                                 handleChange={handleWeightChange("kg")}
                             />
                             {errors.kg && <span className="error">{errors.kg}</span>}
@@ -116,4 +120,4 @@ const TargetWeight = () => {
         </div>
     )
 }
-export default TargetWeight
+export default Weight

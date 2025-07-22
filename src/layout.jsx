@@ -1,23 +1,24 @@
-
 import "./layout.css"
-import {
-    Routes,
-    Route,
-    Navigate
-} from "react-router-dom";
-import NavButton from "./components/nav-btn/nav-button"
-import MainFocus from "./pages/MainFocus_1/mainFocus"
-import Gender from "./pages/Gender_2/gender"
-import usePageNavigation from "./hooks/usePageNavigation";
-import Age from "./pages/Age_3/age";
 import { useUser } from "./context/UserContext";
-import Height from "./pages/Height_4/height";
-import Weight from "./pages/CurrentWeight_5/weight";
-import NotAlone from "./pages/NotAlone_6/not_alone";
-import Name from "./pages/Name_7/name"
+import NavButton from "./components/nav-btn/nav-button"
+import usePageNavigation from "./hooks/usePageNavigation";
 import ProgressBar from "./components/progressBar/progressBar";
-import BodyType from "./pages/BodyType_8/bodyType";
-import TargetWeight from "./pages/TargetWeight_9/targetWeight";
+
+import MainFocus from "./pages/1_MainFocus/mainFocus"
+import Gender from "./pages/2_Gender/gender"
+import Age from "./pages/3_Age/age";
+import Height from "./pages/4_Height/height";
+import Weight from "./pages/5_CurrentWeight/weight";
+import NotAlone from "./pages/6_NotAlone/not_alone";
+import Name from "./pages/7_Name/name"
+import BodyType from "./pages/8_BodyType/bodyType";
+import Tricky from "./pages/9_Tricky/tricky";
+import BodyFat from "./pages/10_BodyFat/bodyFat";
+import TargetWeight from "./pages/11_TargetWeight/targetWeight";
+import Verified from "./pages/12_Verified/verified";
+import BestDescription from "./pages/13_BestDescription/bestDescription";
+import Praise from "./pages/14_Praise/praise";
+import DifficultAreas from "./pages/15_DifficultAreas/difficultAreas";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -32,7 +33,13 @@ const MainLayout = () => {
         page === 6 ? <NotAlone /> :
         page === 7 ? <Name /> :
         page === 8 ? <BodyType /> :
-        page === 9 ? <TargetWeight /> :
+        page === 9 ? <Tricky /> :
+        page === 10 ? <BodyFat /> :
+        page === 11 ? <TargetWeight /> :
+        page === 12 ? <Verified /> :
+        page === 13 ? <BestDescription /> :
+        page === 14 ? <Praise /> :
+        page === 15 ? <DifficultAreas /> :
         <h1>Not Found</h1>;
 
         console.log("userData",userData)
@@ -41,14 +48,32 @@ const MainLayout = () => {
         return (
          < div className = "container" >
              <div className = "header" 
-                style={{backgroundColor: page===6?"#ADD8E6":"#FFF"}}
+                style={{backgroundColor: page === 6 || page === 9 || page === 12 || page=== 14 ?"#ADD8E6":"#FFF"}}
              >
                 Getting Started
                 <ProgressBar />
             </div>
                 {page === 6 ? (
-                    <div style={{}}>
+                    <div>
                         <NotAlone />
+                    </div>
+                )       
+                :
+                page === 9 ? (
+                    <div>
+                        <Tricky />
+                    </div>
+                )       
+                : 
+                page === 12 ? (
+                    <div>
+                        <Verified />
+                    </div>
+                )       
+                : 
+                page === 14 ? (
+                    <div>
+                        <Praise />
                     </div>
                 )       
                 : 
