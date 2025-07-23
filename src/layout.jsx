@@ -2,7 +2,8 @@ import "./layout.css"
 import { useUser } from "./context/UserContext";
 import NavButton from "./components/nav-btn/nav-button"
 import usePageNavigation from "./hooks/usePageNavigation";
-import ProgressBar from "./components/progressBar/progressBar";
+import GettingStarted from "./components/progressBar/gettingStarted.jsx"
+import HabitsAndBehaviour from "./components/progressBar/habitsAndBehavoiur.jsx"
 
 import MainFocus from "./pages/1_MainFocus/mainFocus"
 import Gender from "./pages/2_Gender/gender"
@@ -23,6 +24,10 @@ import FocusBuilding from "./pages/16_FocusBuilding/focusBuilding";
 import Testimonial from "./pages/17_Testimonial/testimonial";
 import GymExperience from "./pages/18_GymExperience/gymExperience";
 import Email from "./pages/19_Email/email";
+import Prediction from "./pages/20_Prediction/prediction";
+import Trying from "./pages/20_Trying/trying";
+import MainReason from "./pages/21_MainReason/mainReason"
+import Ashamed from "./pages/22_Ashamed/ashamed"
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -48,9 +53,25 @@ const MainLayout = () => {
         page === 17 ? <Testimonial /> :
         page === 18 ? <GymExperience /> :
         page === 19 ? <Email /> :
+        page === 20 ? <Trying /> :
+        page === 21 ? <MainReason /> :
+        page === 22 ?<Ashamed /> :
+
         <h1>Not Found</h1>;
 
         console.log("userData",userData)
+
+        const goNext = () => {
+          setUserData(prev => ({ ...prev, lastVisitedPage: page }));
+          sessionStorage.setItem("lastVisitedPage", page);
+          next();
+        };
+
+        const goPrev = () => {
+          setUserData(prev => ({ ...prev, lastVisitedPage: page }));
+          sessionStorage.setItem("lastVisitedPage", page); // ✅ store it
+          prev();
+        };
 
         
         return (
@@ -62,8 +83,13 @@ const MainLayout = () => {
                     }
                 }
              >
-                Getting Started
-                <ProgressBar />
+                {
+                    page<=20 ? "Getting Started":"Habits & Behaviors"
+                }
+                {
+                    page<=20 ?<GettingStarted />:<HabitsAndBehaviour />
+                }
+                
             </div>
                 {page === 6 ? (
                     <div>
@@ -95,14 +121,20 @@ const MainLayout = () => {
                     </div>
                 )       
                 : 
+                page === 20 ? (
+                    <div>
+                        <Trying />
+                    </div>
+                )       
+                : 
                 (    
                     < div className = "content-wrapper" >
                         <div className = "card" >
                             {screen}
                         </div>
                         <div className="navBtnHolder">
-                            <NavButton text="Previous" nav={prev}/>
-                            <NavButton text="Next"    nav={next}/>
+                            <NavButton text="Previous" nav={goPrev}/>
+                            <NavButton text="Next"    nav={goNext}/>
                         </div>
                     </div>
                 )}

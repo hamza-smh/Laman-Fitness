@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
 import './style.css'
 
-const ProgressBar = ()=>{
+const GettingStarted = ()=>{
     const { index } = useParams(); 
-    const progress = index/50*100;
+    const progress = index/20*100;
     return(
         <div className="bar">
             <div className="progress" style={{width:`${progress}%`}}/>
@@ -16,4 +16,4 @@ const ProgressBar = ()=>{
         </div>
     )
 }
-export default ProgressBar
+export default GettingStarted
