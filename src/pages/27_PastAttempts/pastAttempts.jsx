@@ -41,7 +41,6 @@ const PastAttempts = () => {
       alert("Please select at least one area or select none");
       return;
     }
-
     setUserData((prev) => ({
       ...prev,
       areas_to_target: attempts
