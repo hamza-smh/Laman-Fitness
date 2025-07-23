@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
 import './style.css'
 
-const HabitsAndBehavior = ()=>{
+const TrainingAndNutrition = ()=>{
     const { index } = useParams(); 
-    const progress = (index-20)/7*100;
+    const progress = (index-27)/27*100;
     return(
         <div className="bar">
             <div className="progress" style={{width:`${progress}%`}}/>
@@ -16,4 +16,4 @@ const HabitsAndBehavior = ()=>{
         </div>
     )
 }
-export default HabitsAndBehavior
+export default TrainingAndNutrition

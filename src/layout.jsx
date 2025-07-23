@@ -24,7 +24,6 @@ import FocusBuilding from "./pages/16_FocusBuilding/focusBuilding";
 import Testimonial from "./pages/17_Testimonial/testimonial";
 import GymExperience from "./pages/18_GymExperience/gymExperience";
 import Email from "./pages/19_Email/email";
-import Prediction from "./pages/20_Prediction/prediction";
 import Trying from "./pages/20_Trying/trying";
 import MainReason from "./pages/21_MainReason/mainReason"
 import Ashamed from "./pages/22_Ashamed/ashamed"
@@ -33,6 +32,19 @@ import Consistent from "./pages/24_Consistent/consistent";
 import Diet from "./pages/25_Diet/diet";
 import UnsustainableDiets from "./pages/26_UnsustainableDiets/unsustainableDiets";
 import PastAttempts from "./pages/27_PastAttempts/pastAttempts";
+import WorkoutTrackingApp from "./pages/28_WorkoutTrackingApp/workoutTrackingApp";
+import NutritionTrackingApp from "./pages/29_NutritionTrackingApp/nutritionTrackingApp";
+import TrainingAndNutrition from "./components/progressBar/trainingAndNutrition";
+import BuiltWithScience from "./pages/30_BuiltWithScience/builtWithScience";
+import NoBlame from "./pages/31_NoBlame/noBlame";
+import Active from "./pages/32_Active/active";
+import Comfortable from "./pages/33_Comfortable/comfortable";
+import PerfectYourForm from "./pages/34_PerfectYourForm/perfectYourForm";
+import ExcerciseFrequency from "./pages/35_ExcerciseFrequency/excerciseFrequency";
+import WorkoutTime from "./pages/35_WorkoutTime/workoutTime";
+import WorkoutVideo from "./pages/37_WorkoutVideo/workoutVideo";
+import Equipment from "./pages/38_Equipment/equipment";
+import Verified2 from "./pages/39_Verified2/verified";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -66,6 +78,18 @@ const MainLayout = () => {
         page === 25 ? < Diet /> :
         page === 26 ? < UnsustainableDiets /> :
         page === 27 ? < PastAttempts /> :
+        page === 28 ? < WorkoutTrackingApp /> :
+        page === 29 ? < NutritionTrackingApp /> :
+        page === 30 ? < BuiltWithScience /> :
+        page === 31 ? < NoBlame /> :
+        page === 32 ? < Active /> :
+        page === 33 ? < Comfortable /> :
+        page === 34 ? < PerfectYourForm /> :
+        page === 35 ? < ExcerciseFrequency /> :
+        page === 36 ? < WorkoutTime /> :
+        page === 37 ? < WorkoutVideo /> :
+        page === 38 ? < Equipment /> :
+        page === 38 ? < Verified2 /> :
 
         <h1>Not Found</h1>;
 
@@ -79,7 +103,7 @@ const MainLayout = () => {
 
         const goPrev = () => {
           setUserData(prev => ({ ...prev, lastVisitedPage: page }));
-          sessionStorage.setItem("lastVisitedPage", page); // ✅ store it
+          sessionStorage.setItem("lastVisitedPage", page); 
           prev();
         };
 
@@ -89,15 +113,19 @@ const MainLayout = () => {
              <div className = "header" 
                 style = {
                     {
-                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 ? "#ADD8E6" : "#FFF"
+                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page===34 || page === 37 || page=== 39 ? "#ADD8E6" : "#FFF"
                     }
                 }
              >
                 {
-                    page<=20 ? "Getting Started":"Habits & Behaviors"
+                    page <= 20 ? "Getting Started":
+                    page <= 27 ? "Habits & Behaviors":
+                    "training and nutrition"
                 }
                 {
-                    page<=20 ?<GettingStarted />:<HabitsAndBehaviour />
+                    page <= 20 ?<GettingStarted />:
+                    page <= 27 ?<HabitsAndBehaviour />:
+                    <TrainingAndNutrition />
                 }
                 
             </div>
@@ -151,13 +179,37 @@ const MainLayout = () => {
                 : 
                 page === 25 ? (
                     <div>
-                        <Diet / >
+                        <Diet />
                     </div>
                 )       
                 : 
                 page === 26 ? (
                     <div>
-                        <UnsustainableDiets / >
+                        <UnsustainableDiets />
+                    </div>
+                )       
+                : 
+                page === 31 ? (
+                    <div>
+                        <NoBlame / >
+                    </div>
+                )       
+                : 
+                page === 34 ? (
+                    <div>
+                        <PerfectYourForm />
+                    </div>
+                )       
+                :
+                page === 37 ? (
+                    <div>
+                        <WorkoutVideo />
+                    </div>
+                )       
+                :
+                page === 39 ? (
+                    <div>
+                        <Verified2 />
                     </div>
                 )       
                 : 

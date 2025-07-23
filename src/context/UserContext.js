@@ -67,7 +67,13 @@ export const UserProvider = ({ children }) => {
         dissatisfied:null,
         consistent:null,
         diet:null,
-        past_attempts:null
+        past_attempts:null,
+        workout_tracking_app: null,
+        science_view:null,
+        active:null,
+        excercise_freq:null,
+        workout_time:null,
+        equipment:null
       };
     } catch (err) {
       console.error("Failed to parse userData from localStorage", err);
