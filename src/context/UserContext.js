@@ -64,6 +64,10 @@ export const UserProvider = ({ children }) => {
         reason_to_join:null,
         ashamed: null, 
         lastVisitedPage: null,
+        dissatisfied:null,
+        consistent:null,
+        diet:null,
+        past_attempts:null
       };
     } catch (err) {
       console.error("Failed to parse userData from localStorage", err);

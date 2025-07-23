@@ -28,6 +28,11 @@ import Prediction from "./pages/20_Prediction/prediction";
 import Trying from "./pages/20_Trying/trying";
 import MainReason from "./pages/21_MainReason/mainReason"
 import Ashamed from "./pages/22_Ashamed/ashamed"
+import Dissatisfied from "./pages/23_Dissatisfied/dissatisfied";
+import Consistent from "./pages/24_Consistent/consistent";
+import Diet from "./pages/25_Diet/diet";
+import UnsustainableDiets from "./pages/26_UnsustainableDiets/unsustainableDiets";
+import PastAttempts from "./pages/27_PastAttempts/pastAttempts";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -56,6 +61,11 @@ const MainLayout = () => {
         page === 20 ? <Trying /> :
         page === 21 ? <MainReason /> :
         page === 22 ?<Ashamed /> :
+        page === 23 ? < Dissatisfied /> :
+        page === 24 ? < Consistent /> :
+        page === 25 ? < Diet /> :
+        page === 26 ? < UnsustainableDiets /> :
+        page === 27 ? < PastAttempts /> :
 
         <h1>Not Found</h1>;
 
@@ -79,7 +89,7 @@ const MainLayout = () => {
              <div className = "header" 
                 style = {
                     {
-                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 ? "#ADD8E6" : "#FFF"
+                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 ? "#ADD8E6" : "#FFF"
                     }
                 }
              >
@@ -124,6 +134,30 @@ const MainLayout = () => {
                 page === 20 ? (
                     <div>
                         <Trying />
+                    </div>
+                )       
+                : 
+                page === 23 ? (
+                    <div>
+                        < Dissatisfied / >
+                    </div>
+                )       
+                : 
+                page === 24 ? (
+                    <div>
+                        < Consistent / >
+                    </div>
+                )       
+                : 
+                page === 25 ? (
+                    <div>
+                        <Diet / >
+                    </div>
+                )       
+                : 
+                page === 26 ? (
+                    <div>
+                        <UnsustainableDiets / >
                     </div>
                 )       
                 : 

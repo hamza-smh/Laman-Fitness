@@ -1,0 +1,61 @@
+.blue-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #add8e6;
+  width: 100%;
+  height: 100vh;
+  padding: 5vh 50vh;
+  box-sizing: border-box;
+}
+
+/* Card Styling */
+.white-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFF;
+  width: 100%;
+  margin-top: 25px;
+  padding: 30px;
+  border: 4px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------ Responsive Styles Below ------------ */
+
+/* For tablets (width <= 1024px) */
+@media (max-width: 1024px) {
+  .blue-wrapper {
+    padding: 0 10vw;
+  }
+
+  .white-card {
+    padding: 25px;
+  }
+}
+
+/* For mobile devices (width <= 768px) */
+@media (max-width: 768px) {
+  .container{
+    height:100%
+  }
+  .blue-wrapper {
+    flex-direction: column;
+    padding: 0 5vw;
+    z-index: 10;
+  }
+
+  .white-card {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .header {
+    height: auto;
+    padding: 20px 10px;
+  }
+  .navBtnHolder{
+    width:100%;
+    margin-bottom: 25px;
+  }
+}
