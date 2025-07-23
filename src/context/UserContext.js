@@ -15,6 +15,9 @@ export const UserProvider = ({ children }) => {
     idealWeight:null,
     bestDescription:null,
     areas_to_target:null,
+    focus_building:null,
+    gym_experience:null,
+    email:null,
 
   });
 

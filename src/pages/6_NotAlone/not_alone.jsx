@@ -12,7 +12,7 @@ const NotAlone = () => {
     <div className="not-alone-container">
       <p className="not-alone-heading">You're not alone.</p>
       <p className="not-alone-subtext">
-        We've helped 110,247 {userData.gender==="male"?"men":"women"} like you lose weight!
+        We've helped 110,247 {userData.gender==="Male"?"men":"women"} like you lose weight!
       </p>
       <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
         <NavButton text="Previous" nav={prev} />

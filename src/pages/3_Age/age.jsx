@@ -22,7 +22,7 @@ const Age = ()=>{
 
         <div style={{paddingTop:"20px",width:"100%"}}>
             <Button text="Teens" onClick={() => handleSelect("Teens")} />
-            <Button text="Teens" onClick={() => handleSelect("Teens")} />
+            <Button text="Twenties" onClick={() => handleSelect("Twenties")} />
             <Button text="Thirties" onClick={() => handleSelect("Thirties")} />
             <Button text="Fourties" onClick={() => handleSelect("Fourties")} />
             <Button text="Over Fifty" onClick={() => handleSelect("Over Fifty")} />

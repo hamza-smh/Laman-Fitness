@@ -19,6 +19,10 @@ import Verified from "./pages/12_Verified/verified";
 import BestDescription from "./pages/13_BestDescription/bestDescription";
 import Praise from "./pages/14_Praise/praise";
 import DifficultAreas from "./pages/15_DifficultAreas/difficultAreas";
+import FocusBuilding from "./pages/16_FocusBuilding/focusBuilding";
+import Testimonial from "./pages/17_Testimonial/testimonial";
+import GymExperience from "./pages/18_GymExperience/gymExperience";
+import Email from "./pages/19_Email/email";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -40,6 +44,10 @@ const MainLayout = () => {
         page === 13 ? <BestDescription /> :
         page === 14 ? <Praise /> :
         page === 15 ? <DifficultAreas /> :
+        page === 16 ? <FocusBuilding /> :
+        page === 17 ? <Testimonial /> :
+        page === 18 ? <GymExperience /> :
+        page === 19 ? <Email /> :
         <h1>Not Found</h1>;
 
         console.log("userData",userData)
@@ -48,7 +56,11 @@ const MainLayout = () => {
         return (
          < div className = "container" >
              <div className = "header" 
-                style={{backgroundColor: page === 6 || page === 9 || page === 12 || page=== 14 ?"#ADD8E6":"#FFF"}}
+                style = {
+                    {
+                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 ? "#ADD8E6" : "#FFF"
+                    }
+                }
              >
                 Getting Started
                 <ProgressBar />
@@ -74,6 +86,12 @@ const MainLayout = () => {
                 page === 14 ? (
                     <div>
                         <Praise />
+                    </div>
+                )       
+                : 
+                page === 17 ? (
+                    <div>
+                        <Testimonial />
                     </div>
                 )       
                 : 

@@ -4,20 +4,20 @@ import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import { useState } from "react";
 
-const DifficultAreas = () => {
+const FocusBuilding = () => {
   const { setUserData } = useUser();
   const { next } = usePageNavigation();
 
   const [selectedAreas, setSelectedAreas] = useState([]);
 
   const areaOptions = [
-    "Belly",
-    "Love Handles",
     "Chest",
-    "Lower Back",
-    "Legs",
+    "Back",
     "Arms",
-    "Hips"
+    "Shoulders",
+    "Legs",
+    "Glutes",
+    "Calves"
   ];
 
   const handleToggleArea = (area) => {
@@ -26,7 +26,7 @@ const DifficultAreas = () => {
     } else if (selectedAreas.includes(area)) {
       setSelectedAreas(selectedAreas.filter((a) => a !== area));
     } else {
-      if (selectedAreas.length < 3) {
+      if (selectedAreas.length < 2) {
         setSelectedAreas([...selectedAreas, area]);
       }
     }
@@ -44,7 +44,7 @@ const DifficultAreas = () => {
 
     setUserData((prev) => ({
       ...prev,
-      areas_to_target: selectedAreas
+      focus_building: selectedAreas
     }));
     next();
   };
@@ -54,7 +54,7 @@ const DifficultAreas = () => {
        if (selectedAreas.length > 0) {
            setUserData(prev => ({
                ...prev,
-               areas_to_target:selectedAreas
+               focus_building: selectedAreas
            }));
        }
    }, [selectedAreas]);
@@ -63,10 +63,10 @@ const DifficultAreas = () => {
   return (
     <div>
       <p style={{ fontWeight: "600", fontSize: "18px" }}>
-        As a woman, what area(s) of your body is the most difficult for you to lose fat from?
+        What muscle group(s) do you want to focus on building the most ?
       </p>
       <p style={{ fontWeight: "400", color: "#90a5c2", fontSize: "16px", fontStyle: "italic" }}>
-        Select up to 3 muscle groups
+        Select up to 2 muscle groups
       </p>
 
       <div style={{ paddingTop: "20px", width: "100%", display: "flex",flexDirection:"column", flexWrap: "wrap", gap: "10px" }}>
@@ -80,7 +80,7 @@ const DifficultAreas = () => {
         ))}
 
         <SelectButton
-          text={"They are all equally difficult"}
+          text={"I want to grow everything equally"}
           onClick={handleSelectAll}
           selected={selectedAreas.includes("all")}
         />
@@ -90,4 +90,4 @@ const DifficultAreas = () => {
   );
 };
 
-export default DifficultAreas;
+export default FocusBuilding;
