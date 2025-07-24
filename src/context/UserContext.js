@@ -41,7 +41,12 @@ export const UserProvider = ({ children }) => {
         calories: null,
         protien: null,
         nutrition_habits:null,
-        dietary_restrictions:null
+        dietary_restrictions:null,
+        busy:null,
+        support:null,
+        following_Jeremy_for:null,
+        heard_about_us:null,
+        priority:null,
       };
     } catch (err) {
       console.error("Failed to parse userData from localStorage", err);

@@ -54,6 +54,12 @@ import Protein from "./pages/45_Protein/protein";
 import ProteinOutput from "./pages/46_ProteinOutput/proteinOutput";
 import NutritionHabits from "./pages/47_NutritionHabits/nutritionHabits";
 import DietaryRestrictions from "./pages/48_DietaryRestictions/dietaryRestrictions";
+import Busy from "./pages/49_Busy/busy";
+import Support from "./pages/50_Support/support";
+import FollowJeremy from "./pages/51_FollowJeremy/followJeremy";
+import HearAboutUs from "./pages/52_HearAboutUs/hearAboutUs";
+import BusyCheck from "./pages/53_BusyCheck/busyCheck";
+import FocusFirst from "./pages/54_FocusFirst/focusFirst";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
@@ -108,6 +114,12 @@ const MainLayout = () => {
         page === 46 ? <ProteinOutput /> :
         page === 47 ? <NutritionHabits /> :
         page === 48 ? <DietaryRestrictions /> :
+        page === 49 ? <Busy /> :
+        page === 50 ? <Support /> :
+        page === 51 ? <FollowJeremy /> :
+        page === 52 ? <HearAboutUs /> :
+        page === 53 ? <BusyCheck /> :
+        page === 54 ? <FocusFirst /> :
 
         <h1>Not Found</h1>;
 
@@ -131,7 +143,7 @@ const MainLayout = () => {
              <div className = "header" 
                 style = {
                     {
-                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page === 34 || page === 37 || page === 39 || page === 41 || page=== 42 || page === 44 || page === 46 ? "#ADD8E6" : "#FFF"
+                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page === 34 || page === 37 || page === 39 || page === 41 || page=== 42 || page === 44 || page === 46 || page === 53 ? "#ADD8E6" : "#FFF"
                     }
                 }
              >
@@ -252,6 +264,12 @@ const MainLayout = () => {
                 page === 46 ? (
                     <div>
                         <ProteinOutput />
+                    </div>
+                )       
+                : 
+                page === 53 ? (
+                    <div>
+                        <BusyCheck />
                     </div>
                 )       
                 : 
