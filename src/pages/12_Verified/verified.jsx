@@ -50,6 +50,7 @@ const Verified = () => {
         }
       </p>
 
+
       <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
         <NavButton text="Previous" nav={prev} />
         <NavButton text="Next" nav={next} />

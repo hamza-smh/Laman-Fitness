@@ -1,39 +1,3 @@
-// import { createContext, useContext, useState } from "react";
-
-// const UserContext = createContext();
-
-// export const UserProvider = ({ children }) => {
-//   const [userData, setUserData] = useState({
-//     mainFocus: null,
-//     gender: null,
-//     age: null,
-//     height:null,
-//     weight:null,
-//     name:null,
-//     currentBodyType:null,
-//     bodyFat:null,
-//     idealWeight:null,
-//     bestDescription:null,
-//     areas_to_target:null,
-//     focus_building:null,
-//     gym_experience:null,
-//     email:null,
-
-//   });
-
-//   return (
-//     <UserContext.Provider value={{ userData, setUserData }}>
-//       {children}
-//     </UserContext.Provider>
-//   );
-// };
-
-// export const useUser = () => useContext(UserContext);
-
-
-
-
-
 import { createContext, useContext, useEffect, useState } from "react";
 
 const UserContext = createContext();
@@ -41,7 +5,6 @@ const UserContext = createContext();
 const LOCAL_STORAGE_KEY = "userData";
 
 export const UserProvider = ({ children }) => {
-  // 1. Load from localStorage
   const getInitialData = () => {
     try {
       const data = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -73,7 +36,12 @@ export const UserProvider = ({ children }) => {
         active:null,
         excercise_freq:null,
         workout_time:null,
-        equipment:null
+        equipment:null,
+        past_injuries:null,
+        calories: null,
+        protien: null,
+        nutrition_habits:null,
+        dietary_restrictions:null
       };
     } catch (err) {
       console.error("Failed to parse userData from localStorage", err);

@@ -45,21 +45,30 @@ import WorkoutTime from "./pages/35_WorkoutTime/workoutTime";
 import WorkoutVideo from "./pages/37_WorkoutVideo/workoutVideo";
 import Equipment from "./pages/38_Equipment/equipment";
 import Verified2 from "./pages/39_Verified2/verified";
+import PastInjuries from "./pages/40_Past_injuries/pastInjuries";
+import SmartWorkout from "./pages/41_SmartWorkout/smartWorkout";
+import AlmostReady from "./pages/42_AlmostReady/almostReady";
+import Calories from "./pages/43_Calories/calories";
+import CalorieOutput from "./pages/44_CalorieOutput/calorieOutput";
+import Protein from "./pages/45_Protein/protein";
+import ProteinOutput from "./pages/46_ProteinOutput/proteinOutput";
+import NutritionHabits from "./pages/47_NutritionHabits/nutritionHabits";
+import DietaryRestrictions from "./pages/48_DietaryRestictions/dietaryRestrictions";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
      const { setUserData, userData } = useUser();
 
       const screen =
-        page === 1 ? <MainFocus /> :
-        page === 2 ? <Gender />    :
-        page === 3 ? <Age /> :
-        page === 4 ? <Height /> :
-        page === 5 ? <Weight /> :
-        page === 6 ? <NotAlone /> :
-        page === 7 ? <Name /> :
-        page === 8 ? <BodyType /> :
-        page === 9 ? <Tricky /> :
+        page === 1  ? <MainFocus /> :
+        page === 2  ? <Gender />    :
+        page === 3  ? <Age /> :
+        page === 4  ? <Height /> :
+        page === 5  ? <Weight /> :
+        page === 6  ? <NotAlone /> :
+        page === 7  ? <Name /> :
+        page === 8  ? <BodyType /> :
+        page === 9  ? <Tricky /> :
         page === 10 ? <BodyFat /> :
         page === 11 ? <TargetWeight /> :
         page === 12 ? <Verified /> :
@@ -72,24 +81,33 @@ const MainLayout = () => {
         page === 19 ? <Email /> :
         page === 20 ? <Trying /> :
         page === 21 ? <MainReason /> :
-        page === 22 ?<Ashamed /> :
-        page === 23 ? < Dissatisfied /> :
-        page === 24 ? < Consistent /> :
-        page === 25 ? < Diet /> :
-        page === 26 ? < UnsustainableDiets /> :
-        page === 27 ? < PastAttempts /> :
-        page === 28 ? < WorkoutTrackingApp /> :
-        page === 29 ? < NutritionTrackingApp /> :
-        page === 30 ? < BuiltWithScience /> :
-        page === 31 ? < NoBlame /> :
-        page === 32 ? < Active /> :
-        page === 33 ? < Comfortable /> :
-        page === 34 ? < PerfectYourForm /> :
-        page === 35 ? < ExcerciseFrequency /> :
-        page === 36 ? < WorkoutTime /> :
-        page === 37 ? < WorkoutVideo /> :
-        page === 38 ? < Equipment /> :
-        page === 38 ? < Verified2 /> :
+        page === 22 ? <Ashamed /> :
+        page === 23 ? <Dissatisfied /> :
+        page === 24 ? <Consistent /> :
+        page === 25 ? <Diet /> :
+        page === 26 ? <UnsustainableDiets /> :
+        page === 27 ? <PastAttempts /> :
+        page === 28 ? <WorkoutTrackingApp /> :
+        page === 29 ? <NutritionTrackingApp /> :
+        page === 30 ? <BuiltWithScience /> :
+        page === 31 ? <NoBlame /> :
+        page === 32 ? <Active /> :
+        page === 33 ? <Comfortable /> :
+        page === 34 ? <PerfectYourForm /> :
+        page === 35 ? <ExcerciseFrequency /> :
+        page === 36 ? <WorkoutTime /> :
+        page === 37 ? <WorkoutVideo /> :
+        page === 38 ? <Equipment /> :
+        page === 39 ? <Verified2 /> :
+        page === 40 ? <PastInjuries /> :
+        page === 41 ? <SmartWorkout /> :
+        page === 42 ? <AlmostReady /> :
+        page === 43 ? <Calories /> :
+        page === 44 ? <CalorieOutput /> :
+        page === 45 ? <Protein/> :
+        page === 46 ? <ProteinOutput /> :
+        page === 47 ? <NutritionHabits /> :
+        page === 48 ? <DietaryRestrictions /> :
 
         <h1>Not Found</h1>;
 
@@ -113,7 +131,7 @@ const MainLayout = () => {
              <div className = "header" 
                 style = {
                     {
-                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page===34 || page === 37 || page=== 39 ? "#ADD8E6" : "#FFF"
+                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page === 34 || page === 37 || page === 39 || page === 41 || page=== 42 || page === 44 || page === 46 ? "#ADD8E6" : "#FFF"
                     }
                 }
              >
@@ -210,6 +228,30 @@ const MainLayout = () => {
                 page === 39 ? (
                     <div>
                         <Verified2 />
+                    </div>
+                )       
+                :
+                page === 41 ? (
+                    <div>
+                        <SmartWorkout />
+                    </div>
+                )       
+                : 
+                page === 42 ? (
+                    <div>
+                        <AlmostReady />
+                    </div>
+                )       
+                : 
+                page === 44 ? (
+                    <div>
+                        <CalorieOutput />
+                    </div>
+                )       
+                : 
+                page === 46 ? (
+                    <div>
+                        <ProteinOutput />
                     </div>
                 )       
                 : 
