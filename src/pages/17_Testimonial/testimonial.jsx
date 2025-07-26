@@ -1,14 +1,23 @@
 import "./style.css";
+import { useEffect } from "react";
+import { useFormValidation } from "../../context/FormValidationContext";
 import { useUser } from "../../context/UserContext";
 import NavButton from "../../components/nav-btn/nav-button";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import patrick from "../../assets/verified/patrick.jpg"
 import tahnee from "../../assets/verified/tahnee.jpg"
-
+import salma from "../../assets/verified/salma.jpg"
 const Testimonial = () => {
   const { next, prev } = usePageNavigation();
   const { setUserData, userData } = useUser();
 
+    const { setPageValid } = useFormValidation();
+
+  useEffect(() => {
+    setPageValid(17, true);
+  }, []);
+
+  
   return (
     <div className="verified-container">
 
@@ -18,9 +27,10 @@ const Testimonial = () => {
            userData.gender === "Male" ?
            <img src={patrick} alt="patrick" style={{width:"100%",height:"100%"}}/>
            :
-           userData.gender === "Female" ?
-           <img src={tahnee} alt="tahnee" style={{width:"100%",height:"100%"}}/>
-          :""
+            userData.gender === "Female" && userData.overweight ?
+           <img src={tahnee} alt="katy" style={{width:"100%",height:"100%"}}/>
+           :
+           <img src={salma} alt="tanhee" style={{width:"100%",height:"100%"}}/>
         }
       </div>
 

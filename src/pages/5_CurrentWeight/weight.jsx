@@ -4,10 +4,12 @@ import { useUser } from '../../context/UserContext'
 import usePageNavigation from '../../hooks/usePageNavigation'
 import ToggleSwitch from '../../components/toggleSwitch/toggleSwitch'
 import InputField from '../../components/inputField/inputField'
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const Weight = () => {
     const { setUserData, userData } = useUser()
     const { next } = usePageNavigation()
+    const { setPageValid } = useFormValidation();
     const [unit, setUnit] = useState('lbs');
     const [weight, setWeight] = useState({
         lbs: '',
@@ -61,14 +63,17 @@ const Weight = () => {
     useEffect(() => {
         const lbs = parseFloat(weight.lbs);
         const kg = parseFloat(weight.kg);
-        const islbsValid = unit === "lbs" && !isNaN(lbs);
-        const isKgValid = unit === "kg" && !isNaN(kg);
+        const islbsValid = unit === "lbs" && !isNaN(lbs) && errors.lbs === '';
+        const isKgValid = unit === "kg" && !isNaN(kg) && errors.kg === '';
 
         if (islbsValid || isKgValid) {
             setUserData(prev => ({
                 ...prev,
                 weight
             }));
+            setPageValid(5, true)
+            } else {
+                setPageValid(5, false); 
         }
     }, [weight, unit]);
 
@@ -84,36 +89,40 @@ const Weight = () => {
             </p>
              <p style={{fontWeight:"400",color:"#90a5c2",fontSize:"16px",fontStyle:"italic"}}>
             Thanks
-            for sharing this with us. We don 't mean to pry, we just need to know so we can build a plan that's right
+            for sharing this with us. We don't mean to pry, we just need to know so we can build a plan that's right
             for you.
             </p>
 
-            <div className='weight-input-container'>
+            <div className='weight-input-container' >
                 <ToggleSwitch option1={"lbs"} option2={"kg"} state={unit} setState={setUnit} />
 
                 {unit === "lbs" ? (
                      <div className="input-group">
-                        <div div className='inputHolderFull' >
+                        <div className = "input-colFull" >
+                        <div className='inputHolderFull' >
                             <label>lbs</label>
                             <InputField
                                 type={"number"}
                                 value={weight.lbs}
                                 handleChange={handleWeightChange("lbs")}
-                            />
-                            {errors.lbs && <span className="error">{errors.lbs}</span>}
+                                />
+                        </div>
+                        {errors.lbs && <span className="error">{errors.lbs}</span>}
                         </div>
                     </div>
                 ) : (
                     <div className="input-group">
-                        <div div className='inputHolderFull' >
+                        <div className = "input-colFull" >
+                        <div className='inputHolderFull' >
                             <label>kg</label>
                             <InputField
                                 type={"number"}
                                 value={weight.kg}
                                 handleChange={handleWeightChange("kg")}
                             />
-                            {errors.kg && <span className="error">{errors.kg}</span>}
                         </div>
+                        {errors.kg && <span className="error">{errors.kg}</span>}
+                    </div>
                     </div>
                 )}
             </div>

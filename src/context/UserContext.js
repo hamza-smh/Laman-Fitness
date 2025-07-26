@@ -17,8 +17,11 @@ export const UserProvider = ({ children }) => {
         name: null,
         currentBodyType: null,
         bodyFat: null,
+        overweight:null,
+        muscleGain:null,
         idealWeight: null,
         bestDescription: null,
+        consistency_issue:null,
         areas_to_target: null,
         focus_building: null,
         gym_experience: null,
@@ -47,6 +50,7 @@ export const UserProvider = ({ children }) => {
         following_Jeremy_for:null,
         heard_about_us:null,
         priority:null,
+
       };
     } catch (err) {
       console.error("Failed to parse userData from localStorage", err);

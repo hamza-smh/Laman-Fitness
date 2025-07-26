@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import InputField from "../../components/inputField/inputField";
 import usePageNavigation from "../../hooks/usePageNavigation";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const Name = () => {
   const { userData, setUserData } = useUser();
   const { next } = usePageNavigation();
+  const { setPageValid } = useFormValidation();
 
   const [name, setName] = useState(userData.name || "");
   const [error, setError] = useState("");
@@ -23,6 +25,7 @@ const Name = () => {
         ...prev,
         name: name.trim(),
       }));
+      setPageValid(7, true);
     }
   }, [name, setUserData]);
 

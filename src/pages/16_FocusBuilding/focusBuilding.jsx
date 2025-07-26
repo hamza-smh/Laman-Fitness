@@ -1,13 +1,14 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import { useUser } from "../../context/UserContext";
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
-import { useState } from "react";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const FocusBuilding = () => {
-  const { setUserData } = useUser();
+  const { userData,setUserData } = useUser();
   const { next } = usePageNavigation();
-
+  const { setPageValid } = useFormValidation();
   const [selectedAreas, setSelectedAreas] = useState([]);
 
   const areaOptions = [
@@ -56,6 +57,7 @@ const FocusBuilding = () => {
                ...prev,
                focus_building: selectedAreas
            }));
+           setPageValid(16, true);
        }
    }, [selectedAreas]);
 
@@ -75,14 +77,14 @@ const FocusBuilding = () => {
             key={index}
             text={area}
             onClick={() => handleToggleArea(area)}
-            selected={selectedAreas.includes(area)}
+            selected={userData.focus_building?.includes(area)}
           />
         ))}
 
         <SelectButton
           text={"I want to grow everything equally"}
           onClick={handleSelectAll}
-          selected={selectedAreas.includes("all")}
+          selected={userData.focus_building?.includes("all")}
         />
       </div>
 

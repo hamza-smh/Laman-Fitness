@@ -9,13 +9,13 @@
 }
 
 .tricky-heading {
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 300;
+  font-size: 18px;
   font-family: "Oswald", sans-serif;
   font-style: italic;
 }
 
-.not-alone-subtext {
+.tricky-subtext {
   font-weight: 500;
   color: #000;
   font-size: 20px;

@@ -1,16 +1,20 @@
 import Button from '../../components/button/button'
 import { useUser } from '../../context/UserContext'
 import usePageNavigation from '../../hooks/usePageNavigation'
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const Gender = () => {
   const { setUserData, userData } = useUser()
   const { next } = usePageNavigation()
+ const { setPageValid } = useFormValidation();
+
   const handleSelect = gender => {
     setUserData(prev => ({
       ...prev,
       gender
     }))
     console.log('Selected gender:', gender)
+    setPageValid(2, true);
     next()
   }
   return (
@@ -39,8 +43,8 @@ const Gender = () => {
           width: '100%'
         }}
       >
-        <Button text='Male' onClick={() => handleSelect('Male')} />{' '}
-        <Button text='Female' onClick={() => handleSelect('Female')} />{' '}
+        <Button className={userData.gender === "Male" ? "selected" : ""} text='Male' onClick={() => handleSelect('Male')} />{' '}
+        <Button className={userData.gender === "Female" ? "selected" : ""} text='Female' onClick={() => handleSelect('Female')} />{' '}
       </div>
     </div>
   )

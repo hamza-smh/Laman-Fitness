@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import InputField from "../../components/inputField/inputField";
 import usePageNavigation from "../../hooks/usePageNavigation";
-
+import { useFormValidation } from "../../context/FormValidationContext";
+import YourProgress from "../19_YourProgress/yourProgress";
 const Email = () => {
   const { userData, setUserData } = useUser();
   const { next } = usePageNavigation();
-
+  const { setPageValid } = useFormValidation();
   const [email, setEmail] = useState(userData.email || "");
   const [error, setError] = useState("");
 
   const validateEmail = (email) => {
-    // Basic email regex
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
@@ -35,10 +35,14 @@ const Email = () => {
         ...prev,
         email,
       }));
+      if(error===""){
+        setPageValid(19, true);
+      }
     }
   }, [email]);
 
   return (
+    <>
     <div>
       <p style={{ fontWeight: "600", fontSize: "18px" }}>
         {userData.name}, enter your email to see how long it will take to reach your weight loss goal
@@ -72,6 +76,7 @@ const Email = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

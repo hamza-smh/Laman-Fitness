@@ -3,7 +3,7 @@ import { useUser } from "../../context/UserContext";
 import NavButton from "../../components/nav-btn/nav-button";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import {PredictionGraph} from "../../components/predictionGraph/graph.jsx"
-
+import { getNextSixMonthsAndExactDate } from "../../components/predictionGraph/graph.jsx";
 const Prediction = ({ onContinue }) => {
   const { next, prev,cont } = usePageNavigation();
   const { setUserData, userData } = useUser();
@@ -14,14 +14,14 @@ const Prediction = ({ onContinue }) => {
         We predict you'll gain
       </p>
       <p className="prediction-heading">
-        5 kg of muscle by 23 Nov
+        5 kg of muscle by {getNextSixMonthsAndExactDate().exactDateFourMonthsLater}
       </p>
       
       <PredictionGraph />
 
       
       <p>
-        Great news! Based on Built With Science members like you we predict you'll be able to hit your muscle building goal by 23 Nov 2025 or earlier.
+        Great news!Based on Built With Science members like you we predict you 'll be able to hit your muscle building goal by {getNextSixMonthsAndExactDate().exactDateSixMonthsLaterFull} or earlier.
         Next, tell us a bit more about your habits and behaviours so we can create the best plan for you.
       </p>
       

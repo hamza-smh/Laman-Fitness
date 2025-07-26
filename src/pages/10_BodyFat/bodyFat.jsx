@@ -4,19 +4,22 @@ import { useUser } from "../../context/UserContext";
 import { bodyFatMale,bodyFatFemale } from "./bodyFatData";
 import Card from "../../components/card/card"
 import usePageNavigation from "../../hooks/usePageNavigation";
-
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const BodyFat = () => {
     const [selectedId, setSelectedId] = useState(null);
     const { setUserData, userData } = useUser();
     const [gender, setGender] = useState(userData.gender)
     const { next } = usePageNavigation();
+    const { setPageValid } = useFormValidation();
+
     const handleCardClick = (id) => {
         setSelectedId(id);
         setUserData((prev) => ({
             ...prev,
             bodyFat: id,
         }));
+        setPageValid(10, true);
         next();
     };
     return (

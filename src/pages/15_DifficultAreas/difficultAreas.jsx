@@ -1,13 +1,14 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import { useUser } from "../../context/UserContext";
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
-import { useState } from "react";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const DifficultAreas = () => {
   const { userData,setUserData } = useUser();
   const { next } = usePageNavigation();
-
+  const { setPageValid } = useFormValidation();
   const [selectedAreas, setSelectedAreas] = useState([]);
 
   const areaOptions = [
@@ -46,6 +47,7 @@ const DifficultAreas = () => {
       ...prev,
       areas_to_target: selectedAreas
     }));
+    
     next();
   };
 
@@ -56,6 +58,7 @@ const DifficultAreas = () => {
                ...prev,
                areas_to_target:selectedAreas
            }));
+           setPageValid(15, true);
        }
    }, [selectedAreas]);
 
@@ -75,14 +78,16 @@ const DifficultAreas = () => {
             key={index}
             text={area}
             onClick={() => handleToggleArea(area)}
-            selected={selectedAreas.includes(area)}
+            className={userData.mainFocus === area ? "selected" : ""}
+            selected={userData.areas_to_target?.includes(area)}
           />
         ))}
 
         <SelectButton
           text={"They are all equally difficult"}
           onClick={handleSelectAll}
-          selected={selectedAreas.includes("all")}
+          className={userData.mainFocus === "all" ? "selected" : ""}
+          selected={userData.areas_to_target?.includes("all")}
         />
       </div>
 

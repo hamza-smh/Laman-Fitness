@@ -1,10 +1,11 @@
-.weight-input-container {
+ .weight-input-container {
   width: 100%;
-  padding: 20px;
+  padding-top: 20px;
 }
-
+/*
 .input-group {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   width:100%;
@@ -36,7 +37,6 @@
 .error {
   color: red;
   font-size: 12px;
-  margin-top: 4px;
   display: block;
   padding-left: 15px;
-}
+} */

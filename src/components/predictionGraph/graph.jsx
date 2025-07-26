@@ -1,3 +1,30 @@
+export const getNextSixMonthsAndExactDate = () => {
+  const today = new Date();
+  const monthsList = [];
+
+  for (let i = 0; i < 6; i++) {
+    const nextMonth = new Date(today.getFullYear(), today.getMonth() + i + 1, 1);
+    const monthAbbrev = nextMonth.toLocaleString('default', { month: 'short' }); 
+    monthsList.push(monthAbbrev);
+  }
+  const exactDate = new Date(today.getFullYear(), today.getMonth() + 5, today.getDate());
+  const formattedExactDateFull = exactDate.toDateString(); 
+  
+  const formattedExactDate = exactDate.toLocaleDateString('default', {
+    day: 'numeric',
+    month: 'short'
+  });
+
+
+  return {
+    nextSixMonths: monthsList,
+    exactDateFourMonthsLater: formattedExactDate,
+    exactDateSixMonthsLaterFull: formattedExactDateFull
+  };
+};
+
+console.log(getNextSixMonthsAndExactDate());
+
 export const PredictionGraph = () =>{
     return(
         <div className="recharts-responsive-container" 
@@ -30,7 +57,7 @@ export const PredictionGraph = () =>{
                   <line orientation="bottom" width="365" height="30" x="55" y="270" className="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="55" y1="276" x2="55" y2="270"></line>
                   <text orientation="bottom" width="365" height="30" x="55" y="278" stroke="none" fill="#666" className="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle">
                     <tspan x="55" dy="0.71em">
-                      Jul
+                      {getNextSixMonthsAndExactDate().nextSixMonths[0]}
                     </tspan>
                   </text>
                   </g>
@@ -38,7 +65,7 @@ export const PredictionGraph = () =>{
                   <line orientation="bottom" width="365" height="30" x="55" y="270" className="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="146.9918699186992" y1="276" x2="146.9918699186992" y2="270"></line>
                   <text orientation="bottom" width="365" height="30" x="146.9918699186992" y="278" stroke="none" fill="#666" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle">
                     <tspan x="146.9918699186992" dy="0.71em">
-                      Aug
+                      {getNextSixMonthsAndExactDate().nextSixMonths[1]}
                     </tspan>
                   </text></g>
                   <g class="recharts-layer recharts-cartesian-axis-tick">
@@ -46,7 +73,7 @@ export const PredictionGraph = () =>{
                   </line>
                   <text orientation="bottom" width="365" height="30" x="238.98373983739836" y="278" stroke="none" fill="#666" className="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle">
                   <tspan x="238.98373983739836" dy="0.71em">
-                    Sep
+                    {getNextSixMonthsAndExactDate().nextSixMonths[2]}
                   </tspan>
                   </text>
                   </g>
@@ -55,7 +82,7 @@ export const PredictionGraph = () =>{
                   </line>
                   <text orientation="bottom" width="365" height="30" x="328.0081300813008" y="278" stroke="none" fill="#666" className="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle">
                   <tspan x="328.0081300813008" dy="0.71em">
-                    Oct
+                    {getNextSixMonthsAndExactDate().nextSixMonths[3]}
                   </tspan>
                   </text>
                   </g>
@@ -64,7 +91,7 @@ export const PredictionGraph = () =>{
                   </line>
                   <text orientation="bottom" width="365" height="30" x="420" y="278" stroke="none" fill="#666" className="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle">
                   <tspan x="420" dy="0.71em">
-                  Nov
+                  {getNextSixMonthsAndExactDate().nextSixMonths[4]}
                   </tspan>
                   </text>
                   </g>

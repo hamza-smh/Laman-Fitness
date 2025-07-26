@@ -1,7 +1,10 @@
 import "./layout.css"
+import { useState,useEffect } from "react";
 import { useUser } from "./context/UserContext";
+import { useParams, useNavigate } from "react-router-dom";
 import NavButton from "./components/nav-btn/nav-button"
 import usePageNavigation from "./hooks/usePageNavigation";
+import { useFormValidation } from "./context/FormValidationContext";
 import GettingStarted from "./components/progressBar/gettingStarted.jsx"
 import HabitsAndBehaviour from "./components/progressBar/habitsAndBehavoiur.jsx"
 
@@ -60,10 +63,26 @@ import FollowJeremy from "./pages/51_FollowJeremy/followJeremy";
 import HearAboutUs from "./pages/52_HearAboutUs/hearAboutUs";
 import BusyCheck from "./pages/53_BusyCheck/busyCheck";
 import FocusFirst from "./pages/54_FocusFirst/focusFirst";
+import Consistency from "./pages/14_Consistency/consistency";
+import YourProgress from "./pages/19_YourProgress/yourProgress";
 
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
      const { setUserData, userData } = useUser();
+     const { validationStatus } = useFormValidation();
+     const { index } = useParams();
+     const navigate = useNavigate();
+      const [showProgress, setShowProgress] = useState(false);
+      useEffect(() => {
+          if (page === 19) {
+              setShowProgress(true);
+              const timer = setTimeout(() => {
+                  setShowProgress(false);
+              }, 3000); 
+
+              return () => clearTimeout(timer);
+          }
+      }, [page]);
 
       const screen =
         page === 1  ? <MainFocus /> :
@@ -79,7 +98,7 @@ const MainLayout = () => {
         page === 11 ? <TargetWeight /> :
         page === 12 ? <Verified /> :
         page === 13 ? <BestDescription /> :
-        page === 14 ? <Praise /> :
+        page === 14 ? <Consistency /> :
         page === 15 ? <DifficultAreas /> :
         page === 16 ? <FocusBuilding /> :
         page === 17 ? <Testimonial /> :
@@ -124,18 +143,36 @@ const MainLayout = () => {
         <h1>Not Found</h1>;
 
         console.log("userData",userData)
+        console.log("Form Valid", validationStatus);
 
         const goNext = () => {
+          const currentPage = parseInt(page); 
+          if (!validationStatus[currentPage]) {
+            return;
+          }
           setUserData(prev => ({ ...prev, lastVisitedPage: page }));
           sessionStorage.setItem("lastVisitedPage", page);
           next();
+      
         };
-
+    
         const goPrev = () => {
           setUserData(prev => ({ ...prev, lastVisitedPage: page }));
-          sessionStorage.setItem("lastVisitedPage", page); 
+          sessionStorage.setItem("lastVisitedPage", page);
           prev();
         };
+
+        useEffect(() => {
+            if (!validationStatus || Object.keys(validationStatus).length === 0) return;
+            const currentPage = parseInt(index);
+            for (let i = 2; i < currentPage; i++) {
+                if (!validationStatus[i]) {
+                    navigate(`/page/${i}`);
+                    return;
+                }
+            }
+        }, [index, validationStatus, navigate]);
+
 
         
         return (
@@ -143,7 +180,9 @@ const MainLayout = () => {
              <div className = "header" 
                 style = {
                     {
-                        backgroundColor: page === 6 || page === 9 || page === 12 || page === 14 || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page === 34 || page === 37 || page === 39 || page === 41 || page=== 42 || page === 44 || page === 46 || page === 53 ? "#ADD8E6" : "#FFF"
+                        backgroundColor: page === 6 || page === 9 || page === 12 
+                        || page === 14 && userData.bestDescription !==
+                            "I have some healthy habits but I struggle with consistency" || page === 17 || page === 23 || page === 24 || page === 25 || page === 26 || page === 31 || page === 34 || page === 37 || page === 39 || page === 41 || page === 42 || page === 44 || page === 46 || page === 53 ? "#ADD8E6" : "#FFF"
                     }
                 }
              >
@@ -177,7 +216,8 @@ const MainLayout = () => {
                     </div>
                 )       
                 : 
-                page === 14 ? (
+                page === 14 && userData.bestDescription !==
+                    "I have some healthy habits but I struggle with consistency" ? (
                     <div>
                         <Praise />
                     </div>
@@ -186,6 +226,12 @@ const MainLayout = () => {
                 page === 17 ? (
                     <div>
                         <Testimonial />
+                    </div>
+                )       
+                : 
+                page === 19 && showProgress ? (
+                    <div>
+                        <YourProgress />
                     </div>
                 )       
                 : 
@@ -279,10 +325,34 @@ const MainLayout = () => {
                             {screen}
                         </div>
                         <div className="navBtnHolder">
-                            <NavButton text="Previous" nav={goPrev}/>
-                            <NavButton text="Next"    nav={goNext}/>
+                        {
+                page !== 1 ?
+                  <NavButton text="Previous" nav={goPrev} /> : ""
+              }
+              {
+                page < 54 ?
+                  <NavButton text="Next" nav={goNext} />
+                  :
+                  <button
+                    className="result-button"
+                    onClick={() => navigate('/results')}
+                  >
+                    See My Results
+                  </button>
+              }
+                  <button 
+                    className = "result-button"
+                    onClick={() => {
+                      localStorage.removeItem("userData");
+                      window.location.reload(); 
+                    }}>
+                    Clear
+                  </button>
+                
                         </div>
+                       
                     </div>
+                    
                 )}
                 
         </div>

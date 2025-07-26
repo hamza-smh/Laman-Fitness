@@ -3,17 +3,20 @@ import { useState } from "react";
 import Button from "../../components/button/button"
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const GymExperience =()=>{
     const {userData,setUserData} = useUser();
     const { page, next, prev } = usePageNavigation(); 
     const [level,setLevel]=useState()
+    const { setPageValid } = useFormValidation();
 
     const handleSelect = (exp) => {
         setUserData((prev) => ({
             ...prev,
             gym_experience: exp
         }));
+        setPageValid(18, true);
         next();
         console.log("Gym Experiences:", exp); 
     };
@@ -28,23 +31,22 @@ const GymExperience =()=>{
 
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <SelectButton  
+            <Button  
                 text={
                   <>
                     <strong>Beginner:</strong> I am either starting out in the gym or am just starting to take my training and nutrition seriously
                   </>
                 } 
-                selected={level}
+                className={userData.gym_experience === "beginner" ? "selected" : ""}
                 onClick={() => handleSelect("beginner")}/>
-            <SelectButton 
+            <Button 
                 text={
                     <>
                     <strong>Intermediate:</strong> I know my way around the gym and have worked out consistently at least 3 times a week.
                     </>
                 }  
-                    selected={level===null || level==="intermediate"?"intermediate":"beginner"}
+                    className={userData.gym_experience === "intermediate" ? "selected" : ""}
                     onClick={() => handleSelect("intermediate")}/>
-            
         </div>
 
 

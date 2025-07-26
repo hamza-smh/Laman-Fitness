@@ -4,10 +4,12 @@ import { useUser } from '../../context/UserContext'
 import usePageNavigation from '../../hooks/usePageNavigation'
 import ToggleSwitch from '../../components/toggleSwitch/toggleSwitch'
 import InputField from '../../components/inputField/inputField'
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const Height = () => {
     const { setUserData, userData } = useUser()
     const { next } = usePageNavigation()
+    const { setPageValid } = useFormValidation();
     const [unit, setUnit] = useState('ft')
     const [height, setHeight] = useState({
         feet: '',
@@ -36,8 +38,8 @@ const Height = () => {
             const inches = parseFloat(updated.inches) || 0;
 
             // Validation
-            if (feet < 0 || feet > 9) {
-                newErrors.feet = 'Feet must be between 0 and 9';
+            if (feet < 2 || feet > 8) {
+                newErrors.feet = 'Feet must be between 2 and 8';
             } else {
                 newErrors.feet = '';
             }
@@ -55,13 +57,14 @@ const Height = () => {
                 inches: updated.inches,
                 cm: cm.toFixed(1)
             });
+            
             setErrors(newErrors);
 
         } else if (field === 'cm') {
             const cm = parseFloat(value) || 0;
 
-            if (cm < 50 || cm > 300) {
-                newErrors.cm = 'CM must be between 50 and 300';
+            if (cm < 60 || cm > 255) {
+                newErrors.cm = 'cm must be between 60 and 255';
             } else {
                 newErrors.cm = '';
             }
@@ -83,15 +86,24 @@ const Height = () => {
         const feet = parseFloat(height.feet);
         const inches = parseFloat(height.inches);
         const cm = parseFloat(height.cm);
+         const isFtValid =
+             unit === "ft" &&
+             !isNaN(feet) &&
+             !isNaN(inches) &&
+             errors.feet === '' &&
+             errors.inches === '';
 
-        const isFtValid = unit === "ft" && (!isNaN(feet) || !isNaN(inches));
-        const isCmValid = unit === "cm" && !isNaN(cm);
+         const isCmValid =
+             unit === "cm" &&
+             !isNaN(cm) &&
+             errors.cm === '';
 
-        if (isFtValid || isCmValid) {
+        if (isFtValid || isCmValid ) {
             setUserData(prev => ({
                 ...prev,
                 height
             }));
+            setPageValid(4,true)
         }
     }, [height, unit]);
 
@@ -111,34 +123,43 @@ const Height = () => {
 
                 {unit === "ft" ? (
                     <div className="input-group">
-                        <div className='inputHolder'>
-                            <label>ft</label>
-                            <InputField 
-                                type={"number"} 
-                                value={height.feet} 
-                                handleChange={handleHeightChange("feet")} 
-                            />
+                        <div className="input-col">
+                            <div className='inputHolder'>
+                                <label>ft</label>
+                                <InputField 
+                                    type={"number"} 
+                                    place={height.feet}
+                                    value={height.feet} 
+                                    handleChange={handleHeightChange("feet")} 
+                                />
+                            </div>
                             {errors.feet && <span className="error">{errors.feet}</span>}
                         </div>
-                        <div className='inputHolder' >
-                            <label>in</label>
-                            <InputField
-                                type="number"
-                                value={height.inches}
-                                handleChange={handleHeightChange("inches")}
-                            />
+                        <div className="input-col">
+                            <div className='inputHolder' >
+                                <label>in</label>
+                                <InputField
+                                    type="number"
+                                    value={height.inches}
+                                    place={height.inches}
+                                    handleChange={handleHeightChange("inches")}
+                                />
+                            </div>
                             {errors.inches && <span className="error">{errors.inches}</span>}
                         </div>
                     </div>
                 ) : (
                     <div className="input-group">
-                        <div div className='inputHolderFull' >
-                            <label>cm</label>
-                            <InputField
-                                type={"number"}
-                                value={height.cm}
-                                handleChange={handleHeightChange("cm")}
-                            />
+                        <div className = "input-colFull" >
+                            <div className='inputHolderFull' >
+                                <label>cm</label>
+                                <InputField
+                                    type={"number"}
+                                    value={height.cm}
+                                    place={height.cm}
+                                    handleChange={handleHeightChange("cm")}
+                                />
+                            </div>
                             {errors.cm && <span className="error">{errors.cm}</span>}
                         </div>
                     </div>

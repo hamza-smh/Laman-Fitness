@@ -15,8 +15,18 @@
 .inputHolder{
     display:flex;
     flex-direction: row;
-    width:49%;
+    width:100%;
     margin-top: 20px;
+}
+.input-col{
+    display:flex;
+    flex-direction: column;
+    width:49%
+}
+.input-colFull{
+    display:flex;
+    flex-direction: column;
+    width:100%
 }
 .inputHolderFull{
     display:flex;
@@ -38,4 +48,17 @@
   margin-top: 4px;
   display: block;
   padding-left: 15px;
+}
+
+
+@media (max-width: 500px) {
+  .input-group {
+    flex-direction: column;
+   width:100%
+  }
+
+  .input-col,
+  .input-colFull {
+    width: 100%;
+  }
 }
