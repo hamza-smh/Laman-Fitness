@@ -8,6 +8,8 @@ import cesar from "../../assets/verified/cesar.jpg"
 import katy from "../../assets/verified/katy.jpg"
 import abdullah from "../../assets/verified/abdullah.jpg"
 import tanhee from "../../assets/verified/tahnee.jpg"
+import salma from "../../assets/verified/salma.jpg"
+
 const Verified = () => {
   const { next, prev } = usePageNavigation();
   const { setUserData, userData } = useUser();
@@ -20,10 +22,13 @@ const Verified = () => {
   
   return (
     <div className="verified-container">
-        {userData.overweight ===true? 
+        {  userData.gender === "Female" && userData.mainFocus === "losing weight" ?
         <p className = "verified-subtext"> Our members lose weight at an average rate of 0.7 % of their bodyweight per week. < br / > Any faster than this and you risk losing muscle. </p>
-        :
+        : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
         <p className="verified-subtext">"Depending on your training experience, with the right plan you can expect to gain about 1-3 lbs of muscle per month."</p>
+        : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
+        <p className="verified-subtext">"Our members drop their body fat at an average rate of 1-3% per month while building muscle."</p>
+        :""
         }
     
       <p className="verified-subtext">
@@ -31,23 +36,29 @@ const Verified = () => {
           userData.gender==="Male" ?
           "To put this into perspective, here 's Cesar, who lost 20 pounds in a little over 2 months:"
           :
-          userData.gender === "Female" && userData.overweight ?
+          userData.gender === "Female" && userData.mainFocus === "losing weight" ?
           "To put this into perspective, here's Katy who dropped 8% in body fat while gaining a significant amount of muscle:"
-          : 
+          : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
           "To put this into perspective, here's what 10 lbs of pure muscle gain looks like:"
+          : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
+          "To put this into perspective, here's Built With Science Member Salma, who reached her goal in just 2 months:"
+          :""
         }
         
       </p>
 
-      <div style={{background:"#FFF",width:"400px",height:"350px",padding:"5px",marginTop:"15px"}}>
+      <div style={{background:"#FFF",width:"400px",height:"400px",padding:"2px",marginTop:"15px"}}>
         {
            userData.gender === "Male" ?
            <img src={cesar} alt="cesar" style={{width:"100%",height:"100%"}}/>
-           :
-           userData.gender === "Female" && userData.overweight ?
+          :
+            userData.gender === "Female" && userData.mainFocus === "losing weight" ?
            <img src={katy} alt="katy" style={{width:"100%",height:"100%"}}/>
-           :
+          : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
            <img src={tanhee} alt="tanhee" style={{width:"100%",height:"100%"}}/>
+           : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
+           <img src={salma} alt="salma" style={{width:"100%",height:"100%"}}/>
+           :""
         }
       </div>
 
@@ -56,10 +67,12 @@ const Verified = () => {
           userData.gender==="Male"?
           "Cesar R. - Verified Built With Science User"
           :
-          userData.gender === "Female" && userData.overweight ?
+           userData.gender === "Female" && userData.mainFocus === "losing weight" ?
           "Katy L. - Verified Built With Science User"
-          :
+           : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
           "Tahnee S. - Verified Built With Science User"
+          : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
+          "Salma T. - Verified Built With Science User":""
         }
       </p>
 

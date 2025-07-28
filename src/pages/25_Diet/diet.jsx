@@ -1,20 +1,25 @@
+import "./style.css"
 import { useUser } from '../../context/UserContext'
+import { useParams, useNavigate } from "react-router-dom";
 import usePageNavigation from '../../hooks/usePageNavigation'
 import NavButton from "../../components/nav-btn/nav-button";
 import Rating from '../../components/rating/rating'
-import "./style.css"
+import { useFormValidation } from "../../context/FormValidationContext";
 const Diet = () => {
   const { userData, setUserData } = useUser()
-  const { next, prev } = usePageNavigation();
+  const { next, prev,goNext, goPrev } = usePageNavigation();
+  const { setPageValid } = useFormValidation();
+  const navigate = useNavigate();
 
   const handleSelect = (diet) => {
     setUserData(prev => ({
       ...prev,
       diet
     }))
-    next()
-    console.log('Diet? :', diet)
+    setPageValid(25,true)
+    console.log('Diet? :', diet)    
   }
+
 
   return (
     <div className='blue-wrapper'>
@@ -29,8 +34,8 @@ const Diet = () => {
         <Rating onSelect={handleSelect} rate={userData.diet} />
       </div>
        <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
-        <NavButton text="Previous" nav={prev} />
-        <NavButton text="Next" nav={next} />
+        <NavButton text="Previous" nav={goPrev} />
+        <NavButton text="Next" nav={goNext} />
       </div>
     </div>
   )

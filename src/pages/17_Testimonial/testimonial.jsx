@@ -22,7 +22,7 @@ const Testimonial = () => {
     <div className="verified-container">
 
       
-      <div style={{background:"#FFF",width:"300px",height:"300px",padding:"5px",marginBottom:"15px"}}>
+      <div style={{background:"#FFF",width:"400px",height:"350px",padding:"5px",marginBottom:"15px"}}>
         {
            userData.gender === "Male" ?
            <img src={patrick} alt="patrick" style={{width:"100%",height:"100%"}}/>

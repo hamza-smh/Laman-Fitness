@@ -26,7 +26,7 @@ const NotAlone = () => {
   const bmi = calculateBMI(weight, heightCm);
   
   const isOverweight = userData.gender === "Female" ? bmi >= 24 : bmi >= 25;
-  const message = isOverweight ? "lose weight!" : "to build lean muscle";
+  const message = userData.mainFocus === "build muscle + losing weight" ? "build muscle while losing fat!" :isOverweight ? "lose weight!" : "to build lean muscle";
   
   useEffect(() => {
      setUserData(prev => ({

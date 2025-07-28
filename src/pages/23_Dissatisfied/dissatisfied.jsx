@@ -1,18 +1,21 @@
+import "./style.css"
 import { useUser } from '../../context/UserContext'
 import usePageNavigation from '../../hooks/usePageNavigation'
 import NavButton from "../../components/nav-btn/nav-button";
 import Rating from '../../components/rating/rating'
-import "./style.css"
+import { useFormValidation } from "../../context/FormValidationContext";
 const Dissatisfied = () => {
   const { userData, setUserData } = useUser()
-  const { next, prev } = usePageNavigation();
+  const { next, prev ,goPrev,goNext} = usePageNavigation();
+  const { setPageValid } = useFormValidation();
 
   const handleSelect = dissatisfied => {
     setUserData(prev => ({
       ...prev,
       dissatisfied
     }))
-    next()
+    setPageValid(23, true);
+    goNext()
     console.log('Dissatisfied? :', dissatisfied)
   }
 
@@ -31,8 +34,8 @@ const Dissatisfied = () => {
         <Rating onSelect={handleSelect} rate={userData.dissatisfied} />
       </div>
        <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
-        <NavButton text="Previous" nav={prev} />
-        <NavButton text="Next" nav={next} />
+        <NavButton text="Previous" nav={goPrev} />
+        <NavButton text="Next" nav={goNext} />
       </div>
     </div>
   )

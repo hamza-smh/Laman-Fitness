@@ -78,7 +78,9 @@ const DifficultAreas = () => {
             key={index}
             text={area}
             onClick={() => handleToggleArea(area)}
-            className={userData.mainFocus === area ? "selected" : ""}
+            className = {
+              userData.areas_to_target === area ? "selected" : ""
+            }
             selected={userData.areas_to_target?.includes(area)}
           />
         ))}
@@ -86,7 +88,9 @@ const DifficultAreas = () => {
         <SelectButton
           text={"They are all equally difficult"}
           onClick={handleSelectAll}
-          className={userData.mainFocus === "all" ? "selected" : ""}
+          className = {
+            userData.areas_to_target === "all" ? "selected" : ""
+          }
           selected={userData.areas_to_target?.includes("all")}
         />
       </div>

@@ -1,16 +1,19 @@
 import { useUser } from "../../context/UserContext";
 import Button from "../../components/button/button"
 import usePageNavigation from "../../hooks/usePageNavigation";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const Ashamed =()=>{
     const {userData,setUserData} = useUser();
     const { page, next, prev } = usePageNavigation(); 
+    const { setPageValid } = useFormValidation();
 
     const handleSelect = (ashamed) => {
         setUserData((prev) => ({
             ...prev,
             ashamed: ashamed
         }));
+        setPageValid(22, true);
         next();
         console.log("Insecure? :", ashamed); 
     };
@@ -21,12 +24,10 @@ const Ashamed =()=>{
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button text={"Yes"}  onClick={() => handleSelect("Yes")}/>
-            <Button text={"Sometimes"}  onClick={() => handleSelect("Sometimes")}/>
-            <Button text={"No"}  onClick={() => handleSelect("No")}/>
+            <Button className={userData.ashamed === "Yes" ? "selected" : ""} text={"Yes"}  onClick={() => handleSelect("Yes")}/>
+            <Button className={userData.ashamed === "Sometimes" ? "selected" : ""} text={"Sometimes"}  onClick={() => handleSelect("Sometimes")}/>
+            <Button className={userData.ashamed === "No" ? "selected" : ""} text={"No"}  onClick={() => handleSelect("No")}/>
         </div>
-
-
     </div>
     )
 }

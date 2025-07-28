@@ -3,11 +3,12 @@ import { useUser } from "../../context/UserContext";
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import { useState } from "react";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const PastAttempts = () => {
   const { userData,setUserData } = useUser();
   const { next } = usePageNavigation();
-
+  const { setPageValid } = useFormValidation();
   const [attempts, setAttempts] = useState([]);
 
   const attemptTypes = [
@@ -43,7 +44,7 @@ const PastAttempts = () => {
     }
     setUserData((prev) => ({
       ...prev,
-      areas_to_target: attempts
+      past_attempts: attempts
     }));
     next();
   };
@@ -55,6 +56,7 @@ const PastAttempts = () => {
                ...prev,
                past_attempts: attempts
            }));
+          setPageValid(27, true);
        }
    }, [attempts]);
 
@@ -74,7 +76,8 @@ const PastAttempts = () => {
             key={index}
             text={area}
             onClick={() => handleToggleArea(area)}
-            selected={attempts.includes(area)}
+            className = {userData.past_attempts === area ? "selected" : ""}
+            selected={userData.past_attempts?.includes(area)}
           />
         ))}
 

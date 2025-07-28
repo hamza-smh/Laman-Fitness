@@ -23,7 +23,7 @@ export const getNextSixMonthsAndExactDate = () => {
   };
 };
 
-console.log(getNextSixMonthsAndExactDate());
+// console.log(getNextSixMonthsAndExactDate());
 
 export const PredictionGraph = () =>{
     return(

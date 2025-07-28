@@ -18,32 +18,38 @@ export const bodyFatMale =[
     {
         id:1,
         text: "35% and above",
-        img:above35
+        img:above35,
+        data:35
     },
     {
         id:2,
         text: "Around 30%",
-        img:around30
+        img:around30,
+        data: 30
     },
     {
         id:3,
         text: "Around 25%",
-        img:around25
+        img:around25,
+        data: 25
     },
     {
         id:4,
         text: "Around 20%",
-        img:around20
+        img:around20,
+        data: 20
     },
     {
         id:5,
         text: "Around 15%",
-        img:around15
+        img:around15,
+        data: 15
     },
     {
         id:6,
         text: "Around 12%",
-        img:around12
+        img:around12,
+        data: 12
     },
     
 ]
@@ -51,42 +57,50 @@ export const bodyFatFemale =[
     {
         id:1,
         text: "45% and above",
-        img:female45
+        img:female45,
+        data: 45
     },
     {
         id:2,
         text: "Around 40%",
-        img:female40
+        img:female40,
+        data: 40
     },
     {
         id:3,
         text: "Around 35%",
-        img:female35
+        img:female35,
+        data: 35
     },
     {
         id:4,
         text: "Around 30%",
-        img:female30
+        img:female30,
+        data: 30
     },
     {
         id:5,
         text: "Around 25%",
-        img: female25
+        img: female25,
+        data: 25
     },
     {
         id:6,
         text: "Around 20%",
-        img: female20
+        img: female20,
+        data: 20
     },
     {
         id:7,
         text: "Around 18%",
-        img: female18
+        img: female18,
+        data: 18
     },
     {
         id:8,
         text: "Around 15%",
-        img: female15
+        img: female15,
+        data: 15
     },
     
 ]

@@ -1,17 +1,20 @@
+import "./style.css"
 import { useUser } from '../../context/UserContext'
 import usePageNavigation from '../../hooks/usePageNavigation'
 import NavButton from "../../components/nav-btn/nav-button";
 import Rating from '../../components/rating/rating'
-import "./style.css"
+import { useFormValidation } from "../../context/FormValidationContext";
 const Consistent = () => {
   const { userData, setUserData } = useUser()
-  const { next, prev } = usePageNavigation();
+  const { next, prev,goPrev ,goNext} = usePageNavigation();
+  const { setPageValid } = useFormValidation();
 
   const handleSelect = (consistent) => {
     setUserData(prev => ({
       ...prev,
       consistent
     }))
+    setPageValid(24, true);
     next()
     console.log('Consistent? :', consistent)
   }
@@ -28,9 +31,9 @@ const Consistent = () => {
 
         <Rating onSelect={handleSelect} rate={userData.consistent} />
       </div>
-       <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
-        <NavButton text="Previous" nav={prev} />
-        <NavButton text="Next" nav={next} />
+      <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
+        <NavButton text="Previous" nav={goPrev} />
+        <NavButton text="Next" nav={goNext} />
       </div>
     </div>
   )

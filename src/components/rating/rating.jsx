@@ -1,8 +1,12 @@
 import './styles.css'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 const Rating = ({ onSelect, rate }) => {
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(rate || null);
+
+ useEffect(() => {
+   setSelected(rate || null);
+ }, [rate]);
 
   return (
     <div
