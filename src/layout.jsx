@@ -374,9 +374,9 @@ const MainLayout = () => {
               }
 
                         
-                        <button className="result-button" onClick={()=>handleClear()}>
+                        {/* <button className="result-button" onClick={()=>handleClear()}>
                           Clear
-                        </button>
+                        </button> */}
                         </div>
                     </div>  
                 )}

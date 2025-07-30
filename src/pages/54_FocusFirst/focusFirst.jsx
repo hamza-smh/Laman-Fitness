@@ -1,16 +1,18 @@
 import { useUser } from "../../context/UserContext";
 import Button from "../../components/button/button"
 import usePageNavigation from "../../hooks/usePageNavigation";
-
+import { useFormValidation } from "../../context/FormValidationContext";
 const FocusFirst =()=>{
     const {userData,setUserData} = useUser();
     const { page, next, prev } = usePageNavigation(); 
-
+    const { setPageValid } = useFormValidation();
+    
     const handleSelect = (focus) => {
         setUserData((prev) => ({
             ...prev,
             priority: focus
         }));
+        setPageValid(54, true);
         next();
         console.log(" How did you hear about Jeremy", focus);
     };
@@ -21,9 +23,9 @@ const FocusFirst =()=>{
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button text={"Nutrition"}  onClick={() => handleSelect("Nutrition")}/>
-            <Button text={"Training"}  onClick={() => handleSelect("Training")}/>
-            <Button text={"Building good habits"}  onClick={() => handleSelect("Habits")}/>
+            <Button className={userData.priority === "Nutrition" ? "selected" : ""} text={"Nutrition"}  onClick={() => handleSelect("Nutrition")}/>
+            <Button className={userData.priority === "Training" ? "selected" : ""} text={"Training"}  onClick={() => handleSelect("Training")}/>
+            <Button className={userData.priority === "Habits" ? "selected" : ""} text={"Building good habits"}  onClick={() => handleSelect("Habits")}/>
             
         </div>
 
