@@ -7,6 +7,17 @@ import ToggleSwitch from '../../components/toggleSwitch/toggleSwitch'
 import InputField from '../../components/inputField/inputField'
 import { useFormValidation } from "../../context/FormValidationContext";
 
+export const parseMuscleGainKg = (value) => {
+    if (value === "As much as possible") {
+        return 12;
+    } else if (value === "I'm not sure, whatever is recommended") {
+        return 8;
+    } else {
+        const match = parseFloat(value);
+        return isNaN(match) ? 0 : match;
+    }
+};
+
 const TargetWeight = () => {
     const { setUserData, userData } = useUser()
     const { next } = usePageNavigation()
@@ -20,16 +31,7 @@ const TargetWeight = () => {
         lbs: '',
         kg: '',
     });
-   const parseMuscleGainKg = (value) => {
-       if (value === "As much as possible") {
-           return 15;
-       } else if (value === "I'm not sure, whatever is recommended") {
-           return 8;
-       } else {
-           const match = parseFloat(value);
-           return isNaN(match) ? 0 : match;
-       }
-   };
+   
 
    const handleWeightChange = (field) => (e) => {
        const value = e.target.value;

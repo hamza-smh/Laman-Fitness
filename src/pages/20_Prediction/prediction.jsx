@@ -1,11 +1,12 @@
 import "./style.css";
 import { useUser } from "../../context/UserContext";
-import NavButton from "../../components/nav-btn/nav-button";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import {PredictionGraph} from "../../components/predictionGraph/graphGain.jsx"
 import { PredictionGraphLoss } from "../../components/predictionGraph/graphLoss"; 
 import { getNextSixMonthsAndExactDate } from "../../components/predictionGraph/graphGain.jsx";
 import { getNextMonthsAndExactDate } from "../../components/predictionGraph/graphLoss";
+import { parseMuscleGainKg } from "../11_TargetWeight/targetWeight";
+
 const Prediction = ({ onContinue }) => {
   const { next, prev,cont } = usePageNavigation();
   const { setUserData, userData } = useUser();
@@ -27,29 +28,30 @@ const Prediction = ({ onContinue }) => {
           userData.mainFocus==="losing weight" || userData.mainFocus==="build muscle + losing weight"?
           `${weightLoss}% body fat by ${getNextMonthsAndExactDate().exactDateOneMonthsLater}`
           :
-          `5kg of muscle by ${getNextSixMonthsAndExactDate().exactDateFourMonthsLater}`
+          `${parseMuscleGainKg(userData.muscleGain)}kg of muscle by ${getNextSixMonthsAndExactDate().exactDateFourMonthsLater}`
         }
       </p>
-      
-      {
-        userData.mainFocus === "losing weight" ?
-        <PredictionGraphLoss />
-        :
-        userData.mainFocus === "building muscle" ?
-        <PredictionGraph />
-        :
-        userData.mainFocus === "build muscle + losing weight"?
-        <PredictionGraphLoss />
-        :""
-      }
-
+      <div className="graphHolder">
+            {
+              userData.mainFocus === "losing weight" ?
+              <PredictionGraphLoss />
+              :
+              userData.mainFocus === "building muscle" ?
+              <PredictionGraph gain={parseMuscleGainKg(userData.muscleGain)} userData={userData}/>
+              :
+              userData.mainFocus === "build muscle + losing weight"?
+              <PredictionGraphLoss />
+              :""
+            }
+      </div>      
       
       <p>
-        Great news! Based on Built With Science members like you we predict you 'll be able to hit your muscle building goal by {" "}
+        Great news! Based on Built With Science members like you we predict you 'll be able to hit your { userData.mainFocus==="losing weight"?"fat losing":"muscle building"} goal by {" "}
         {userData.mainFocus === "losing weight"?
         getNextMonthsAndExactDate().exactDateOneMonthsLater
         :
         getNextSixMonthsAndExactDate().exactDateFourMonthsLater} or earlier.
+        <br /><br />
         Next, tell us a bit more about your habits and behaviours so we can create the best plan for you.
       </p>
       

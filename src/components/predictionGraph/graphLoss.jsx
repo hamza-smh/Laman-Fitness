@@ -1,5 +1,8 @@
 import { bodyFatFemale,bodyFatMale } from "../../pages/10_BodyFat/bodyFatData";
 import { useUser } from "../../context/UserContext";
+import React, { useEffect, useRef } from "react";
+import { parseMuscleGainKg } from "../../pages/11_TargetWeight/targetWeight";
+import "./style.css"
 export const getNextMonthsAndExactDate = () => {
   const today = new Date();
   const monthsList = [];
@@ -55,11 +58,23 @@ export const PredictionGraphLoss = () => {
   const { setUserData, userData } = useUser();
   const weightLoss = ((userData.weight.kg - userData.idealWeight.kg) / userData.weight.kg * 100).toFixed(0)
   const progression = getBodyFatProgression( userData, weightLoss);
-  
+  const pathRef = useRef(null);
+  useEffect(() => {
+    const path = pathRef.current;
+    if (path) {
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      path.getBoundingClientRect(); // Force layout
+      path.style.transition = "stroke-dashoffset 2s ease-out";
+      path.style.strokeDashoffset = "0";
+    }
+  }, []);
+
   return (
-    <div className="recharts-responsive-container" width="450" height="300" style={{width: "90%", height: "300px", minWidth: "0px"}}>
-      <div className="recharts-wrapper" role="region" style={{position: "relative", cursor: "default", width: "450px", height: "300px"}}>
-        <svg className="recharts-surface" width="450" height="300" viewBox="0 0 450 300">
+    <div className = "recharts-responsive-container resp-chart" >
+      <div div className = "recharts-wrapper" role = "region" style = {{position: "relative",cursor: "default",width: "100%",height: "100%"}}>
+        <svg className = "recharts-surface" width = "100%" height = "100%" viewBox = "0 0 450 300" >
           <title>
           </title>
           <desc>
@@ -71,12 +86,20 @@ export const PredictionGraphLoss = () => {
             </clipPath>
           </defs>
           <defs>
-            <linearGradient id="colorWeight" x1="0" y1="0" x2="0" y2="1">
+            {/* <linearGradient id="colorWeight" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stop-color="#406EDF" stop-opacity="0.8">
               </stop>
               <stop offset="95%" stop-color="#406EDF" stop-opacity="0">
               </stop>
-            </linearGradient>
+            </linearGradient> */}
+            <linearGradient id="colorWeight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#406EDF" stopOpacity="0.8">
+                <animate attributeName="stop-opacity" from="0" to="0.8" dur="2s" fill="freeze" />
+              </stop>
+              <stop offset="100%" stopColor="#406EDF" stopOpacity="0">
+                <animate attributeName="stop-opacity" from="0" to="0" dur="2s" fill="freeze" />
+              </stop>
+              </linearGradient>
           </defs>
           <g className="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis">
             <line orientation="bottom" width="365" height="30" x="55" y="270" className="recharts-cartesian-axis-line" stroke="#666" fill="none" x1="55" y1="270" x2="420" y2="270">
@@ -169,8 +192,15 @@ export const PredictionGraphLoss = () => {
                 <g className="recharts-layer">
                   <path stroke-width="4" fill-opacity="1" fill="url(#colorWeight)" width="365" height="260" stroke="none" className="recharts-curve recharts-area-area" d="M55,10L420,270L420,270L55,270Z">
                   </path>
-                  <path stroke="#406EDF" stroke-width="4" fill-opacity="1" fill="none" width="365" height="260" className="recharts-curve recharts-area-curve" d="M55,10L420,270">
-                  </path>
+                  {/* <path stroke="#406EDF" stroke-width="4" fill-opacity="1" fill="none" width="365" height="260" className="recharts-curve recharts-area-curve" d="M55,10L420,270">
+                  </path> */}
+                   < path
+                    ref={pathRef}
+                    d = "M55,10L420,270"
+                    fill="none"
+                    stroke="#406EDF"
+                    strokeWidth="4"
+                  />
                 </g>
               </g>
             </g>

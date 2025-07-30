@@ -31,7 +31,7 @@ const LiquidLoader = ()=>{
     }}>
     <div className="battery">
       <div className="liquid">
-          <div style={{transform:"rotate(-90deg)",position:"absolute",top:"150px",color:"#fff",right:"-100%",fontSize:"25px"}}>
+          <div className="calculate" >
             Calculating......
           </div>
         </div>

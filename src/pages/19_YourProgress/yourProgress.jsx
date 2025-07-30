@@ -15,8 +15,8 @@ const YourProgress = ({ onContinue }) => {
         Build muscle faster with Built With Science
         than vs.trying on your own
       </p>
-      <div style={{display:"flex",textAlign:"center",justifyContent:"center"}}>
-      <img src={progressChart} style={{width:"350px",height:"350px"}} alt=""/>
+      <div classname = "progress-image" >
+        <img src={progressChart} alt="" className="progressImg"/>
       </div>
       <div style={{position:"relative"}}>
         <LiquidLoader />

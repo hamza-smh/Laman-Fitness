@@ -38,6 +38,8 @@ const Verified = () => {
           "To put this into perspective, here 's Cesar, who lost 20 pounds in a little over 2 months:"
           : userData.gender === "Male" && userData.mainFocus === "building muscle" ?
           "To put this into perspective, here's what 16 lbs of pure muscle gain looks like:"
+          : userData.gender === "Male" && userData.mainFocus === "build muscle + losing weight" ?
+          "To put this into perspective, here 's Cesar, who lost 20 pounds in a little over 2 months:"
           :
           userData.gender === "Female" && userData.mainFocus === "losing weight" ?
           "To put this into perspective, here's Katy who dropped 8% in body fat while gaining a significant amount of muscle:"
@@ -50,13 +52,16 @@ const Verified = () => {
         
       </p>
 
-      <div className="verifyBlue" style={{}}>
+      <div className="verifyBlue">
         {
            userData.gender === "Male" && userData.mainFocus === "losing weight" ?
            <img src={cesar} alt="cesar" style={{width:"100%",height:"100%"}}/>
           : userData.gender === "Male" && userData.mainFocus === "building muscle" ?
            <img src={abdullah} alt="abdullah" style={{width:"100%",height:"100%"}}/>
-          :
+           : userData.gender === "Male" && userData.mainFocus === "build muscle + losing weight" ?
+           <img src={cesar} alt="cesar" style={{width:"100%",height:"100%"}}/>
+           
+           :
 
             userData.gender === "Female" && userData.mainFocus === "losing weight" ?
            <img src={katy} alt="katy" style={{width:"100%",height:"100%"}}/>
@@ -70,10 +75,11 @@ const Verified = () => {
 
        <p className="verified-subtext my15">
         {
-          userData.gender === "Male" && userData.mainFocus === "losing weight" ?
-          "Cesar R. - Verified Built With Science User"
-          :userData.gender === "Male" && userData.mainFocus === "building muscle" ?
+          userData.gender === "Male" && userData.mainFocus === "building muscle" ?
           "Abdullah K. - Verified Built With Science User"
+          :
+          userData.gender === "Male" && (userData.mainFocus === "losing weight" || userData.mainFocus === "build muscle + losing weight") ?
+            "Cesar R. - Verified Built With Science User"
 
           : userData.gender === "Female" && userData.mainFocus === "losing weight" ?
           "Katy L. - Verified Built With Science User"

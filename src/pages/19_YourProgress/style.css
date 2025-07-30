@@ -30,8 +30,14 @@
   max-width: 350px;
   height: auto;
   margin-bottom: 30px;
+  display: flex;
+  text-align: center;
+  justify-content: center
 }
-
+.progressImg{
+  width:350px;
+  height:350px
+}
 .cont-button {
   background-color: #ffffff;
   border: 2px solid transparent;
@@ -81,5 +87,10 @@
 
   .prediction-subtext {
     font-size: 14px;
+  }
+  
+  .progressImg{
+    width:250px;
+    height:250px
   }
 }

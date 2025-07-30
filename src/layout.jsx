@@ -83,7 +83,7 @@ const MainLayout = () => {
       setShowProgress(true)
       const timer = setTimeout(() => {
         setShowProgress(false)
-      }, 3000)
+      }, 2000)
 
       return () => clearTimeout(timer)
     }
@@ -320,7 +320,7 @@ const MainLayout = () => {
           <div>
             <Testimonial />
           </div>
-        ) : page === 19 && showProgress && userData.lastVisitedPage === 18 ? (
+         ) : page === 19 && showProgress && userData.lastVisitedPage === 18 ? (
           <div>
             <YourProgress />
           </div>
