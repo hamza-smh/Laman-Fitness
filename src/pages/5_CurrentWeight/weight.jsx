@@ -73,7 +73,7 @@ const Weight = () => {
             }));
             setPageValid(5, true)
             } else {
-                setPageValid(5, false); 
+            setPageValid(5, false); 
         }
     }, [weight, unit]);
 

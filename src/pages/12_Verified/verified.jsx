@@ -22,19 +22,22 @@ const Verified = () => {
   
   return (
     <div className="verified-container">
-        {  userData.gender === "Female" && userData.mainFocus === "losing weight" ?
+        {  
+         userData.mainFocus === "losing weight" ?
         <p className = "verified-subtext"> Our members lose weight at an average rate of 0.7 % of their bodyweight per week. < br / > Any faster than this and you risk losing muscle. </p>
-        : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
+        : userData.mainFocus === "building muscle" ?
         <p className="verified-subtext">"Depending on your training experience, with the right plan you can expect to gain about 1-3 lbs of muscle per month."</p>
-        : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
+        : userData.mainFocus === "build muscle + losing weight" ?
         <p className="verified-subtext">"Our members drop their body fat at an average rate of 1-3% per month while building muscle."</p>
         :""
         }
     
       <p className="verified-subtext">
         {
-          userData.gender==="Male" ?
+          userData.gender === "Male" && userData.mainFocus === "losing weight" ?
           "To put this into perspective, here 's Cesar, who lost 20 pounds in a little over 2 months:"
+          : userData.gender === "Male" && userData.mainFocus === "building muscle" ?
+          "To put this into perspective, here's what 16 lbs of pure muscle gain looks like:"
           :
           userData.gender === "Female" && userData.mainFocus === "losing weight" ?
           "To put this into perspective, here's Katy who dropped 8% in body fat while gaining a significant amount of muscle:"
@@ -47,11 +50,14 @@ const Verified = () => {
         
       </p>
 
-      <div style={{background:"#FFF",width:"400px",height:"400px",padding:"2px",marginTop:"15px"}}>
+      <div className="verifyBlue" style={{}}>
         {
-           userData.gender === "Male" ?
+           userData.gender === "Male" && userData.mainFocus === "losing weight" ?
            <img src={cesar} alt="cesar" style={{width:"100%",height:"100%"}}/>
+          : userData.gender === "Male" && userData.mainFocus === "building muscle" ?
+           <img src={abdullah} alt="abdullah" style={{width:"100%",height:"100%"}}/>
           :
+
             userData.gender === "Female" && userData.mainFocus === "losing weight" ?
            <img src={katy} alt="katy" style={{width:"100%",height:"100%"}}/>
           : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
@@ -64,10 +70,12 @@ const Verified = () => {
 
        <p className="verified-subtext my15">
         {
-          userData.gender==="Male"?
+          userData.gender === "Male" && userData.mainFocus === "losing weight" ?
           "Cesar R. - Verified Built With Science User"
-          :
-           userData.gender === "Female" && userData.mainFocus === "losing weight" ?
+          :userData.gender === "Male" && userData.mainFocus === "building muscle" ?
+          "Abdullah K. - Verified Built With Science User"
+
+          : userData.gender === "Female" && userData.mainFocus === "losing weight" ?
           "Katy L. - Verified Built With Science User"
            : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
           "Tahnee S. - Verified Built With Science User"

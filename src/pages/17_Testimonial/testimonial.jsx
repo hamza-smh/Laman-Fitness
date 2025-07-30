@@ -22,7 +22,7 @@ const Testimonial = () => {
     <div className="verified-container">
 
       
-      <div style={{background:"#FFF",width:"400px",height:"350px",padding:"5px",marginBottom:"15px"}}>
+      <div className="verifyBlue">
         {
            userData.gender === "Male" ?
            <img src={patrick} alt="patrick" style={{width:"100%",height:"100%"}}/>
@@ -35,7 +35,7 @@ const Testimonial = () => {
       </div>
 
 
-      <p className="verified-subtext">
+      <p className="verified-subtext" style={{marginTop:"15px"}}>
         {
           userData.gender==="Male"?
           "“I've always struggled with stubborn fat but also a stubborn chest that I had a really hard time growing. After joining Built With Science I realized all the mistakes I was making. Not only did I lose the fat, but my chest filled out and is now one of my strongest muscle groups!”"

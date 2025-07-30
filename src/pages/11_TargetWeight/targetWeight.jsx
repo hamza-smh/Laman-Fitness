@@ -20,7 +20,16 @@ const TargetWeight = () => {
         lbs: '',
         kg: '',
     });
-
+   const parseMuscleGainKg = (value) => {
+       if (value === "As much as possible") {
+           return 15;
+       } else if (value === "I'm not sure, whatever is recommended") {
+           return 8;
+       } else {
+           const match = parseFloat(value);
+           return isNaN(match) ? 0 : match;
+       }
+   };
 
    const handleWeightChange = (field) => (e) => {
        const value = e.target.value;
@@ -75,6 +84,13 @@ const TargetWeight = () => {
         const kg = parseFloat(idealWeight.kg);
         const isLbsValid = unit === "lbs" && !isNaN(lbs) && errors.lbs === '';
         const isKgValid = unit === "kg" && !isNaN(kg) && errors.kg === '';
+        const gainKg = parseMuscleGainKg(userData.muscleGain);
+        const totalKg = parseFloat(userData?.weight?.kg) + gainKg;
+        const lbsValue = (totalKg * 2.20462).toFixed(1);
+
+        console.log("rr", totalKg); 
+
+        console.log("ss",gainKg)
 
         if (userData.overweight) {
             if (isLbsValid || isKgValid) {
@@ -87,13 +103,22 @@ const TargetWeight = () => {
                 setPageValid(11, false);
             }
         } else {
-            if (userData.muscleGain && userData.muscleGain !== '') {
+            if (userData.muscleGain) {
+                setUserData(prev => ({
+                    ...prev,
+                    idealWeight: {
+                        lbs: lbsValue,
+                        kg: totalKg
+                    }
+                }));
                 setPageValid(11, true);
-            } else {
+            }
+             else {
                 setPageValid(11, false);
             }
         }
     }, [idealWeight, unit, userData.muscleGain, userData.overweight, errors]);
+
 
 
     return (
@@ -175,7 +200,7 @@ const TargetWeight = () => {
                             <Button
                               text="10kg"
                               onClick={() => handleSelect("10kg")}
-                              className={userData.muscleGain === "7.5kg" ? "selected" : ""}
+                              className={userData.muscleGain === "10kg" ? "selected" : ""}
                             />
                             <Button
                               text="As much as possible"
@@ -183,9 +208,9 @@ const TargetWeight = () => {
                               className={userData.muscleGain === "As much as possible" ? "selected" : ""}
                             />
                             <Button
-                              text="I'm not sure, wwhatever is recommended"
-                              onClick={() => handleSelect("I'm not sure, wwhatever is recommended")}
-                              className={userData.muscleGain === "I'm not sure, wwhatever is recommended" ? "selected" : ""}
+                              text="I'm not sure, whatever is recommended"
+                              onClick={() => handleSelect("I'm not sure, whatever is recommended")}
+                              className={userData.muscleGain === "I'm not sure, whatever is recommended" ? "selected" : ""}
                             />
                         </div>
 
