@@ -1,19 +1,25 @@
 import "./style.css";
+import { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import NavButton from "../../components/nav-btn/nav-button";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import jesse from "../../assets/verified/jesse.jpg"
-import katy from "../../assets/verified/katy.jpg"
+import ligia from "../../assets/verified/ligia.jpg"
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const Verified2 = () => {
   const { next, prev } = usePageNavigation();
   const { setUserData, userData } = useUser();
+  const { setPageValid } = useFormValidation();
+
+   useEffect(() => {
+     setPageValid(39, true);
+   }, []);
 
   return (
     <div className="verified-container">
       <p className="verified-subtext">
-        Great!That 's more than enough. We use science to get you incredible results regardless of what equipment you do or don'
-        t have.
+        Great!That 's more than enough. We use science to get you incredible results regardless of what equipment you do or don't have.
       </p>
 
       <div style={{background:"#FFF",width:"350px",height:"350px",padding:"5px",marginTop:"15px"}}>
@@ -22,7 +28,7 @@ const Verified2 = () => {
            <img src={jesse} alt="jesse" style={{width:"100%",height:"100%"}}/>
            :
            userData.gender === "Female" ?
-           <img src={katy} alt="katy" style={{width:"100%",height:"100%"}}/>
+           <img src={ligia} alt="ligia" style={{width:"100%",height:"100%"}}/>
           :""
         }
       </div>
@@ -33,7 +39,7 @@ const Verified2 = () => {
           "Jesse K. - Verified Built With Science User"
           :
           userData.gender === "Female" ?
-          "Katy L. - Verified Built With Science User"
+          "Ligia R. - Verified Built With Science User"
           :""
         }
       </p>

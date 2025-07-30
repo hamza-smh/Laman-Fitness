@@ -3,11 +3,11 @@ import { useUser } from "../../context/UserContext";
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import { useState } from "react";
-
+import { useFormValidation } from "../../context/FormValidationContext";
 const NutritionHabits = () => {
   const { userData,setUserData } = useUser();
   const { next } = usePageNavigation();
-
+  const { setPageValid } = useFormValidation();
   const [habits, setSelectedAreas] = useState([]);
 
   const areaOptions = [
@@ -34,18 +34,6 @@ const NutritionHabits = () => {
     setSelectedAreas(["none"]);
   };
 
-  const handleNext = () => {
-    if (habits.length === 0) {
-      alert("Please select at least one option.");
-      return;
-    }
-
-    setUserData((prev) => ({
-      ...prev,
-      past_injuries: habits
-    }));
-    next();
-  };
 
    useEffect(() => {
 
@@ -54,6 +42,7 @@ const NutritionHabits = () => {
                ...prev,
                nutrition_habits: habits
            }));
+           setPageValid(47, true);
        }
    }, [habits]);
 

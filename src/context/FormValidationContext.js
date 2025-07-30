@@ -52,6 +52,12 @@ export const FormValidationProvider = ({ children }) => {
       return updated;
     });
   };
+  const resetValidationStatus = () => {
+    for (let i = 1; i <= 54; i++) { 
+      setPageValid(i,false);
+    }
+  };
+
 
   // Optional: Sync state with localStorage on app load
   useEffect(() => {
@@ -67,7 +73,7 @@ export const FormValidationProvider = ({ children }) => {
   }, []);
 
   return (
-    <FormValidationContext.Provider value={{ validationStatus, setPageValid }}>
+    <FormValidationContext.Provider value = {{validationStatus,setPageValid,resetValidationStatus}}>
       {children}
     </FormValidationContext.Provider>
   );

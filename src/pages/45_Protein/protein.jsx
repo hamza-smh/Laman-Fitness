@@ -1,16 +1,18 @@
 import { useUser } from "../../context/UserContext";
 import Button from "../../components/button/button"
 import usePageNavigation from "../../hooks/usePageNavigation";
-
+import { useFormValidation } from "../../context/FormValidationContext";
 const Protein =()=>{
     const {userData,setUserData} = useUser();
     const { page, next, prev } = usePageNavigation(); 
+    const { setPageValid } = useFormValidation();
 
     const handleSelect = (protein) => {
         setUserData((prev) => ({
             ...prev,
             protein: protein
         }));
+        setPageValid(45, true);
         next();
         console.log("Selected main focus:", protein);
     };
@@ -23,10 +25,10 @@ const Protein =()=>{
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button text={"I have no idea, I've never kept track"}  onClick={() => handleSelect("no idea")}/>
-            <Button text={"I'm definitely eating more than that"}  onClick={() => handleSelect("eating more")}/>
-            <Button text={"I'm definitely eating less than that"}  onClick={() => handleSelect("eating less")}/>
-            <Button text={"I'm pretty close to that target everyday"}  onClick={() => handleSelect("pretty close")}/>
+            <Button className={userData.protein === "no idea" ? "selected" : ""} text={"I have no idea, I've never kept track"}  onClick={() => handleSelect("no idea")}/>
+            <Button className={userData.protein === "eating more" ? "selected" : ""} text={"I'm definitely eating more than that"}  onClick={() => handleSelect("eating more")}/>
+            <Button className={userData.protein === "eating less" ? "selected" : ""} text={"I'm definitely eating less than that"}  onClick={() => handleSelect("eating less")}/>
+            <Button className={userData.protein === "pretty close" ? "selected" : ""} text={"I'm pretty close to that target everyday"}  onClick={() => handleSelect("pretty close")}/>
         </div>
 
 

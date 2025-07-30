@@ -50,18 +50,9 @@ const UnsustainableDiets = () => {
 //   // Do nothing if diet is 4 or 5 (just let user stay on page 26)
 // }, [userData.diet, userData.lastVisitedPage,navigate]);
 
-useEffect(() => {
-  console.log("DIET VALUE:", userData.diet);
-  console.log("LAST VISITED PAGE:", userData.lastPage);
-
-  if (userData.diet !== 1 && userData.diet !== 2 && userData.diet !== 3 && userData.lastPage === 25) {
-    setPageValid(27, true);
-    goNext();
-  } else if (userData.diet !== 1 && userData.diet !== 2 && userData.diet !== 3 && userData.lastPage === 27) {
-    goPrev();
-  }
-}, [userData.diet, userData.lastPage]);
-
+    useEffect(() => {
+      setPageValid(26, true);
+    }, []);
 
 
   return (

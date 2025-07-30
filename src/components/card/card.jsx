@@ -1,5 +1,6 @@
 import "./style.css"
 const Card = ({ img, text,id, isSelected, onSelect }) => {
+  console.log("ss",isSelected)
   return (
     <div className="card-item">
        <button className = {`card-button ${isSelected ? "selected" : ""}`} 

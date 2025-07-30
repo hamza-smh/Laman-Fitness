@@ -50,7 +50,6 @@ const PastAttempts = () => {
   };
 
    useEffect(() => {
-
        if (attempts.length > 0) {
            setUserData(prev => ({
                ...prev,

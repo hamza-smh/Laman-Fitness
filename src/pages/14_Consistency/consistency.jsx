@@ -13,7 +13,7 @@ const Consistency =()=>{
             ...prev,
             consistency_issue: desc
         }));
-        setPageValid(13, true);
+        setPageValid(14, true);
         next();
         console.log("Reason for non consistency", desc);
     };

@@ -1,12 +1,19 @@
 import "./style.css";
+import { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import NavButton from "../../components/nav-btn/nav-button";
 import usePageNavigation from "../../hooks/usePageNavigation";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 
 const AlmostReady = () => {
   const { next, prev } = usePageNavigation();
   const { setUserData, userData } = useUser();
+  const { setPageValid } = useFormValidation();
+
+  useEffect(() => {
+    setPageValid(42, true);
+  }, []);
 
   return (
     <div className="not-alone-container">

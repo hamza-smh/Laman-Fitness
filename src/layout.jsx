@@ -7,7 +7,7 @@ import usePageNavigation from "./hooks/usePageNavigation";
 import { useFormValidation } from "./context/FormValidationContext";
 import GettingStarted from "./components/progressBar/gettingStarted.jsx"
 import HabitsAndBehaviour from "./components/progressBar/habitsAndBehavoiur.jsx"
-
+import PageGuard from "./components/pageGuard/pageGuard";
 import MainFocus from "./pages/1_MainFocus/mainFocus"
 import Gender from "./pages/2_Gender/gender"
 import Age from "./pages/3_Age/age";
@@ -44,7 +44,7 @@ import Active from "./pages/32_Active/active";
 import Comfortable from "./pages/33_Comfortable/comfortable";
 import PerfectYourForm from "./pages/34_PerfectYourForm/perfectYourForm";
 import ExcerciseFrequency from "./pages/35_ExcerciseFrequency/excerciseFrequency";
-import WorkoutTime from "./pages/35_WorkoutTime/workoutTime";
+import WorkoutTime from "./pages/36_WorkoutTime/workoutTime";
 import WorkoutVideo from "./pages/37_WorkoutVideo/workoutVideo";
 import Equipment from "./pages/38_Equipment/equipment";
 import Verified2 from "./pages/39_Verified2/verified";
@@ -69,9 +69,13 @@ import YourProgress from "./pages/19_YourProgress/yourProgress";
 const MainLayout = () => {
      const { page, next, prev } = usePageNavigation(); 
      const { setUserData, userData } = useUser();
-     const { validationStatus } = useFormValidation();
+    const { setPageValid,validationStatus,resetValidationStatus } = useFormValidation();
+// const [validationStatus, setValidationStatus] = useState(() => {
+//     return JSON.parse(localStorage.getItem("validationStatus") || "{}");
+// });
      const { index } = useParams();
      const navigate = useNavigate();
+
       const [showProgress, setShowProgress] = useState(false);
       useEffect(() => {
           if (page === 19) {
@@ -83,6 +87,23 @@ const MainLayout = () => {
               return () => clearTimeout(timer);
           }
       }, [page]);
+
+      useEffect(() => {
+          if (
+            page === 26 &&
+            userData?.diet !== undefined &&
+            userData.diet !== 4 &&
+            userData.diet !== 5
+          ) {
+            setPageValid(26, true);
+            userData.lastVisitedPage===25?
+            next()
+            :
+            navigate('/page/25')
+          }
+        }, [userData, page]);
+
+
 
       const screen =
         page === 1  ? <MainFocus /> :
@@ -174,9 +195,20 @@ const MainLayout = () => {
         }, [index, validationStatus, navigate]);
 
 
-        
+        const handleClear = () => {
+            localStorage.removeItem("userData");
+            resetValidationStatus(); // sets all to false and persists
+            window.location.reload();
+        };
+
+
+        useEffect(() => {
+            localStorage.setItem("validationStatus", JSON.stringify(validationStatus));
+        }, [validationStatus]);
+
         return (
-         < div className = "container" >
+        <PageGuard pageNumber={page}>
+            <div className = "container" >
              <div className = "header" 
                 style = {
                     {
@@ -229,7 +261,7 @@ const MainLayout = () => {
                     </div>
                 )       
                 : 
-                page === 19 && showProgress ? (
+                page === 19 && showProgress && userData.lastVisitedPage===18 ? (
                     <div>
                         <YourProgress />
                     </div>
@@ -259,7 +291,7 @@ const MainLayout = () => {
                     </div>
                 )       
                 : 
-                page === 26 ? (
+                page === 26? (
                     <div>
                         <UnsustainableDiets />
                     </div>
@@ -340,22 +372,17 @@ const MainLayout = () => {
                     See My Results
                   </button>
               }
-                  <button 
-                    className = "result-button"
-                    onClick={() => {
-                      localStorage.removeItem("userData");
-                      window.location.reload(); 
-                    }}>
-                    Clear
-                  </button>
-                
+
+                        
+                        <button className="result-button" onClick={()=>handleClear()}>
+                          Clear
+                        </button>
                         </div>
-                       
-                    </div>
-                    
+                    </div>  
                 )}
                 
-        </div>
+            </div>
+        </PageGuard>
     )
 }
 export default MainLayout

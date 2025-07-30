@@ -15,6 +15,7 @@ const BodyType = () => {
     const { next } = usePageNavigation();
     const handleCardClick = (id) => {
         setSelectedId(id);
+        console.log("sad",selectedId)
         setUserData((prev) => ({
             ...prev,
             currentBodyType: id,
@@ -48,7 +49,7 @@ const BodyType = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
-                                isSelected={selectedId === type.id}
+                                isSelected={userData.currentBodyType === type.id}
                                 onSelect={handleCardClick}
                             />
                         ))
@@ -59,7 +60,7 @@ const BodyType = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
-                                isSelected={selectedId === type.id}
+                                isSelected={userData.currentBodyType === type.id}
                                 onSelect={handleCardClick}
                             />
                         ))

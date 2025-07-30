@@ -1,16 +1,20 @@
 import { useUser } from "../../context/UserContext";
 import Button from "../../components/button/button"
 import usePageNavigation from "../../hooks/usePageNavigation";
+import { useFormValidation } from "../../context/FormValidationContext";
 
 const ExcerciseFrequency =()=>{
     const {userData,setUserData} = useUser();
     const { page, next, prev } = usePageNavigation(); 
+    const { setPageValid } = useFormValidation();
+
 
     const handleSelect = (freq) => {
         setUserData((prev) => ({
             ...prev,
             excercise_freq: freq
         }));
+        setPageValid(35, true); 
         next();
         console.log("Excercise Frequency:", freq);
     };
@@ -24,10 +28,10 @@ const ExcerciseFrequency =()=>{
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button text={"3 days per week"}  onClick={() => handleSelect("3 days per week")}/>
-            <Button text={"4 days per week"}  onClick={() => handleSelect("4 days per week")}/>
-            <Button text={"5 days per week"}  onClick={() => handleSelect("5 days per week")}/>
-            <Button text={"As many days as will get me the best results"}  onClick={() => handleSelect("As many as I get")}/>
+            <Button className={userData.excercise_freq === "3 days per week" ? "selected" : ""} text={"3 days per week"}  onClick={() => handleSelect("3 days per week")}/>
+            <Button className={userData.excercise_freq === "4 days per week" ? "selected" : ""} text={"4 days per week"}  onClick={() => handleSelect("4 days per week")}/>
+            <Button className={userData.excercise_freq === "5 days per week" ? "selected" : ""} text={"5 days per week"}  onClick={() => handleSelect("5 days per week")}/>
+            <Button className={userData.excercise_freq === "As many as I get" ? "selected" : ""} text={"As many days as will get me the best results"}  onClick={() => handleSelect("As many as I get")}/>
         </div>
 
 

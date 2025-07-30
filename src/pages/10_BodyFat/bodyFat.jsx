@@ -47,7 +47,7 @@ const BodyFat = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
-                                isSelected={selectedId === type.id}
+                                isSelected={userData.bodyFat === type.id}
                                 onSelect={handleCardClick}
                             />
                         ))
@@ -58,7 +58,7 @@ const BodyFat = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
-                                isSelected={selectedId === type.id}
+                                isSelected={userData.bodyFat === type.id}
                                 onSelect={handleCardClick}
                             />
                         ))

@@ -3,10 +3,13 @@ import { useUser } from "../../context/UserContext";
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import { useState } from "react";
+import { useFormValidation } from "../../context/FormValidationContext";
+
 
 const PastInjuries = () => {
   const { userData,setUserData } = useUser();
   const { next } = usePageNavigation();
+  const { setPageValid } = useFormValidation();
 
   const [selectedAreas, setSelectedAreas] = useState([]);
 
@@ -44,6 +47,7 @@ const PastInjuries = () => {
       ...prev,
       past_injuries: selectedAreas
     }));
+    setPageValid(40, true);
     next();
   };
 
@@ -54,6 +58,7 @@ const PastInjuries = () => {
                ...prev,
                past_injuries: selectedAreas
            }));
+           setPageValid(40, true);
        }
    }, [selectedAreas]);
 
@@ -73,7 +78,9 @@ const PastInjuries = () => {
             key={index}
             text={area}
             onClick={() => handleToggleArea(area)}
-            selected={selectedAreas.includes(area)}
+            // selected={selectedAreas.includes(area)}
+            className = {userData.past_injuries === area ? "selected" : ""}
+            selected={userData.past_injuries?.includes(area)}
           />
         ))}
 

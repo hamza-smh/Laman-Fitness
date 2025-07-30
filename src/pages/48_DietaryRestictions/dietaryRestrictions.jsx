@@ -3,11 +3,11 @@ import { useUser } from "../../context/UserContext";
 import SelectButton from "../../components/selectButton/selectButton";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import { useState } from "react";
-
+import { useFormValidation } from "../../context/FormValidationContext";
 const DietaryRestrictions = () => {
   const { userData,setUserData } = useUser();
   const { next } = usePageNavigation();
-
+  const { setPageValid } = useFormValidation();
   const [allergies, setSelectedAreas] = useState([]);
 
   const areaOptions = [
@@ -53,6 +53,7 @@ const DietaryRestrictions = () => {
                ...prev,
                dietary_restriction:allergies
            }));
+           setPageValid(48, true);
        }
    }, [allergies]);
 
