@@ -35,8 +35,8 @@ const Trying = () => {
 
     return (
         <>
-
-            {showPrediction ? (
+            <Prediction onContinue={handleContinue} />
+            {/* {showPrediction ? (
                 <Prediction onContinue={handleContinue} />
             ) : (
                 <div className="content-wrapper">
@@ -57,7 +57,7 @@ const Trying = () => {
                             <NavButton text="Next"    nav={next}/>
                     </div>
                 </div>
-            )}
+            )} */}
         </>
   );
 };

@@ -60,7 +60,7 @@ const Prediction = ({ onContinue }) => {
         <NavButton text="Next" nav={next} />
       </div> */}
       <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
-         <button className="cont-button" onClick={onContinue}>Continue</button>
+         <button className="cont-button" onClick={next}>Continue</button>
       </div>
     </div>
     </>

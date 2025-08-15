@@ -41,7 +41,7 @@ const NotAlone = () => {
       <p className="not-alone-subtext">
         We've helped{" "}
         <span style={{ fontWeight: "600" }}>
-          110,247 {userData.gender === "Male" ? "men" : "women"}
+          500 {userData.gender === "Male" ? "men" : "women"}
         </span>{" "}
         like you {message}
       </p>
