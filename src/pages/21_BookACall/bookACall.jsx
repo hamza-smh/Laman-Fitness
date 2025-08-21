@@ -11,6 +11,7 @@ import { useFormValidation } from "../../context/FormValidationContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BodyTransformationCarousel from "../../components/carousel/carousel";
+import CalendlyMeeting from "../../components/calendly/calendly";
 
 const BookACall = () => {
   const { next, prev } = usePageNavigation();
@@ -60,12 +61,14 @@ const BookACall = () => {
     </button>
 
      <PopupModal
-      url="https://calendly.com/YOUR_USERNAME/YOUR_EVENT"
+      url = "https://calendly.com/hamza-smh2000/30min"
       onModalClose={() => setIsOpen(false)}
       open={isOpen}
       rootElement={document.getElementById("root")}
     />
       
+
+       {/* <CalendlyMeeting /> */}
 
       
 

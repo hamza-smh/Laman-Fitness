@@ -48,13 +48,13 @@ const Testimonial = () => {
       <p className="verified-subtext" style={{marginTop:"15px"}}>
         {
           userData.gender === "Male" && (userData.mainFocus === "losing weight" || userData.mainFocus === "build muscle + losing weight" ) ?
-          "“I've always struggled with stubborn fat but also a stubborn chest that I had a really hard time growing. After joining Built With Science I realized all the mistakes I was making. Not only did I lose the fat, but my chest filled out and is now one of my strongest muscle groups!”"
+          "“I've always struggled with stubborn fat but also a stubborn chest that I had a really hard time growing. After joining Live Laman I realized all the mistakes I was making. Not only did I lose the fat, but my chest filled out and is now one of my strongest muscle groups!”"
           :
            userData.gender === "Male" && userData.mainFocus === "building muscle" ?
            "We get it. It's hard to know what to trust with all the contradicting information out there. We use a proven, science-based approach to guarantee results."
           :
            userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
-           "“I've had a “flat butt” my whole life. I thought I was genetically stuck with it. After joining Built with Science and fixing all the mistakes I was making, I finally started to see results. I'd never in a million years think my body could ever look like this.”"
+           "“I've had a “flat butt” my whole life. I thought I was genetically stuck with it. After joining Live Laman and fixing all the mistakes I was making, I finally started to see results. I'd never in a million years think my body could ever look like this.”"
            :
            "We get it. It's hard to know what to trust with all the contradicting information out there. We use a proven, science-based approach to guarantee results."
         }
@@ -67,14 +67,14 @@ const Testimonial = () => {
           userData.gender === "Male" && (userData.mainFocus === "losing weight" || userData.mainFocus === "build muscle + losing weight") ?
           "- Patrick R."
           : userData.gender === "Male" && userData.mainFocus === "building muscle" ?
-            "Cesar R. - Verified Built With Science User"
+            "Cesar R. - Verified Live Laman user"
           :
            userData.gender === "Female" && userData.mainFocus === "losing weight" ?
-            "Jade L. - Verified Built With Science User" :
+            "Jade L. - Verified Live Laman user" :
             userData.gender === "Female" && userData.mainFocus === "building muscle" ?
-            "Salma T. - Verified Built With Science User" :
+            "Salma T. - Verified Live Laman user" :
             userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
-            "Tanhee S. - Verified Built With Science User" : ""
+            "Tanhee S. - Verified Live Laman user" : ""
         }
       </p>
 

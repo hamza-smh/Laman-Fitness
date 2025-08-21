@@ -76,17 +76,17 @@ const Verified = () => {
        <p className="verified-subtext my15">
         {
           userData.gender === "Male" && userData.mainFocus === "building muscle" ?
-          "Abdullah K. - Verified Built With Science User"
+          "Abdullah K. - Verified Live Laman user"
           :
           userData.gender === "Male" && (userData.mainFocus === "losing weight" || userData.mainFocus === "build muscle + losing weight") ?
-            "Cesar R. - Verified Built With Science User"
+            "Cesar R. - Verified Live Laman user"
 
           : userData.gender === "Female" && userData.mainFocus === "losing weight" ?
-          "Katy L. - Verified Built With Science User"
+          "Katy L. - Verified Live Laman user"
            : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
-          "Tahnee S. - Verified Built With Science User"
+          "Tahnee S. - Verified Live Laman user"
           : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
-          "Salma T. - Verified Built With Science User":""
+          "Salma T. - Verified Live Laman user":""
         }
       </p>
 

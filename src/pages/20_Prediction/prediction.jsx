@@ -1,4 +1,5 @@
 import "./style.css";
+import { useState } from "react";
 import { useUser } from "../../context/UserContext";
 import usePageNavigation from "../../hooks/usePageNavigation";
 import {PredictionGraph} from "../../components/predictionGraph/graphGain.jsx"
@@ -13,29 +14,13 @@ import emailjs from "emailjs-com"
 const Prediction = ({ onContinue }) => {
   const { next, prev,cont } = usePageNavigation();
   const { setUserData, userData } = useUser();
+  const [loading, setLoading] = useState(false);
+
 
   const weightLoss = ((userData.weight.kg-userData.idealWeight.kg)/userData.weight.kg *100).toFixed(0)
 
-  // const sendEmail = () => {
-  //   emailjs.send(
-  //       "service_y3jvsl2",
-  //       "template_awedr74", {
-  //         email: userData.email,
-  //         name: userData.name, // you can send other fields too
-  //         age: userData.age, // you can send other fields too
-  //         message: JSON.stringify(userData, , 2)
-  //       },
-  //       "sF8IiNs7zAG1Tdn4q"
-  //     )
-  //     .then((res) => {
-  //       console.log("Email sent!", res.status, res.text);
-  //     })
-  //     .catch((err) => {
-  //       console.error("Failed to send email", err);
-  //     });
-  // };
-
   const sendEmail = async () => {
+    
     try {
       const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
@@ -150,7 +135,24 @@ const Prediction = ({ onContinue }) => {
       
       
       <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
-         <button className="cont-button" onClick={() => { sendEmail();  }}>Continue</button>
+         <button
+          className="cont-button"
+          onClick={async () => {
+            setLoading(true);
+            await sendEmail();
+            setTimeout(() => {
+              setLoading(false);
+              next();
+            }, 5000);
+          }}
+          disabled={loading}
+        >
+          {loading ? (
+        <div className="loader"></div> 
+        ) : (
+          "Continue"
+        )}
+        </button>
       </div>
     </div>
     </>

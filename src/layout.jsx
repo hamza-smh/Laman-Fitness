@@ -143,8 +143,8 @@ const MainLayout = () => {
       <Email />
     ) : page === 20 ? (
       <Trying />
-    // ) : page === 21 ? (
-    //   <MainReason />
+     ) : page === 21 ? (
+       <MainReason />
     // ) : page === 22 ? (
     //   <Ashamed />
     // ) : page === 23 ? (
