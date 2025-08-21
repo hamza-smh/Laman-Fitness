@@ -10,7 +10,7 @@ const BusyCheck = () => {
   const { setUserData, userData } = useUser();
   const { setPageValid } = useFormValidation();
   useEffect(() => {
-    setPageValid(53, true);
+    setPageValid(36, true);
   }, []);
 
  

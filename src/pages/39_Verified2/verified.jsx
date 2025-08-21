@@ -14,7 +14,7 @@ const Verified2 = () => {
   const { setPageValid } = useFormValidation();
 
    useEffect(() => {
-     setPageValid(39, true);
+     setPageValid(22, true);
    }, []);
 
   return (
@@ -26,20 +26,20 @@ const Verified2 = () => {
       {/* <div style={{background:"#FFF",width:"350px",height:"350px",padding:"5px",marginTop:"15px"}}> */}
       <div className = "verifyBlue" >
         {
-          userData.gender === "Male" && userData.mainFocus === "losing weight" ?
+          userData.gender === "Male" && userData.workout_time === "60 minutes" ?
            <img src={jesse} alt="jesse" style={{width:"100%",height:"100%"}}/>
-           : userData.gender === "Male" && userData.mainFocus === "building muscle" ?
+           : userData.gender === "Male" && userData.workout_time === "30 minutes" ?
            <img src={brian} alt="brian" style={{width:"100%",height:"100%"}}/>
-           : userData.gender === "Male" && userData.mainFocus === "build muscle + losing weight" ?
-           <img src={brian} alt="cesar" style={{width:"100%",height:"100%"}}/>
+          //  : userData.gender === "Male" && userData.mainFocus === "build muscle + losing weight" ?
+          //  <img src={brian} alt="cesar" style={{width:"100%",height:"100%"}}/>
            
            :
-           userData.gender === "Female" && userData.mainFocus === "losing weight" ?
+           userData.gender === "Female" && userData.workout_time === "60 minutes" ?
            <img src={salma} alt="jade" style={{width:"100%",height:"100%"}}/>
-          : userData.gender === "Female" && userData.mainFocus === "building muscle" ?
+          : userData.gender === "Female" && userData.workout_time === "30 minutes" ?
            <img src={ligia} alt="salma" style={{width:"100%",height:"100%"}}/>
-           : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
-           <img src={ligia} alt="tanhee" style={{width:"100%",height:"100%"}}/>
+          //  : userData.gender === "Female" && userData.mainFocus === "build muscle + losing weight" ?
+          //  <img src={ligia} alt="tanhee" style={{width:"100%",height:"100%"}}/>
            :""
         }
       </div>

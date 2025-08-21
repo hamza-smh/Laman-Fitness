@@ -12,7 +12,7 @@ const Busy =()=>{
             ...prev,
             busy: busy
         }));
-        setPageValid(49, true);
+        setPageValid(32, true);
         next();
         console.log("Selected main focus:", busy);
     };

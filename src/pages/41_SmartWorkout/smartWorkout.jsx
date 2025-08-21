@@ -13,7 +13,7 @@ const SmartWorkout = () => {
   const { setPageValid } = useFormValidation();
 
   useEffect(() => {
-    setPageValid(41, true);
+    setPageValid(24, true);
   }, []);
 
   return (

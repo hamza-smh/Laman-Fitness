@@ -11,7 +11,7 @@ const ProteinOutput = () => {
   const { setPageValid } = useFormValidation();
   
   useEffect(() => {
-    setPageValid(46, true);
+    setPageValid(29, true);
   }, []);
 
   return (

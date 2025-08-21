@@ -25,7 +25,7 @@ const Name = () => {
         ...prev,
         name: name.trim(),
       }));
-      setPageValid(7, true);
+      setPageValid(1, true);
     }
   }, [name, setUserData]);
 

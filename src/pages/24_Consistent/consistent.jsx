@@ -14,7 +14,7 @@ const Consistent = () => {
       ...prev,
       consistent
     }))
-    setPageValid(24, true);
+    setPageValid(7, true);
     next()
     console.log('Consistent? :', consistent)
   }

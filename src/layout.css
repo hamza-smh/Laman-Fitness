@@ -73,6 +73,9 @@
   .navBtnHolder{
     width:75% !important;
   }
+  .header{
+    padding: 0 10vw;
+  }
 }
 
 /* For mobile devices (width <= 768px) */

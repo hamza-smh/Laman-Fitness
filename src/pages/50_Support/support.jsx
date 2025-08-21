@@ -13,7 +13,7 @@ const Support =()=>{
             ...prev,
             support: support
         }));
-        setPageValid(50, true);
+        setPageValid(33, true);
         next();
         console.log("Kind of Support", support);
     };

@@ -14,7 +14,7 @@ const BuiltWithScience =()=>{
             ...prev,
             science_view: perception
         }));
-        setPageValid(30, true);
+        setPageValid(13, true);
         next();
         console.log("Science?", perception);
     };

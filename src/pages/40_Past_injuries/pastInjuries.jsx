@@ -58,7 +58,7 @@ const PastInjuries = () => {
                ...prev,
                past_injuries: selectedAreas
            }));
-           setPageValid(40, true);
+           setPageValid(23, true);
        }
    }, [selectedAreas]);
 

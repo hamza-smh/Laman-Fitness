@@ -13,7 +13,7 @@ const MainReason =()=>{
             ...prev,
             reason_to_join: reason 
         }));
-        setPageValid(21, true);
+        setPageValid(4, true);
         next();
         console.log("Main Reason to join :", reason); 
     };

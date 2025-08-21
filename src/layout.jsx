@@ -65,15 +65,12 @@ import BusyCheck from './pages/53_BusyCheck/busyCheck'
 import FocusFirst from './pages/54_FocusFirst/focusFirst'
 import Consistency from './pages/14_Consistency/consistency'
 import YourProgress from './pages/19_YourProgress/yourProgress'
+import Results from './pages/Final/result'
 
 const MainLayout = () => {
   const { page, next, prev } = usePageNavigation()
   const { setUserData, userData } = useUser()
-  const { setPageValid, validationStatus, resetValidationStatus } =
-    useFormValidation()
-  // const [validationStatus, setValidationStatus] = useState(() => {
-  //     return JSON.parse(localStorage.getItem("validationStatus") || "{}");
-  // });
+  const { setPageValid, validationStatus, resetValidationStatus } = useFormValidation()
   const { index } = useParams()
   const navigate = useNavigate()
 
@@ -89,127 +86,133 @@ const MainLayout = () => {
     }
   }, [page])
 
-  useEffect(() => {
-    if (
-      page === 26 &&
-      userData?.diet !== undefined &&
-      userData.diet !== 4 &&
-      userData.diet !== 5
-    ) {
-      setPageValid(26, true)
-      userData.lastVisitedPage === 25 ? next() : navigate('/page/25')
-    }
-  }, [userData, page])
+  // useEffect(() => {
+  //   if (
+  //     page === 26 &&
+  //     userData?.diet !== undefined &&
+  //     userData.diet !== 4 &&
+  //     userData.diet !== 5
+  //   ) {
+  //     setPageValid(26, true)
+  //     userData.lastVisitedPage === 25 ? next() : navigate('/page/25')
+  //   }
+  // }, [userData, page])
 
   const screen =
-    page === 1 ? (
-      <MainFocus />
-    ) : page === 2 ? (
+    // page === 1 ? (
+    //   <MainFocus />
+    //) : 
+    
+    // ) : page === 3 ? (
+    //   <Age />
+    // ) : page === 4 ? (
+    //   <Height />
+    // ) : page === 5 ? (
+    //   <Weight />
+    // ) : page === 6 ? (
+    //   <NotAlone />
+    
+    // ) : page === 8 ? (
+    //   <BodyType />
+    // ) : page === 9 ? (
+    //   <Tricky />
+    // ) : page === 10 ? (
+    //   <BodyFat />
+    // ) : page === 11 ? (
+    //   <TargetWeight />
+    // ) : page === 12 ? (
+    //   <Verified />
+    // ) : page === 13 ? (
+    //   <BestDescription />
+    // ) : page === 14 ? (
+    //   <Consistency />
+    // ) : page === 15 ? (
+    //   <DifficultAreas />
+    // ) : page === 16 ? (
+    //   <FocusBuilding />
+    // ) : page === 17 ? (
+    //   <Testimonial />
+    // ) : page === 18 ? (
+    //   <GymExperience />
+    
+    // ) : page === 20 ? (
+    //   <Trying />
+      page === 1 ? ( 
+      <Name />
+    ): page === 2 ? (
       <Gender />
     ) : page === 3 ? (
-      <Age />
-    ) : page === 4 ? (
-      <Height />
-    ) : page === 5 ? (
-      <Weight />
-    ) : page === 6 ? (
-      <NotAlone />
-    ) : page === 7 ? (
-      <Name />
-    ) : page === 8 ? (
-      <BodyType />
-    ) : page === 9 ? (
-      <Tricky />
-    ) : page === 10 ? (
-      <BodyFat />
-    ) : page === 11 ? (
-      <TargetWeight />
-    ) : page === 12 ? (
-      <Verified />
-    ) : page === 13 ? (
-      <BestDescription />
-    ) : page === 14 ? (
-      <Consistency />
-    ) : page === 15 ? (
-      <DifficultAreas />
-    ) : page === 16 ? (
-      <FocusBuilding />
-    ) : page === 17 ? (
-      <Testimonial />
-    ) : page === 18 ? (
-      <GymExperience />
-    ) : page === 19 ? (
       <Email />
-    ) : page === 20 ? (
-      <Trying />
-    ) : page === 21 ? (
+    ) : page === 4 ? (
       <MainReason />
-    ) : page === 22 ? (
+    ) : page === 5 ? (
       <Ashamed />
-    ) : page === 23 ? (
+    ) : page === 6 ? (
       <Dissatisfied />
-    ) : page === 24 ? (
+    ) : page === 7 ? (
       <Consistent />
-    ) : page === 25 ? (
+    ) : page === 8 ? (
       <Diet />
-    ) : page === 26 ? (
+    ) : page === 9 ? (
       <UnsustainableDiets />
-    ) : page === 27 ? (
+    ) : page === 10 ? (
       <PastAttempts />
-    ) : page === 28 ? (
+    ) : page === 11 ? (
       <WorkoutTrackingApp />
-    ) : page === 29 ? (
+    ) : page === 12 ? (
       <NutritionTrackingApp />
-    ) : page === 30 ? (
+    ) : page === 13 ? (
       <BuiltWithScience />
-    ) : page === 31 ? (
+    ) : page === 14 ? (
       <NoBlame />
-    ) : page === 32 ? (
+    ) : page === 15 ? (
       <Active />
-    ) : page === 33 ? (
+    ) : page === 16 ? (
       <Comfortable />
-    ) : page === 34 ? (
+    ) : page === 17 ? (
       <PerfectYourForm />
-    ) : page === 35 ? (
+    ) : page === 18 ? (
       <ExcerciseFrequency />
-    ) : page === 36 ? (
+    ) : page === 19 ? (
       <WorkoutTime />
-    ) : page === 37 ? (
+    ) : page === 20 ? (
       <WorkoutVideo />
-    ) : page === 38 ? (
+    ) : page === 21 ? (
       <Equipment />
-    ) : page === 39 ? (
+    ) : page === 22 ? (
       <Verified2 />
-    ) : page === 40 ? (
+    ) : page === 23 ? (
       <PastInjuries />
-    ) : page === 41 ? (
+    ) : page === 24 ? (
       <SmartWorkout />
-    ) : page === 42 ? (
+    ) : page === 25 ? (
       <AlmostReady />
-    ) : page === 43 ? (
+    ) : page === 26 ? (
       <Calories />
-    ) : page === 44 ? (
+    ) : page === 27 ? (
       <CalorieOutput />
-    ) : page === 45 ? (
+    ) : page === 28 ? (
       <Protein />
-    ) : page === 46 ? (
+    ) : page === 29 ? (
       <ProteinOutput />
-    ) : page === 47 ? (
+    ) : page === 30 ? (
       <NutritionHabits />
-    ) : page === 48 ? (
+    ) : page === 31 ? (
       <DietaryRestrictions />
-    ) : page === 49 ? (
+    ) : page === 32 ? (
       <Busy />
-    ) : page === 50 ? (
+    ) : page === 33 ? (
       <Support />
-    ) : page === 51 ? (
+    ) : page === 34 ? (
       <FollowJeremy />
-    ) : page === 52 ? (
+    ) : page === 35 ? (
       <HearAboutUs />
-    ) : page === 53 ? (
+    ) : page === 36 ? (
       <BusyCheck />
-    ) : page === 54 ? (
+    ) : page === 37 ? (
       <FocusFirst />
+    ) : page === 38 ? (
+      <Results />
     ) : (
       <h1>Not Found</h1>
     )
@@ -261,26 +264,27 @@ const MainLayout = () => {
           className='header'
           style={{
             backgroundColor:
+              // page === 6 ||
+              // page === 9 ||
+              // page === 12 ||
+              // (page === 14 &&
+              //   userData.bestDescription !==
+              //     'I have some healthy habits but I struggle with consistency') ||
+              // page === 17 ||
               page === 6 ||
+              page === 7 ||
+              page === 8 ||
               page === 9 ||
-              page === 12 ||
-              (page === 14 &&
-                userData.bestDescription !==
-                  'I have some healthy habits but I struggle with consistency') ||
+              page === 14 ||
               page === 17 ||
-              page === 23 ||
+              page === 19 ||
+              page === 20 ||
+              page === 22 ||
               page === 24 ||
               page === 25 ||
-              page === 26 ||
-              page === 31 ||
-              page === 34 ||
-              page === 37 ||
-              page === 39 ||
-              page === 41 ||
-              page === 42 ||
-              page === 44 ||
-              page === 46 ||
-              page === 53
+              page === 27 ||
+              page === 29 
+              //page === 33
                 ? '#ADD8E6'
                 : '#FFF'
           }}
@@ -289,94 +293,97 @@ const MainLayout = () => {
             ? 'Getting Started'
             : page <= 27
             ? 'Habits & Behaviors'
-            : 'training and nutrition'}
+            : page <= 35
+            ? 'training and nutrition':""}
           {page <= 20 ? (
             <GettingStarted />
           ) : page <= 27 ? (
             <HabitsAndBehaviour />
-          ) : (
+          ): page <= 35 ? (
             <TrainingAndNutrition />
-          )}
+          ):""}
         </div>
-        {page === 6 ? (
-          <div>
-            <NotAlone />
-          </div>
-        ) : page === 9 ? (
-          <div>
-            <Tricky />
-          </div>
-        ) : page === 12 ? (
-          <div>
-            <Verified />
-          </div>
-        ) : page === 14 &&
-          userData.bestDescription !==
-            'I have some healthy habits but I struggle with consistency' ? (
-          <div>
-            <Praise />
-          </div>
-        ) : page === 17 ? (
-          <div>
-            <Testimonial />
-          </div>
-         ) : page === 19 && showProgress && userData.lastVisitedPage === 18 ? (
-          <div>
-            <YourProgress />
-          </div>
-        ) : page === 20 ? (
-          <div>
-            <Trying />
-          </div>
-        ) : page === 23 ? (
+        {
+        // page === 6 ? (
+        //   <div>
+        //     <NotAlone />
+        //   </div>
+        // ) : page === 9 ? (
+        //   <div>
+        //     <Tricky />
+        //   </div>
+        // ) : page === 12 ? (
+        //   <div>
+        //     <Verified />
+        //   </div>
+        // ) : page === 14 &&
+        //   userData.bestDescription !==
+        //     'I have some healthy habits but I struggle with consistency' ? (
+        //   <div>
+        //     <Praise />
+        //   </div>
+        // ) : page === 17 ? (
+        //   <div>
+        //     <Testimonial />
+        //   </div>
+        //  ) : page === 19 && showProgress && userData.lastVisitedPage === 18 ? (
+        //   <div>
+        //     <YourProgress />
+        //   </div>
+        // ) : page === 20 ? (
+        //   <div>
+        //     <Trying />
+        //   </div>
+        //) : 
+         page === 6 ? (
           <div>
             <Dissatisfied />
           </div>
-        ) : page === 24 ? (
+        ) : page === 7 ? (
           <div>
             <Consistent />
           </div>
-        ) : page === 25 ? (
+        ) : page === 8 ? (
           <div>
             <Diet />
           </div>
-        ) : page === 26 ? (
+        ): page === 9 ? (
           <div>
             <UnsustainableDiets />
           </div>
-        ) : page === 31 ? (
+        ) : page === 14 ? (
           <div>
             <NoBlame />
           </div>
-        ) : page === 34 ? (
+        ) : page === 17 ? (
           <div>
             <PerfectYourForm />
           </div>
-        ) : page === 37 ? (
+        ) : page === 20 ? (
           <div>
             <WorkoutVideo />
           </div>
-        ) : page === 39 ? (
+        ) : page === 22? (
           <div>
             <Verified2 />
           </div>
-        ) : page === 41 ? (
+        ) : page === 24 ? (
           <div>
             <SmartWorkout />
           </div>
-        ) : page === 42 ? (
+        ) : page === 25 ? (
           <div>
             <AlmostReady />
           </div>
-        ) : page === 44 ? (
+        ) : page === 27 ? (
           <div>
             <CalorieOutput />
           </div>
-        ) : page === 46 ? (
+        ) : page === 29 ? (
           <div>
             <ProteinOutput />
           </div>
-        ) : page === 53 ? (
+        ) : page === 36 ? (
           <div>
             <BusyCheck />
           </div>
@@ -384,21 +391,18 @@ const MainLayout = () => {
           <div className='content-wrapper'>
             <div className='card'>{screen}</div>
             <div className='navBtnHolder'>
-              {page !== 1 ? <NavButton text='Previous' nav={goPrev} /> : ''}
-              {page < 54 ? (
+              {page !== 1  ? <NavButton text='Previous' nav={goPrev} /> : ''}
+              {
+              page < 37 ? (
                 <NavButton text='Next' nav={goNext} />
-              ) : (
-                <button
-                  className='result-button'
-                  onClick={() => navigate('/results')}
-                >
-                  See My Results
-                </button>
-              )}
+              ) : 
+              page !== 38 && 
+                <NavButton text='See Results' nav={goNext} />
+              }
 
-              {/* <button className="result-button" onClick={()=>handleClear()}>
-                          Clear
-                 </button> */}
+              <button className="result-button" onClick={()=>handleClear()}>
+                  Clear
+              </button>
             </div>
           </div>
         )}

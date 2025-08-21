@@ -12,7 +12,7 @@ const Protein =()=>{
             ...prev,
             protein: protein
         }));
-        setPageValid(45, true);
+        setPageValid(28, true);
         next();
         console.log("Selected main focus:", protein);
     };

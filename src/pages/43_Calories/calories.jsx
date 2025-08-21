@@ -11,36 +11,25 @@ const Calories =()=>{
             ...prev,
             calories: calorie
         }));
-        setPageValid(43, true); 
+        setPageValid(26, true); 
         next();
         console.log("calorie intake:", calorie);
     };
     return(
     <div>
             {
-                userData.mainFocus === "losing weight"?
-                <p style = {{fontWeight: "600",fontSize: "21px"}}>
-                    To lose weight, you need to eat less calories than you 're burning every day.
-                    <br />
-                    We estimate you should eat around 
-                    <span style={{backgroundColor:"#2FEC2F",padding:"3px",borderRadius:"5px",fontWeight:"700"}}>
-                        1900 to 2000 calories
-                    </span> 
-                    per day.
-                </p>
-                :
-                userData.mainFocus === "build muscle + losing weight" ?
-                <p style = {{fontWeight: "600",fontSize: "21px"}}>
-                   To build muscle and lose fat, you need to eat slightly less calories than you 're burning every day.                   
-                    <br />
-                    We estimate you should eat around {" "}
-                    <span style={{backgroundColor:"#2FEC2F",padding:"3px",borderRadius:"5px",fontWeight:"700"}}>
-                        2600 to 2700 calories
-                    </span> 
-                    {" "}per day.
-                </p>
-                :
-                userData.mainFocus === "building muscle" ?
+                // userData.mainFocus === "losing weight"?
+                // <p style = {{fontWeight: "600",fontSize: "21px"}}>
+                //     To lose weight, you need to eat less calories than you 're burning every day.
+                //     <br />
+                //     We estimate you should eat around 
+                //     <span style={{backgroundColor:"#2FEC2F",padding:"3px",borderRadius:"5px",fontWeight:"700"}}>
+                //         1900 to 2000 calories
+                //     </span> 
+                //     per day.
+                // </p>
+                // :
+           //     userData.mainFocus === "build muscle + losing weight" ?
                 <p style = {{fontWeight: "600",fontSize: "21px"}}>
                    To build muscle and lose fat, you need to eat slightly less calories than you 're burning every day.                   
                     <br />
@@ -49,7 +38,18 @@ const Calories =()=>{
                         2600 to 2700 calories
                     </span> 
                     {" "}per day.
-                </p>:""
+                </p>
+                // :
+                // userData.mainFocus === "building muscle" ?
+                // <p style = {{fontWeight: "600",fontSize: "21px"}}>
+                //    To build muscle and lose fat, you need to eat slightly less calories than you 're burning every day.                   
+                //     <br />
+                //     We estimate you should eat around {" "}
+                //     <span style={{backgroundColor:"#2FEC2F",padding:"3px",borderRadius:"5px",fontWeight:"700"}}>
+                //         2600 to 2700 calories
+                //     </span> 
+                //     {" "}per day.
+                // </p>:""
             }
             
             <br />

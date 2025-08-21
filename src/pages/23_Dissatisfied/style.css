@@ -27,7 +27,7 @@
 /* For tablets (width <= 1024px) */
 @media (max-width: 1024px) {
   .blue-wrapper {
-    padding: 0 10vw;
+    padding: 10vw;
   }
 
   .white-card {
@@ -42,7 +42,7 @@
   }
   .blue-wrapper {
     flex-direction: column;
-    padding: 0 5vw;
+    padding: 5vw;
     z-index: 10;
     min-height: 120vh;
   }

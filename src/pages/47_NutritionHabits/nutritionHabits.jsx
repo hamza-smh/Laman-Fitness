@@ -42,7 +42,7 @@ const NutritionHabits = () => {
                ...prev,
                nutrition_habits: habits
            }));
-           setPageValid(47, true);
+           setPageValid(30, true);
        }
    }, [habits]);
 

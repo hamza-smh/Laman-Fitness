@@ -13,7 +13,7 @@ const Active =()=>{
             ...prev,
             active: active
         }));
-        setPageValid(32, true); 
+        setPageValid(15, true); 
         next();
         console.log("Science?", active);
     };

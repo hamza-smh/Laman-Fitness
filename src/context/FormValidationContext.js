@@ -53,7 +53,7 @@ export const FormValidationProvider = ({ children }) => {
     });
   };
   const resetValidationStatus = () => {
-    for (let i = 1; i <= 54; i++) { 
+    for (let i = 1; i <= 27; i++) { 
       setPageValid(i,false);
     }
   };

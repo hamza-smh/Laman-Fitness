@@ -14,7 +14,7 @@ const ExcerciseFrequency =()=>{
             ...prev,
             excercise_freq: freq
         }));
-        setPageValid(35, true); 
+        setPageValid(18, true); 
         next();
         console.log("Excercise Frequency:", freq);
     };

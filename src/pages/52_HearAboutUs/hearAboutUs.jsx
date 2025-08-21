@@ -15,7 +15,7 @@ const HearAboutUs =()=>{
             ...prev,
             heard_about_us: source
         }));
-        setPageValid(52, true);
+        setPageValid(35, true);
         next();
         console.log(" How did you hear about Jeremy", source);
     };

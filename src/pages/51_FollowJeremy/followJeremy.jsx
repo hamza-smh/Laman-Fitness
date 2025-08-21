@@ -13,7 +13,7 @@ const FollowJeremy =()=>{
             ...prev,
             following_Jeremy_for: FollowJeremyDuration
         }));
-        setPageValid(51, true);
+        setPageValid(34, true);
         next();
         console.log(" Do you Follow Jeremy", FollowJeremyDuration);
     };

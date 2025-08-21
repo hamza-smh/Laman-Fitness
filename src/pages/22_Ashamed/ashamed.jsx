@@ -13,7 +13,7 @@ const Ashamed =()=>{
             ...prev,
             ashamed: ashamed
         }));
-        setPageValid(22, true);
+        setPageValid(5, true);
         next();
         console.log("Insecure? :", ashamed); 
     };

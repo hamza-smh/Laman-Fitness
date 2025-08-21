@@ -36,7 +36,7 @@ const Email = () => {
         email,
       }));
       if(error===""){
-        setPageValid(19, true);
+        setPageValid(3, true);
       }
     }
   }, [email]);

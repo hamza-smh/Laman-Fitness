@@ -13,7 +13,7 @@ const WorkoutTrackingApp =()=>{
             ...prev,
             workout_tracking_app: tracking_app
         }));
-        setPageValid(28, true);
+        setPageValid(11, true);
         next();
         console.log("Using Tracking App? :", tracking_app);
     };

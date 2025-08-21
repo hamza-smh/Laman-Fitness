@@ -53,7 +53,7 @@ const DietaryRestrictions = () => {
                ...prev,
                dietary_restriction:allergies
            }));
-           setPageValid(48, true);
+           setPageValid(31, true);
        }
    }, [allergies]);
 

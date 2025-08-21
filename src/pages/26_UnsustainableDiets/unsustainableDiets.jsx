@@ -51,15 +51,15 @@ const UnsustainableDiets = () => {
 // }, [userData.diet, userData.lastVisitedPage,navigate]);
 
     useEffect(() => {
-      setPageValid(26, true);
+      setPageValid(9, true);
     }, []);
 
 
   return (
     <div className="not-alone-container">
           <p className = "not-alone-subtext" > 
-          Most diets are unsustainable, complicated, and don 't take YOU into account. Welcome to something different.<br />
-          We don 't believe in a "one diet fits all" plan. Built With Science builds your nutrition around you and your goals.
+            Most diets are unsustainable, complicated, and don't take YOU into account. Welcome to something different.<br />
+            We don't believe in a "one diet fits all" plan. Built With Science builds your nutrition around you and your goals.
           </p>      
       <div className="navBtnHolder" style={{ paddingTop: "40px" }}>
         <NavButton text="Previous" nav={goPrev} />

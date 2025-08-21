@@ -13,7 +13,7 @@ const WorkoutTime =()=>{
             ...prev,
             workout_time: time
         }));
-        setPageValid(36, true);
+        setPageValid(19, true);
         next();
         console.log("Excercise Frequency:", time);
     };

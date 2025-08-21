@@ -13,7 +13,7 @@ const WorkoutVideo = () => {
     const { setPageValid } = useFormValidation();
 
   useEffect(() => {
-    setPageValid(37, true);
+    setPageValid(20, true);
   }, []);
 
   return (

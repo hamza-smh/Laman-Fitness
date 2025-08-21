@@ -13,7 +13,7 @@ const Comfortable =()=>{
             ...prev,
             comfortable: excercise
         }));
-        setPageValid(33, true); 
+        setPageValid(16, true); 
         next();
         console.log("Comfortable with excercise?", excercise);
     };

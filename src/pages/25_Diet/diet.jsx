@@ -16,7 +16,7 @@ const Diet = () => {
       ...prev,
       diet
     }))
-    setPageValid(25,true)
+    setPageValid(8,true)
     console.log('Diet? :', diet)    
   }
 

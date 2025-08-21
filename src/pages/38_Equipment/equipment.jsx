@@ -14,7 +14,7 @@ const Equipment =()=>{
             ...prev,
             equipment: obj
         }));
-        setPageValid(38, true);
+        setPageValid(21, true);
         next();
         console.log("Excercise Equipemnt:", obj);
     };

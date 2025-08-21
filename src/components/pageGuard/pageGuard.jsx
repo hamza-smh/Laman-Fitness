@@ -12,7 +12,7 @@ const PageGuard = ({ children, pageNumber }) => {
     if (storedStatus[pageNumber]) return;
 
     // Find the first invalid page and redirect there
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 38; i++) {
       if (storedStatus[i] === false || storedStatus[i] === undefined) {
         navigate(`/page/${i}`);
         return;

@@ -14,7 +14,7 @@ const Dissatisfied = () => {
       ...prev,
       dissatisfied
     }))
-    setPageValid(23, true);
+    setPageValid(6, true);
     goNext()
     console.log('Dissatisfied? :', dissatisfied)
   }

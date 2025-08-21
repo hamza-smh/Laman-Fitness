@@ -12,7 +12,7 @@ const NoBlame = () => {
     const { setPageValid } = useFormValidation();
 
     useEffect(() => {
-    setPageValid(31, true);
+    setPageValid(14, true);
   }, []);
   return (
     <div className="not-alone-container">

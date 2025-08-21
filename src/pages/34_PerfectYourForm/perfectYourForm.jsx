@@ -11,7 +11,7 @@ const PerfectYourForm = () => {
   const { setPageValid } = useFormValidation();
 
   useEffect(() => {
-    setPageValid(34, true);
+    setPageValid(17, true);
   }, []);
   
   return (

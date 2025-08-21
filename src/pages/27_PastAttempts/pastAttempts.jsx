@@ -55,7 +55,7 @@ const PastAttempts = () => {
                ...prev,
                past_attempts: attempts
            }));
-          setPageValid(27, true);
+          setPageValid(10, true);
        }
    }, [attempts]);
 
