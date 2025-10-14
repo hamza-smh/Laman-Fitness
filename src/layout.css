@@ -13,7 +13,7 @@
   justify-content: center;
   width: 100%;
   text-align: center;
-  padding:5vh 50vh;
+  padding: 5vh 15vw;
   font-family: Lato, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -21,14 +21,18 @@
 
 .content-wrapper {
   display: flex;
-  padding: 0 50vh;
+  padding: 0 30%;
   width: 100%;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .navBtnHolder{
-  width:60%;
+  width:100%;
   display:flex;
   flex-direction: row;
+  justify-content: center;
   gap:10px
 }
 
@@ -36,15 +40,31 @@
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #FFF;
-  width: 100%;
+  width: 75%;
   margin-top: 25px;
   padding: 30px;
   border: 4px solid transparent;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.heading{
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
 }
 
+.subheading{
+  font-weight: 400;
+  color: #90a5c2;
+  font-size: 16px;
+  text-align: center;
+  padding-right: 10%;
+  padding-left: 10%;
+  display:flex;justify-content: center;
+}
 .result-button{
   background-color: #406edf;
   border: 2px solid transparent;
@@ -61,45 +81,157 @@
 
 /* ------------ Responsive Styles Below ------------ */
 
-/* For tablets (width <= 1024px) */
-@media (max-width: 1024px) {
+/* For medium screens (1025px - 1439px) */
+@media (min-width: 1025px) and (max-width: 1439px) {
   .content-wrapper {
-    padding: 0 10vw;
+    padding: 0 12vw;
+  }
+
+  .header {
+    padding: 5vh 12vw;
   }
 
   .card {
-    padding: 25px;
+    padding: 35px;
+    margin-top: 25px;
   }
-  .navBtnHolder{
-    width:75% !important;
+
+  .navBtnHolder {
+    width: 100%;
+    padding-left:15%;
+    padding-right:15%;
+  }
+}
+
+/* For large screens (1440px+) */
+@media (min-width: 1440px) {
+  .content-wrapper {
+    padding: 0 15vw;
+  }
+
+  .header {
+    padding: 5vh 15vw;
+  }
+
+  .card {
+    padding: 40px;
+    margin-top: 30px;
+  }
+
+  .navBtnHolder {
+    width: 60%;
+  }
+}
+
+/* For extra large screens (1920px+) */
+@media (min-width: 1920px) {
+  .content-wrapper {
+    padding: 0 18vw;
+  }
+
+  .header {
+    padding: 5vh 18vw;
+  }
+
+  .card {
+    padding: 45px;
+    margin-top: 30px;
+  }
+
+  .navBtnHolder {
+    width: 60%;
+  }
+}
+
+/* For ultra wide screens (2560px+) */
+@media (min-width: 2560px) {
+  .content-wrapper {
+    padding: 0 22vw;
+  }
+
+  .header {
+    padding: 5vh 22vw;
+  }
+
+  .card {
+    padding: 50px;
+    margin-top: 30px;
+  }
+
+  .navBtnHolder {
+    width: 60%;
+  }
+}
+
+/* For tablets (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content-wrapper {
+    padding: 0 8vw;
+  }
+
+  .header {
+    padding: 4vh 8vw;
+  }
+
+  .card {
+    padding: 30px;
+    margin-top: 20px;
+  }
+
+  .navBtnHolder {
+    width: 70%;
   }
 }
 
 /* For mobile devices (width <= 768px) */
 @media (max-width: 768px) {
-  .container{
-    height:100%
-  }
-  .content-wrapper {
-    flex-direction: column;
-    padding: 0 5vw;
-    z-index: 10;
+  .container {
+    height: 100%;
+    min-height: 100vh;
   }
 
-  .card {
-    padding: 20px;
-    margin-top: 20px;
+  .content-wrapper {
+    flex-direction: column;
+    padding: 0 6vw;
+    z-index: 10;
   }
 
   .header {
     height: auto;
-    padding: 20px 10px;
+    padding: 3vh 6vw;
   }
-  .navBtnHolder{
+
+  .card {
+    padding: 20px;
+    margin-top: 15px;
+  }
+
+  .navBtnHolder {
     flex-direction: row !important;
-    width:100% !important;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    width: 100% !important;
+    margin-bottom: 20px;
+    margin-top: 20px;
     justify-content: center;
+  }
+}
+
+/* For small mobile devices (width <= 480px) */
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 0 4vw;
+  }
+
+  .header {
+    padding: 2vh 4vw;
+  }
+
+  .card {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .navBtnHolder {
+    margin-bottom: 15px;
+    margin-top: 15px;
   }
 }

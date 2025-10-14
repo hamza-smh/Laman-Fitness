@@ -15,19 +15,19 @@ const Age = ()=>{
     };
     return(
         <div>
-        <p style={{fontWeight:"600",fontSize:"18px"}}>
-            What is your age ?
+        <p className="heading">
+            What’s your age range?
         </p>
-        <p style={{fontWeight:"400",color:"#90a5c2",fontSize:"16px",fontStyle:"italic"}}>
-                We 've helped thousands of men of all ages achieve their fitness goals. Metabolism tends to drop with age. But there's ways around that.
+        <p className="subheading">
+            This helps factor in age-related changes in your metabolism.
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button className={userData.age === "Teens" ? "selected" : ""} text="Teens" onClick={() => handleSelect("Teens")} />
-            <Button className={userData.age === "Twenties" ? "selected" : ""} text="Twenties" onClick={() => handleSelect("Twenties")} />
-            <Button className={userData.age === "Thirties" ? "selected" : ""} text="Thirties" onClick={() => handleSelect("Thirties")} />
-            <Button className={userData.age === "Fourties" ? "selected" : ""} text="Fourties" onClick={() => handleSelect("Fourties")} />
-            <Button className={userData.age === "Over Fifty" ? "selected" : ""} text="Over Fifty" onClick={() => handleSelect("Over Fifty")} />
+            <Button className={userData.age === "Teens" ? "selected" : ""} text="< 20" onClick={() => handleSelect("Teens")} />
+            <Button className={userData.age === "Twenties" ? "selected" : ""} text="20 - 29" onClick={() => handleSelect("Twenties")} />
+            <Button className={userData.age === "Thirties" ? "selected" : ""} text="30 - 39" onClick={() => handleSelect("Thirties")} />
+            <Button className={userData.age === "Fourties" ? "selected" : ""} text="40 - 49" onClick={() => handleSelect("Fourties")} />
+            <Button className={userData.age === "Over Fifty" ? "selected" : ""} text="50 +" onClick={() => handleSelect("Over Fifty")} />
         </div>
 
 

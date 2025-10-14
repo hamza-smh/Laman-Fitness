@@ -8,7 +8,7 @@
   outline: none; 
   transition: border 0.2s, box-shadow 0.2s;
   transition: all 0.2s ease-in-out;
-
+  font-size: 16px;
 }
 
 .textField:focus {
@@ -16,4 +16,33 @@
   box-shadow:
     inset 0 6px 6px -6px rgba(0, 0, 0, 0.2), 
     0 0 0 2px #406edf;
+}
+
+/* Responsive input field styles for different screen sizes */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .textField {
+    font-size: 17px;
+    padding: 17px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .textField {
+    font-size: 18px;
+    padding: 18px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .textField {
+    font-size: 19px;
+    padding: 19px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .textField {
+    font-size: 20px;
+    padding: 20px;
+  }
 }

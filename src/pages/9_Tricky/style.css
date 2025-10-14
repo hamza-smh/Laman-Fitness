@@ -1,18 +1,25 @@
 .not-alone-container {
   display: flex;
   flex-direction: column;
-  background: #add8e6;
+  background-image: linear-gradient(#add8e6, #FFF);
   width: 100%;
   height: 100vh;
-  padding: 10vh 50vh;
+  padding: 10vh 30vh;
   box-sizing: border-box;
 }
 
 .tricky-heading {
+  font-weight: 600;
+  font-size: 35px;
+  font-family: "Oswald", sans-serif;
+  
+}
+.trickySubheading {
   font-weight: 300;
   font-size: 18px;
   font-family: "Oswald", sans-serif;
   font-style: italic;
+  
 }
 
 .tricky-subtext {
@@ -22,10 +29,41 @@
   font-style: italic;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
+
+.navBtnHolder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  gap: 15px;
+  padding-top: 40px;
+  padding-right: 15%;
+  padding-left: 15%;
+
+}
+@media (max-width: 1850px) {
   .not-alone-container {
-    padding: 8vh 20vh;
+    padding: 8vh 15vw !important;
+  }
+
+  .navBtnHolder {
+    gap: 15px;
+  }
+}
+/* @media (max-width: 1440px) {
+  .not-alone-container {
+    padding: 8vh 10vw;
+  }
+
+  .navBtnHolder {
+    gap: 15px;
+  }
+} */
+/* Responsive adjustments */
+@media (max-width: 1220px) {
+  .not-alone-container {
+    padding: 8vh 5vh;
   }
 
   .not-alone-heading {
@@ -68,7 +106,10 @@
 
   .navBtnHolder {
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
   }
 }

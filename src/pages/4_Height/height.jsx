@@ -109,12 +109,7 @@ const Height = () => {
 
     return (
         <div>
-            <p
-                style={{
-                    fontWeight: '600',
-                    fontSize: '18px'
-                }}
-            >
+            <p className="heading">
                 What is your height ?
             </p>
 

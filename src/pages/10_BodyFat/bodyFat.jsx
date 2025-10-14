@@ -25,10 +25,10 @@ const BodyFat = () => {
     return (
         <div>
             <p style={{ fontWeight: "600", fontSize: "18px" }}>
-                What would you estimate your current body fat % to be ?
+                Which image best reflects your current body fat level ?
             </p>
             <p style={{ fontWeight: "400", color: "#90a5c2", fontSize: "16px", fontStyle: "italic" }}>
-                Pick what best describes your current state
+                Doesn’ t need to be exact; choose the closest fit.
             </p>
             <div style={
                 {
@@ -47,6 +47,7 @@ const BodyFat = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
+                                position={type.position}
                                 isSelected={userData.bodyFat === type.id}
                                 onSelect={handleCardClick}
                             />

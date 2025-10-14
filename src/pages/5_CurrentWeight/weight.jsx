@@ -79,18 +79,13 @@ const Weight = () => {
 
     return (
         <div>
-            <p
-                style={{
-                    fontWeight: '600',
-                    fontSize: '18px'
-                }}
-            >
+            <p className="heading">
                 What is your current weight ?
             </p>
-             <p style={{fontWeight:"400",color:"#90a5c2",fontSize:"16px",fontStyle:"italic"}}>
-            Thanks
-            for sharing this with us. We don't mean to pry, we just need to know so we can build a plan that's right
-            for you.
+             <p className="subheading">
+                Thanks
+                for sharing this with me.I don 't mean to pry, I just need to know so I can build a plan that's right
+                for you
             </p>
 
             <div className='weight-input-container' >

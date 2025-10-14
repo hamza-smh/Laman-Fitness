@@ -26,10 +26,10 @@ const BodyType = () => {
     return (
         <div>
             <p style={{ fontWeight: "600", fontSize: "18px" }}>
-                How would you describe your body type ?
+                Which image best reflects your current body type ?
             </p>
             <p style={{ fontWeight: "400", color: "#90a5c2", fontSize: "16px", fontStyle: "italic" }}>
-                This will help us determine the right approach
+                This will help me determine the right approach
                 for your body
             </p>
             <div style={
@@ -49,6 +49,8 @@ const BodyType = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
+                                info={type.info}
+                                position={type.position}
                                 isSelected={userData.currentBodyType === type.id}
                                 onSelect={handleCardClick}
                             />
@@ -60,6 +62,7 @@ const BodyType = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
+                                info={type.info}
                                 isSelected={userData.currentBodyType === type.id}
                                 onSelect={handleCardClick}
                             />

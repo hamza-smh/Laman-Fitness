@@ -16,28 +16,65 @@ const Tricky = () => {
   return (
     <div className="not-alone-container">
         {
-          userData.currentBodyType===1 || userData.currentBodyType===2 ?
+          userData.currentBodyType===1 ?
           <>
-          <p className="tricky-heading">
-            This can be a tricky body type to navigate.<br /><br />
-            Your body needs to build more muscle but also need to lose fat, especially in stubborn areas.But you're in good hands. We've helped thousands of others just like you
-          </p>
-          <p className="tricky-subtext">
-            transform from skinny fat to lean, muscular, and athletic.
-          </p>
+            <p className="tricky-heading">
+              You’ re in the right place, {userData.name}!
+            </p>
+            <br /><br />
+            <p className="trickySubheading">
+              This body type takes a targeted approach, and that’ s exactly what you’ll get.
+            </p>
           </>
           :
-          userData.currentBodyType===3?
-          <p className="tricky-heading">
-            Believe it or not, you're in a really good position.<br /><br />
-            You've done the hard work of building muscle. Lowering your body fat without losing your hard earned muscle will help you build a lean, muscular, athletic physique.
-          </p>
+          userData.currentBodyType===2?
+          <>
+            <p className="tricky-heading">
+              You’ re in the right place, {userData.name}<br />
+              This can be a tricky body type to navigate.</p>
+              <br /><br />
+              <p className="trickySubheading">
+              Your body needs to build more muscle but also needs to lose fat, especially in stubborn areas.
+               But you're in good hands. I've helped hundreds just like you
+
+            </p>
+          </>
           :
           userData.currentBodyType===4?
-          <p className="tricky-heading">
-            Thanks for sharing that with us.<br /><br />
-            We'll help you take a gradual, sustainable approach towards your goals. We want to help you lose the fat, and keep it off for good.
+          <>
+            <p className="tricky-heading">
+              You’ re in a great spot, {userData.name}! 
+            </p> 
+            <br /> <br />
+            <p className = "trickySubheading" >
+              You’ve done the work and you’re already doing great.I’ll help you build
+              on that with healthy habits that support your goals
+              for the long-term.
+            </p>
+          </>
+          :
+          userData.currentBodyType===5?
+          <>
+            <p className="tricky-heading">
+              You’re in a great spot, {userData.name}
+            </p>  
+            <br /> <br />
+            <p className = "trickySubheading" >
+              You've done the hard work of building muscle. Lowering your body fat without losing your hard earned muscle will help you build a lean, muscular, athletic physique.
+            </p>
+          </>
+          :
+          userData.currentBodyType===6?
+          <>
+            <p className="tricky-heading">
+              I’ ve got you, {userData.name} 
+            </p>   
+            <br /> <br />
+            <p className = "trickySubheading" >
+              I’ll help you take a gradual, sustainable approach towards your goals.We want to help you lose the fat, and keep it off
+              for good.
           </p>
+          </>
           :""
         }
       

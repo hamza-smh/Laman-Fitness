@@ -19,22 +19,10 @@ const Gender = () => {
   }
   return (
     <div>
-      <p
-        style={{
-          fontWeight: '600',
-          fontSize: '18px'
-        }}
-      >
+      <p className="heading">
         What gender do you identify with ?
       </p>{' '}
-      <p
-        style={{
-          fontWeight: '400',
-          color: '#90a5c2',
-          fontSize: '16px',
-          fontStyle: 'italic'
-        }}
-      >
+      <p className='subheading'>
         How you should train and eat will vary slightly based on your gender.{' '}
       </p>
       <div

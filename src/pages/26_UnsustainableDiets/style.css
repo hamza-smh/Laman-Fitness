@@ -1,7 +1,7 @@
 .not-alone-container {
   display: flex;
   flex-direction: column;
-  background: #add8e6;
+  background-image: linear-gradient(#add8e6, #FFF);
   width: 100%;
   min-height: 100vh;
   height: 100%;

@@ -39,9 +39,9 @@ const NotAlone = () => {
     <div className="not-alone-container">
       <p className="not-alone-heading">You're not alone.</p>
       <p className="not-alone-subtext">
-        We've helped{" "}
+        I’ve helped {" "} 
         <span style={{ fontWeight: "600" }}>
-          500 {userData.gender === "Male" ? "men" : "women"}
+          hundreds of {userData.gender === "Male" ? "men" : "women"}
         </span>{" "}
         like you {message}
       </p>

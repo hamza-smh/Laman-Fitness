@@ -34,10 +34,19 @@
 }
 
 .card-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.card-info {
   font-size: 16px;
   font-weight: 600;
   margin-top: 8px;
   margin-bottom: 8px;
+  color:#666666;
+  font-style: italic;
 }
 
 .tick{
@@ -52,4 +61,97 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive card styles for different screen sizes */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .card-item {
+    padding-left: 9%;
+    padding-right: 9%;
+    margin-bottom: 16px;
+  }
+
+  .card-image {
+    height: 280px;
+  }
+
+  .card-text {
+    font-size: 17px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+  }
+
+  .tick {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card-item {
+    padding-left: 8%;
+    padding-right: 8%;
+    margin-bottom: 18px;
+  }
+
+  .card-image {
+    height: 300px;
+  }
+
+  .card-text {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tick {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card-item {
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-bottom: 19px;
+  }
+
+  .card-image {
+    height: 320px;
+  }
+
+  .card-text {
+    font-size: 19px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+  }
+
+  .tick {
+    width: 57px;
+    height: 57px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .card-item {
+    padding-left: 6%;
+    padding-right: 6%;
+    margin-bottom: 20px;
+  }
+
+  .card-image {
+    height: 340px;
+  }
+
+  .card-text {
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .tick {
+    width: 60px;
+    height: 60px;
+  }
 }

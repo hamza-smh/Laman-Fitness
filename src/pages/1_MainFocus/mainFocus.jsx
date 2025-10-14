@@ -20,26 +20,31 @@ const MainFocus =()=>{
 
     return(
     <div>
-        <p style={{fontWeight:"600",fontSize:"18px"}}>
-            What is your main focus right now ?
+        <p className="heading">
+            What is your main fitness goal ?
         </p>
-        <div style={{paddingTop:"20px",width:"100%"}}>
+        <div className="btnHolder">
             <Button
-              text="I am only focused on losing weight"
+              text = "Losing Weight"
               onClick={() => handleSelect("losing weight")}
               className={userData.mainFocus === "losing weight" ? "selected" : ""}
             />
 
             <Button
-              text="Building muscle is more important than losing fat"
+              text = "Building Muscle"
               onClick={() => handleSelect("building muscle")}
               className={userData.mainFocus === "building muscle" ? "selected" : ""}
             />
 
             <Button
-              text="I'd like to build muscle while I lose fat"
+              text = "Building Muscle While Losing Fat"
               onClick={() => handleSelect("build muscle + losing weight")}
               className={userData.mainFocus === "build muscle + losing weight" ? "selected" : ""}
+            />
+            <Button
+              text = "Feeling Better in My Body"
+              onClick = {() => handleSelect("Feeling Better in My Body")}
+              className = {userData.mainFocus === "Feeling Better in My Body" ? "selected" : ""}
             />
         </div>
     </div>

@@ -42,8 +42,8 @@ const Name = () => {
   }, [name]);
 
   return (
-    <div>
-      <p style={{ fontWeight: "600", fontSize: "18px" }}>
+    <div style={{width:"100%"}}>
+      <p className="heading">
         Enter your first name:
       </p>
      <div style={{paddingTop:"30px"}}>

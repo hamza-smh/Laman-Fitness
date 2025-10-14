@@ -7,10 +7,9 @@
   background: #f0f0f0;
   border-radius: 30px;
   padding: 4px;
-  margin-bottom: 20px;
   justify-content: space-between;
   align-items: center;
-   box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -64,4 +63,61 @@
 .toggle-switch .toggle-option.selected {
   color: #224891;
   font-weight: 600;
+}
+
+/* Responsive toggle switch styles for different screen sizes */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .toggle-switch {
+    width: 170px;
+    height: 55px;
+    padding: 5px;
+    margin-bottom: 22px;
+  }
+
+  .toggle-option {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .toggle-switch {
+    width: 180px;
+    height: 60px;
+    padding: 6px;
+    margin-bottom: 25px;
+  }
+
+  .toggle-switch .toggle-indicator {
+    width: 45%;
+  }
+
+  .toggle-option {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .toggle-switch {
+    width: 190px;
+    height: 62px;
+    padding: 7px;
+    margin-bottom: 27px;
+  }
+
+  .toggle-option {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .toggle-switch {
+    width: 200px;
+    height: 65px;
+    padding: 8px;
+    margin-bottom: 30px;
+  }
+
+  .toggle-option {
+    font-size: 20px;
+  }
 }

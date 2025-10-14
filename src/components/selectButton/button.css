@@ -20,3 +20,40 @@
 .custom-button:hover {
   background-color: #22489144;
 }
+
+/* Responsive select button styles for different screen sizes */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .custom-button {
+    font-size: 17px;
+    padding: 17px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .custom-button {
+    font-size: 18px;
+    padding: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .custom-button {
+    font-size: 19px;
+    padding: 19px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .custom-button {
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

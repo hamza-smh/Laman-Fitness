@@ -1,13 +1,15 @@
 import "./style.css"
-const Card = ({ img, text,id, isSelected, onSelect }) => {
-  console.log("ss",isSelected)
+const Card = ({ img, text, id, isSelected, onSelect, info ,position}) => {
   return (
     <div className="card-item">
        <button className = {`card-button ${isSelected ? "selected" : ""}`} 
             onClick = {() => onSelect(id)}>
-        <img src={img} alt={text} className="card-image" />
-        <p className="card-text">{text}</p>
 
+        {/* <img src={img} alt={text} className="card-image" /> */}
+        <div style={{backgroundImage:`url(${img})`,backgroundSize:"110%",width:"266px",height:"200px",backgroundPosition:`${position}`}}/>
+
+        <p className="card-text">{text}</p>
+        <p className="card-info">{info}</p>
         {isSelected &&
             <div className="tick">
                 <svg
