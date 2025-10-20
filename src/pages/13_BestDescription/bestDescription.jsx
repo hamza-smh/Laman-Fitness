@@ -13,7 +13,7 @@ const BestDescription =()=>{
             ...prev,
             bestDescription: desc
         }));
-        setPageValid(13, true);
+        setPageValid(12, true);
         next();
         console.log("Best Description", desc);
     };

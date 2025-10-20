@@ -51,12 +51,14 @@
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 963px) {
   .input-group {
    flex-direction: column;
    width:100%
   }
-
+.inputHolder{
+  width:100%
+}
   .input-col,
   .input-colFull {
     width: 100%;

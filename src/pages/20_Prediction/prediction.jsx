@@ -86,7 +86,7 @@ const Prediction = ({ onContinue }) => {
         console.log("✅ Email sent successfully!");
         const timer = setTimeout(() => {
         }, 2000)
-        setPageValid(20, true);
+        setPageValid(19, true);
         next()
       } else {
         console.error("❌ Email failed:", await response.text());

@@ -27,13 +27,13 @@ const BookACall = () => {
   const weightLoss = ((userData.weight.kg - userData.idealWeight.kg) / userData.weight.kg * 100).toFixed(0)
 
   const handleClear = () => {
+    window.location.reload("page/1")
     localStorage.removeItem('userData')
     resetValidationStatus()
-    window.location.reload("/page/1")
   }
 
   return (
-    <div className="book-container" style={{display:"flex",justifyContent:"center",alignItems:"space-between"}}>
+    <div className="book-container" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
        <p className="prediction-heading">
         Thank you for completing the survey !
 
@@ -74,14 +74,15 @@ const BookACall = () => {
       style={{
         backgroundColor: "#FFF",
         color: "#406EDF",
+        textWrap:"nowrap",
         border:"2px solid #406EDF",
         fontWeight:"600",
         padding: "15px 25px",
         borderRadius: "8px",
-        fontSize: "25px",
+        fontSize: "1.5rem",
         cursor: "pointer",
         marginTop: "40px",
-        width:"50%"
+        width:"fit-content"
       }}
     >
        Change your answers
