@@ -125,7 +125,8 @@ const Prediction = ({ onContinue }) => {
               :
               userData.mainFocus === "build muscle + losing weight"?
               <PredictionGraphLoss />
-              :""
+              : 
+              <PredictionGraph gain={parseMuscleGainKg(userData.muscleGain)} userData={userData}/>
             }
       </div>      
       

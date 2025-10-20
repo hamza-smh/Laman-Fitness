@@ -11,10 +11,13 @@ const YourProgress = ({ onContinue }) => {
 
   return (
     <div className="progress-container">
+      <h1 style={{fontSize:"44px"}}>
+        ✅
+      </h1>
       <p className="progress-heading">
         Thanks, <span style={{color:"#406EDF"}}>{userData.name}</span> !
       </p>
-      <p className="progress-subheading">
+      <p className="progress-subheading" style={{padding:"0% 20%"}}>
         Based on what you shared, I’ll put together an estimate for how long it’ ll take you to reach your goal.
       </p>
 

@@ -33,7 +33,7 @@ const BookACall = () => {
   }
 
   return (
-    <div className="book-container" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+    <div className="book-container" style={{display:"flex",justifyContent:"center",alignItems:"space-between"}}>
        <p className="prediction-heading">
         Thank you for completing the survey !
 
@@ -86,6 +86,16 @@ const BookACall = () => {
     >
        Change your answers
     </button>
+    <div style={{position:"absolute",bottom:"5px",width:"75%"}}>
+      <p style={{color:"grey",fontSize:"9px"}}>
+        Please Note: The author of this site is not engaged in rendering professional advice or services to the individual reader.The ideas, procedures, and suggestions contained within this work are not intended as a substitute
+        for consulting with your physician. All matters regarding your health require medical supervision.The author shall not be liable or responsible
+        for any loss or damage allegedly arising from any information or suggestions within this blog. You, as a reader of this website, are totally and completely responsible
+        for your own health and healthcare.Your results may vary. Testimonials and examples used are exceptional results and are not intended to guarantee, promise, represent and/or assure that anyone will achieve the same or similar results.
+        Live Laman® may not be copied or used for any purpose without express written consent.
+
+      </p>
+    </div>
     </div>
   );
 };

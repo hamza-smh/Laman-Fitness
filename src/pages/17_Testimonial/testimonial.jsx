@@ -31,7 +31,7 @@ const Testimonial = () => {
       <div className="verifyBlue">
         {
           userData.gender === "Male"?
-           <img src={victor} alt="patrick" style={{width:"100%",height:"100%"}}/>
+           <img src={victor} alt="patrick" style={{width:"300px",height:"500px"}}/>
           :
            <img src={jordan} alt="tanhee" style={{width:"100%",height:"100%"}}/>
         }

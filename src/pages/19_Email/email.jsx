@@ -67,7 +67,7 @@ const Email = () => {
           boxShadow: "inset 0 6px 6px -6px rgba(0, 0, 0, 0.2)",
         }
       } >
-        <p p style = {
+        <p style = {
           {
             fontSize: "14px",
             color: "#555555"
