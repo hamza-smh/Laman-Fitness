@@ -44,7 +44,7 @@ const Email = () => {
   return (
     <>
     <div>
-      <p style={{ fontWeight: "600", fontSize: "18px" }}>
+      <p className="heading">
         {userData.name}, enter your email to see how long it will take to reach your weight loss goal
       </p>
 
@@ -67,12 +67,23 @@ const Email = () => {
           boxShadow: "inset 0 6px 6px -6px rgba(0, 0, 0, 0.2)",
         }
       } >
-        <p style={{fontSize:"14px",color:"#555555"}}>We 'll email you a copy of your results for convenient access.</p>
+        <p p style = {
+          {
+            fontSize: "14px",
+            color: "#555555"
+          }
+        }> 
+        You 'll  get a copy of your results for convenient access.</p>
         <br />
         <p style = {{fontSize: "14px",color: "#555555"}}>
-          By clicking "See My Results"
-          below you acknowledge that you have read, understood, and accepted the 
-          <b style={{ textDecoration: "underline"}}><a href="https://builtwithscience.com/terms-of-use/" style={{color:"#555555"}}>{" "}Terms of Use</a></b> and <b style={{ textDecoration: "underline"}}><a href="https://builtwithscience.com/privacy-policy/" style={{color:"#555555"}}>{" "}Privacy Policy.</a></b> You may receive emails from Built With Science and can unsubscribe at any time.
+          By clicking "See My Results" below you acknowledge that you have read, understood, and accepted the
+          <b style={{ textDecoration: "underline"}}>
+            <a href="https://livelaman.com/terms-of-service/" style={{color:"#555555"}}>
+              {" "}Terms of Use</a></b> and <b style={{ textDecoration: "underline"}}>
+            <a a href = " https://livelaman.com/privacy-policy/" 
+            style={{color:"#555555"}}>
+              {" "}Privacy Policy.</a></b>
+              You may receive emails from Live Laman and can unsubscribe at any time.
         </p>
       </div>
     </div>

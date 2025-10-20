@@ -19,18 +19,18 @@ const Tricky = () => {
           userData.currentBodyType===1 ?
           <>
             <p className="tricky-heading">
-              You’ re in the right place, {userData.name}!
+              You’re in the right place, {userData.name}!
             </p>
             <br /><br />
             <p className="trickySubheading">
-              This body type takes a targeted approach, and that’ s exactly what you’ll get.
+              This body type takes a targeted approach, and that’s exactly what you’ll get.
             </p>
           </>
           :
           userData.currentBodyType===2?
           <>
             <p className="tricky-heading">
-              You’ re in the right place, {userData.name}<br />
+              You’re in the right place, {userData.name}<br />
               This can be a tricky body type to navigate.</p>
               <br /><br />
               <p className="trickySubheading">
@@ -43,7 +43,7 @@ const Tricky = () => {
           userData.currentBodyType===4?
           <>
             <p className="tricky-heading">
-              You’ re in a great spot, {userData.name}! 
+              You’re in a great spot, {userData.name}! 
             </p> 
             <br /> <br />
             <p className = "trickySubheading" >
@@ -67,7 +67,7 @@ const Tricky = () => {
           userData.currentBodyType===6?
           <>
             <p className="tricky-heading">
-              I’ ve got you, {userData.name} 
+              I’ve got you, {userData.name} 
             </p>   
             <br /> <br />
             <p className = "trickySubheading" >

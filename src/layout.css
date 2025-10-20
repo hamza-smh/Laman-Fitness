@@ -218,7 +218,7 @@
 /* For small mobile devices (width <= 480px) */
 @media (max-width: 480px) {
   .content-wrapper {
-    padding: 0 4vw;
+    padding: 0 1vw;
   }
 
   .header {
@@ -226,7 +226,7 @@
   }
 
   .card {
-    padding: 15px;
+    padding: 19px;
     margin-top: 10px;
   }
 

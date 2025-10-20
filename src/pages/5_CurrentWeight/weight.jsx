@@ -69,7 +69,8 @@ const Weight = () => {
         if (islbsValid || isKgValid) {
             setUserData(prev => ({
                 ...prev,
-                weight
+                weight,
+                unit
             }));
             setPageValid(5, true)
             } else {

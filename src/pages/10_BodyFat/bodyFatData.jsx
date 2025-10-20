@@ -4,14 +4,11 @@ import around35 from "../../assets/bodyFat/35.png"
 import around40 from "../../assets/bodyFat/40.png"
 import above45 from "../../assets/bodyFat/40+.png"
 
-import female45 from "../../assets/bodyFat/female45.jpg"
-import female40 from "../../assets/bodyFat/female40.jpg"
-import female35 from "../../assets/bodyFat/female35.jpg"
-import female30 from "../../assets/bodyFat/female30.jpg"
-import female25 from "../../assets/bodyFat/female25.jpg"
-import female20 from "../../assets/bodyFat/female20.jpg"
-import female18 from "../../assets/bodyFat/female18.jpg"
-import female15 from "../../assets/bodyFat/female15.jpg"
+import female10 from "../../assets/bodyFat/10F.jpg"
+import female20 from "../../assets/bodyFat/20F.jpg"
+import female35 from "../../assets/bodyFat/35F.png"
+import female40 from "../../assets/bodyFat/40F.png"
+import female45 from "../../assets/bodyFat/45F.png"
 
 export const bodyFatMale =[
     {
@@ -54,33 +51,38 @@ export const bodyFatMale =[
 export const bodyFatFemale =[
     {
         id:1,
-        text: "+45%",
+        text: "+ 45%",
         img:female45,
-        data: 45
+        data: 45,
+        position: '100% 15%'
     },
     {
         id:2,
         text: "Around 40%",
         img:female40,
-        data: 40
+        data: 40,
+        position: '100% 15%'
     },
     {
         id:3,
         text: "Around 35%",
         img:female35,
-        data: 35
+        data: 35,
+        position: '100% 55%'
     },
     {
         id:4,
         text: "Around 20%",
-        img:female30,
-        data: 20
+        img:female20,
+        data: 20,
+        position: '100% 65%'
     },
     {
         id:5,
         text: "Around 10% ",
-        img: female25,
-        data: 10
+        img: female10,
+        data: 10,
+        position: '100% 85%'
     },
     
 ]

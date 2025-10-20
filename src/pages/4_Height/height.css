@@ -53,7 +53,7 @@
 
 @media (max-width: 500px) {
   .input-group {
-    flex-direction: column;
+   flex-direction: column;
    width:100%
   }
 

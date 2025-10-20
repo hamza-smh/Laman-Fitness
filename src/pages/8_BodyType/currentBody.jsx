@@ -52,31 +52,36 @@ export const currentBodyFemale =[
         id:1,
         text: "Slender",
         img:slenderF,
-        info: "Narrow frame with low body fat"
+        info: "Narrow frame with low body fat",
+        position: '100% 65%'
     },
     {
         id:2,
         text: "Soft & Slender",
         img:slenderSoftF,
-        info: "Slim frame, soft features"
+        info: "Slim frame, soft features",
+        position: '100% 0%'
     },
     {
         id:3,
         text: "Toned",
         img:tonedF,
-        info: "Slim, firm, and defined"
+        info: "Slim, firm, and defined",
+        position: '100% 15%'
     },
     {
         id:4,
         text: "Solid & Curvy ",
         img:solidCurvy,
-        info: "Wider frame and lower tone"
+        info: "Wider frame and lower tone",
+        position: '100% 45%'
     },
     {
         id:5,
         text: "Soft & Heavy",
         img:softHeavyF,
-        info: "Larger frame, higher body fat"
+        info: "Larger frame, higher body fat",
+        position: '100% 100%'
     },
     
 ]

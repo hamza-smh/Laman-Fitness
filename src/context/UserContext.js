@@ -14,6 +14,7 @@ export const UserProvider = ({ children }) => {
         age: null,
         height: null,
         weight: null,
+        unit:null,
         name: null,
         currentBodyType: null,
         bodyFat: null,

@@ -8,6 +8,7 @@ import { getNextSixMonthsAndExactDate } from "../../components/predictionGraph/g
 import { getNextMonthsAndExactDate } from "../../components/predictionGraph/graphLoss";
 import { parseMuscleGainKg } from "../11_TargetWeight/targetWeight";
 import emailjs from "emailjs-com"
+import { useFormValidation } from "../../context/FormValidationContext";
 
 
 
@@ -15,6 +16,7 @@ const Prediction = ({ onContinue }) => {
   const { next, prev,cont } = usePageNavigation();
   const { setUserData, userData } = useUser();
   const [loading, setLoading] = useState(false);
+   const { setPageValid } = useFormValidation();
 
 
   const weightLoss = ((userData.weight.kg-userData.idealWeight.kg)/userData.weight.kg *100).toFixed(0)
@@ -82,6 +84,10 @@ const Prediction = ({ onContinue }) => {
 
       if (response.ok) {
         console.log("✅ Email sent successfully!");
+        const timer = setTimeout(() => {
+        }, 2000)
+        setPageValid(20, true);
+        next()
       } else {
         console.error("❌ Email failed:", await response.text());
       }
@@ -95,7 +101,7 @@ const Prediction = ({ onContinue }) => {
     <>
     <div className="prediction-container">
       <p className="prediction-subtext">
-        We predict you'll {
+        I predict you'll {
           userData.mainFocus==="losing weight" || userData.mainFocus==="build muscle + losing weight"?"be"
           :"gain"
         }
@@ -123,14 +129,13 @@ const Prediction = ({ onContinue }) => {
             }
       </div>      
       
-      <p>
-        Great news! Based on Built With Science members like you we predict you 'll be able to hit your { userData.mainFocus==="losing weight"?"fat losing":"muscle building"} goal by {" "}
+      <p style={{textAlign:"center"}}>
+        I predict you'll be able to hit your { userData.mainFocus==="losing weight"?"fat losing":"muscle building"} goal by {" "}
         {userData.mainFocus === "losing weight"?
         getNextMonthsAndExactDate().exactDateOneMonthsLater
         :
         getNextSixMonthsAndExactDate().exactDateFourMonthsLater} or earlier.
         <br /><br />
-        Next, tell us a bit more about your habits and behaviours so we can create the best plan for you.
       </p>
       
       

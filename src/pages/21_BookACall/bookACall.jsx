@@ -16,34 +16,32 @@ import CalendlyMeeting from "../../components/calendly/calendly";
 const BookACall = () => {
   const { next, prev } = usePageNavigation();
   const { setUserData, userData } = useUser();
+  const { setPageValid, validationStatus, resetValidationStatus } =
+    useFormValidation()
 
-  const { setPageValid } = useFormValidation();
   const [isOpen, setIsOpen] = useState(false);
    useEffect(() => {
      setPageValid(39, true);
    }, []);
 
-     const weightLoss = ((userData.weight.kg - userData.idealWeight.kg) / userData.weight.kg * 100).toFixed(0)
+  const weightLoss = ((userData.weight.kg - userData.idealWeight.kg) / userData.weight.kg * 100).toFixed(0)
+
+  const handleClear = () => {
+    localStorage.removeItem('userData')
+    resetValidationStatus()
+    window.location.reload("/page/1")
+  }
+
   return (
     <div className="book-container" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-       <p className="prediction-subtext">
-        We predict you'll {
-          userData.mainFocus==="losing weight" || userData.mainFocus==="build muscle + losing weight"?"be"
-          :"gain"
-        }
-      </p>
-      <p className="prediction-heading">
-        {
-          userData.mainFocus==="losing weight" || userData.mainFocus==="build muscle + losing weight"?
-          `${weightLoss}% body fat by ${getNextMonthsAndExactDate().exactDateOneMonthsLater}`
-          :
-          `${parseMuscleGainKg(userData.muscleGain)}kg of muscle by ${getNextSixMonthsAndExactDate().exactDateSixMonthsLaterFull}`
-        }
+       <p className="prediction-heading">
+        Thank you for completing the survey !
+
       </p>
 
-      <BodyTransformationCarousel />
+      {/* <BodyTransformationCarousel /> */}
 
-    <button
+    {/* <button
       onClick={() => setIsOpen(true)}
       style={{
         backgroundColor: "#406EDF",
@@ -66,12 +64,28 @@ const BookACall = () => {
       open={isOpen}
       rootElement={document.getElementById("root")}
     />
-      
+       */}
 
        {/* <CalendlyMeeting /> */}
 
-      
-
+       
+    <button       
+      onClick={()=>handleClear()}
+      style={{
+        backgroundColor: "#FFF",
+        color: "#406EDF",
+        border:"2px solid #406EDF",
+        fontWeight:"600",
+        padding: "15px 25px",
+        borderRadius: "8px",
+        fontSize: "25px",
+        cursor: "pointer",
+        marginTop: "40px",
+        width:"50%"
+      }}
+    >
+       Change your answers
+    </button>
     </div>
   );
 };

@@ -59,6 +59,7 @@ const BodyFat = () => {
                                 id={type.id}
                                 img={type.img}
                                 text={type.text}
+                                position={type.position}
                                 isSelected={userData.bodyFat === type.id}
                                 onSelect={handleCardClick}
                             />

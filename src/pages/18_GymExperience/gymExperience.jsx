@@ -34,7 +34,7 @@ const GymExperience =()=>{
             <Button  
                 text={
                   <>
-                    <strong>Beginner:</strong> I am either starting out in the gym or am just starting to take my training and nutrition seriously
+                    <strong>Beginner:</strong> New to training and taking my nutrition seriously
                   </>
                 } 
                 className={userData.gym_experience === "beginner" ? "selected" : ""}
@@ -42,7 +42,7 @@ const GymExperience =()=>{
             <Button 
                 text={
                     <>
-                    <strong>Intermediate:</strong> I know my way around the gym and have worked out consistently at least 3 times a week.
+                    <strong>Intermediate:</strong>  I know my way around the gym. II work out inconsistently
                     </>
                 }  
                     className={userData.gym_experience === "intermediate" ? "selected" : ""}

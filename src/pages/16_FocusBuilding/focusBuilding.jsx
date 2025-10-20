@@ -64,11 +64,11 @@ const FocusBuilding = () => {
 
   return (
     <div>
-      <p style={{ fontWeight: "600", fontSize: "18px" }}>
-        What muscle group(s) do you want to focus on building the most ?
+      <p className="heading">
+        What muscle group do you want to focus on building the most ?
       </p>
       <p style={{ fontWeight: "400", color: "#90a5c2", fontSize: "16px", fontStyle: "italic" }}>
-        Select up to 2 muscle groups
+        This helps me create a program that targets your specific goals
       </p>
 
       <div style={{ paddingTop: "20px", width: "100%", display: "flex",flexDirection:"column", flexWrap: "wrap", gap: "10px" }}>

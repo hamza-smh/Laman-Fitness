@@ -267,7 +267,7 @@ const MainLayout = () => {
               page === 12 ||
               (page === 14 &&
                 userData.bestDescription !==
-                  'I have some healthy habits but I struggle with consistency') ||
+                  'Good habits, but inconsistent. I try to stay healthy, but I struggle with routine') ||
               page === 17  ||
               page === 21 
               // page === 23 ||
@@ -317,7 +317,7 @@ const MainLayout = () => {
           </div>
         ) : page === 14 &&
           userData.bestDescription !==
-            'I have some healthy habits but I struggle with consistency' ? (
+            'Good habits, but inconsistent. I try to stay healthy, but I struggle with routine' ? (
           <div>
             <Praise />
           </div>

@@ -19,22 +19,22 @@ const Consistency =()=>{
     };
     return(
     <div>
-        <p style={{fontWeight:"600",fontSize:"18px"}}>
+        <p className="heading">
           What is affecting your consistency ?
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
             <Button  className={userData.consistency_issue === "Time" ? "selected" : ""} 
-                     text={"Time: Work,School, Life Commitments"}  
+                     text={"Lack of time, other commitments"}  
                      onClick={() => handleSelect("Time")}/>
             <Button  className={userData.consistency_issue === "Motivation" ? "selected" : ""} 
-                     text={"Motivation / Plateaus: Not seeing much progress and losing motivation"}  
+                     text={"Lack of motivation"}  
                      onClick={() => handleSelect("Motivation")}/>
             <Button  className={userData.consistency_issue === "Injuries" ? "selected" : ""} 
-                     text={"Injuries: Limit what I can do"}  
+                     text={"Injuries limit what I can do"}  
                      onClick={() => handleSelect("Injuries")}/>
             <Button  className={userData.consistency_issue === "Program Hopping" ? "selected" : ""} 
-                     text={"Program Hopping: I switch programs frequently"}  
+                     text={"I switch programs a lot"}  
                      onClick={() => handleSelect("Program Hopping")}/>
         </div>
 

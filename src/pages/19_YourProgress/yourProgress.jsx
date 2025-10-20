@@ -12,12 +12,12 @@ const YourProgress = ({ onContinue }) => {
   return (
     <div className="progress-container">
       <p className="progress-heading">
-        Build muscle faster with Built With Science
-        than vs.trying on your own
+        Thanks, <span style={{color:"#406EDF"}}>{userData.name}</span> !
       </p>
-      <div classname = "progress-image" >
-        <img src={progressChart} alt="" className="progressImg"/>
-      </div>
+      <p className="progress-subheading">
+        Based on what you shared, I’ll put together an estimate for how long it’ ll take you to reach your goal.
+      </p>
+
       <div style={{position:"relative"}}>
         <LiquidLoader />
       </div>

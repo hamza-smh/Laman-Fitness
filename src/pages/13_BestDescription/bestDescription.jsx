@@ -19,14 +19,23 @@ const BestDescription =()=>{
     };
     return(
     <div>
-        <p style={{fontWeight:"600",fontSize:"18px"}}>
-            Which best describes you ?
+        <p className="heading">
+            How would you describe your training and nutrition right now ?
         </p>
 
         <div style={{paddingTop:"20px",width:"100%"}}>
-            <Button  className={userData.bestDescription === "My diet and training needs a lot of work" ? "selected" : ""} text={"My diet and training needs a lot of work"}  onClick={() => handleSelect("My diet and training needs a lot of work")}/>
-            <Button  className={userData.bestDescription === "I have some healthy habits but I struggle with consistency" ? "selected" : ""} text={"I have some healthy habits but I struggle with consistency"}  onClick={() => handleSelect("I have some healthy habits but I struggle with consistency")}/>
-            <Button  className={userData.bestDescription === "I mostly eat healthy and train regularly but the progress is slow" ? "selected" : ""} text={"I mostly eat healthy and train regularly but the progress is slow"}  onClick={() => handleSelect("I mostly eat healthy and train regularly but the progress is slow")}/>
+            <Button  
+            className={userData.bestDescription === "Starting from scratch. My diet and training need  work." ? "selected" : ""} 
+            text={"Starting from scratch. My diet and training need  work."}  
+            onClick={() => handleSelect("Starting from scratch. My diet and training need  work.")}/>
+            <Button  
+            className={userData.bestDescription === "Good habits, but inconsistent. I try to stay healthy, but I struggle with routine" ? "selected" : ""} 
+            text={"Good habits, but inconsistent. I try to stay healthy, but I struggle with routine"}  
+            onClick={() => handleSelect("Good habits, but inconsistent. I try to stay healthy, but I struggle with routine")}/>
+            <Button  
+            className={userData.bestDescription === "I feel stuck. I workout often and eat well, but I’m not seeing progress." ? "selected" : ""} 
+            text={"I feel stuck. I workout often and eat well, but I’m not seeing progress."}  
+            onClick={() => handleSelect("I feel stuck. I workout often and eat well, but I’m not seeing progress.")}/>
         </div>
 
 

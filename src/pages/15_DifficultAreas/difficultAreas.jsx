@@ -65,11 +65,11 @@ const DifficultAreas = () => {
 
   return (
     <div>
-      <p style={{ fontWeight: "600", fontSize: "18px" }}>
-        As a {userData.gender==="Male"?"man":"woman"}, what area(s) of your body is the most difficult for you to lose fat from?
+      <p className="heading">
+        What area(s) of your body are the most difficult for you to lose fat from ?
       </p>
       <p style={{ fontWeight: "400", color: "#90a5c2", fontSize: "16px", fontStyle: "italic" }}>
-        Select up to 3 muscle groups
+        Select up to 3 
       </p>
 
       <div style={{ paddingTop: "20px", width: "100%", display: "flex",flexDirection:"column", flexWrap: "wrap", gap: "10px" }}>

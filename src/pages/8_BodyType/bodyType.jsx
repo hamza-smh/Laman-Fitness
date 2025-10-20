@@ -63,6 +63,7 @@ const BodyType = () => {
                                 img={type.img}
                                 text={type.text}
                                 info={type.info}
+                                position={type.position}
                                 isSelected={userData.currentBodyType === type.id}
                                 onSelect={handleCardClick}
                             />
